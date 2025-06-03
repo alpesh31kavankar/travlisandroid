@@ -1,7 +1,7 @@
 workflows:
   ios-release-build:
     name: iOS Release Build
-    instance_type: mac_mini
+    instance_type: mac_mini_m2
     environment:
       vars:
         CAPACITOR_CONFIG_PATH: "capacitor.config.ts"
