@@ -9,7 +9,7 @@ workflows:
     scripts:
       - name: Install Dependencies
         script: |
-          npm install
+          npm ci   # clean install for reproducibility
       - name: Add iOS Platform
         script: |
           npm install @capacitor/ios
@@ -17,7 +17,7 @@ workflows:
           npx cap sync
       - name: Build Angular App
         script: |
-          npm run build -- --prod
+          npm run build     # runs ng build --configuration production from package.json
       - name: Copy Web Assets
         script: |
           npx cap copy
