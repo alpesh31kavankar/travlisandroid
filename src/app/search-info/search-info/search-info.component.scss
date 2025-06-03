@@ -1,0 +1,1021 @@
+// /* General Styles */
+// :root {
+//   --primary-color: #007bff;
+//   --secondary-color: #28a745;
+//   --background-color: #f8f9fa;
+//   --white: #ffffff;
+//   --dark-gray: #555;
+// }
+
+// .container-scroller {
+//   background-color: var(--background-color); /* Light background for the entire container */
+// }
+
+// .panel-item {
+//   background: var(--white); /* White background for panels */
+//   border-radius: 10px; /* Rounded corners for panels */
+//   padding: 1.25rem; /* Padding around the content */
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+// }
+
+// /* Ensure all panels have the same height */
+// .panel-item {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100%;
+// }
+
+// /* Card adjustments */
+// .card {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between; /* Ensures footer stays at the bottom */
+//   height: 100%; /* Makes all cards the same height */
+//   transition: transform 0.3s; /* Smooth transition on hover */
+//   border-radius: 10px; /* Rounded corners for cards */
+//   overflow: hidden; /* Prevents overflow of content */
+// }
+
+// /* Card hover effect */
+// .card:hover {
+//   transform: scale(1.05); /* Slight zoom effect on hover */
+// }
+
+// /* Card body and image adjustments */
+// .card-body {
+//   flex-grow: 1; /* Allows card body to take remaining space */
+//   padding: 0.9375rem; /* Padding for the card body */
+// }
+
+// /* Travel and Hotel Sections */
+// .travel-panel,
+// .hotel-panel {
+//   border: 1px solid #ddd; /* Border for the sections */
+//   margin-bottom: 1.25rem; /* Spacing between sections */
+//   padding: 1.25rem; /* Padding for better spacing */
+// }
+
+// .travel-panel h2,
+// .hotel-panel h2 {
+//   margin-bottom: 0.9375rem; /* Spacing below the heading */
+//   color: var(--primary-color); /* Blue color for headings */
+// }
+
+// /* Image Styles */
+// .travel-img,
+// .hotel-img,
+// .activity-img,
+// .blog-img {
+//   border-radius: 10px 10px 0 0; /* Rounded corners for the top of cards */
+//   height: 150px; /* Fixed height for consistency */
+//   object-fit: cover; /* Ensure images cover the area without distortion */
+// }
+
+// /* Adjusted size for smaller cards */
+// .travel-card,
+// .hotel-card,
+// .activity-card,
+// .blog-card {
+//   height: auto; /* Let cards adjust to their content */
+//   min-height: 250px; /* Minimum height for cards */
+// }
+
+// /* Card Title and Text Styles */
+// .card-title {
+//   font-weight: bold; /* Bold title */
+//   font-size: 1.1rem; /* Slightly larger font size for titles */
+// }
+
+// .card-text {
+//   font-size: 0.85rem; /* Slightly smaller font size for text */
+//   color: var(--dark-gray); /* Dark gray text for better readability */
+// }
+
+// /* Footer Button */
+// .card-footer {
+//   background: var(--background-color); /* Light background for footer */
+//   border-top: 1px solid #ddd; /* Border at the top */
+// }
+
+// /* Activity and Blog Sections */
+// .activity-panel,
+// .blog-panel {
+//   border: 1px solid #ddd; /* Border for the sections */
+//   padding: 1.25rem; /* Padding for better spacing */
+// }
+
+// .activity-panel h4,
+// .blog-panel h4 {
+//   margin-bottom: 0.9375rem; /* Spacing below the heading */
+//   color: var(--secondary-color); /* Green color for headings */
+// }
+
+// /* Responsive Adjustments */
+// @media (max-width: 768px) {
+//   .travel-container,
+//   .hotel-container,
+//   .activity-panel,
+//   .blog-panel {
+//     padding: 0.625rem; /* Reduced padding on smaller screens */
+//   }
+
+//   .travel-img,
+//   .hotel-img,
+//   .activity-img,
+//   .blog-img {
+//     height: 120px; /* Smaller height for images on mobile */
+//   }
+
+//   .card-title {
+//     font-size: 1rem; /* Adjust title size for smaller screens */
+//   }
+
+//   .card-text {
+//     font-size: 0.8rem; /* Adjust text size for smaller screens */
+//   }
+// }
+
+// /* Specific Adjustments for Side-by-Side Layout */
+// .row {
+//   display: flex; /* Use flexbox for alignment */
+//   flex-wrap: wrap; /* Allow wrapping of columns */
+// }
+
+// .col-md-6 {
+//   flex: 1 0 50%; /* Ensure two columns in medium devices and larger */
+//   padding: 0.625rem; /* Spacing between columns */
+// }
+
+// /* Button styles */
+// .btn-link {
+//   color: var(--primary-color); /* Blue color for links */
+//   font-weight: bold; /* Bold for visibility */
+// }
+
+// /* Spacing and Visual Improvements */
+// button {
+//   margin-top: 0.625rem; /* Add margin for buttons */
+// }
+
+// /* Custom CSS for the Navbar */
+// .navbar {
+//   background-color: #0056b3; /* Main background color */
+//   padding: 1rem 2rem; /* Padding around the navbar */
+// }
+
+// .navbar-brand {
+//   font-weight: bold;
+//   color: #ffffff;
+//   font-size: 1.5rem;
+// }
+
+// .navbar-brand:hover {
+//   color: #ffd700; /* Brand hover color */
+// }
+
+// .nav-link {
+//   color: #ffffff;
+//   font-size: 1.1rem;
+//   padding: 0.5rem 1rem;
+//   margin-right: 15px; /* Adds space between the menu items */
+//   transition: all 0.3s ease;
+// }
+
+// .nav-link:hover {
+//   color: #ffd700; /* Hover color */
+//   background-color: rgba(255, 255, 255, 0.1);
+//   border-radius: 5px; /* Rounded corners on hover */
+// }
+
+// .navbar-toggler {
+//   border-color: #ffffff;
+// }
+
+// .navbar-toggler-icon {
+//   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.5 3a.5.5 0 0 1 .5.5v.5h12v-.5a.5.5 0 0 1 1 0V4H2v-.5a.5.5 0 0 1 .5-.5zm0 5a.5.5 0 0 1 .5.5v.5h12v-.5a.5.5 0 0 1 1 0v.5H2v-.5a.5.5 0 0 1 .5-.5zm0 5a.5.5 0 0 1 .5.5v.5h12v-.5a.5.5 0 0 1 1 0v.5H2v-.5a.5.5 0 0 1 .5-.5z'/%3E%3C/svg%3E");
+// }
+
+// /* Adjust for mobile */
+// @media (max-width: 992px) {
+//   .navbar {
+//     padding: 0.5rem 1rem;
+//   }
+//   .nav-link {
+//     font-size: 1rem;
+//     padding: 0.4rem 0.8rem;
+//   }
+// }
+
+
+// .centered-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+
+
+// /* General card styling adjustments */
+// .card {
+//   max-width: 300px; /* Sets a maximum width for the cards */
+//   margin: 0 auto; /* Centers the card within the column */
+//   font-size: 0.9rem; /* Reduces font size for text */
+// }
+
+// .card-img-top, .card-img-bottom {
+//   max-height: 150px; /* Adjusts image height for smaller images */
+//   object-fit: cover; /* Ensures the image covers the card area */
+// }
+
+// .card-body {
+//   padding: 0.5rem; /* Reduces padding inside the card */
+// }
+
+// .card-title {
+//   font-size: 1.1rem; /* Adjusts title font size */
+//   margin-bottom: 0.5rem; /* Reduces bottom margin */
+// }
+
+// .card-text {
+//   font-size: 0.85rem; /* Reduces text size for descriptions */
+// }
+
+// .card-footer {
+//   padding: 0.5rem; /* Reduces footer padding */
+// }
+
+// .btn {
+//   padding: 0.3rem 0.6rem; /* Adjusts button padding for a compact look */
+//   font-size: 0.85rem; /* Reduces button font size */
+// }
+// .centered-heading {
+//   text-align: center;
+//   margin-bottom: 1rem;
+// }
+// /* Container to center the heading both vertically and horizontally */
+// .heading-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100px; /* Set a height as per your layout */
+// }
+
+// .centered-heading {
+//   margin: 0;
+// }
+
+
+
+
+// /* Card Styling */
+// .travel-card {
+//   border: none; /* Remove border */
+//   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+// }
+
+// /* Card Hover Effect */
+// .travel-card:hover {
+//   transform: translateY(-10px); /* Lift the card slightly */
+//   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+// }
+
+// /* Card Image Styling */
+// .travel-img {
+//   object-fit: cover; /* Cover the image */
+//   height: 200px; /* Fixed height for images */
+// }
+
+// /* Card Body Styling */
+// .card-body {
+//   background-color: #f8f9fa; /* Light background for the card body */
+//   border-radius: 0 0 5px 5px; /* Round corners for the bottom */
+//   padding: 1.25rem; /* Padding for content */
+// }
+
+// /* Card Title Styling */
+// .card-title {
+//   font-weight: bold; /* Bold title */
+// }
+
+// /* Card Text Styling */
+// .card-text {
+//   color: #555; /* Darker text color for better readability */
+// }
+
+// /* Button Styling */
+// .btn-primary {
+//   background-color: #007bff; /* Custom primary button color */
+//   border: none; /* Remove border */
+//   border-radius: 5px; /* Round button corners */
+// }
+
+// .btn-primary:hover {
+//   background-color: #0056b3; /* Darker shade on hover */
+// }
+
+
+// .activity-card {
+//   transition: transform 0.3s, box-shadow 0.3s;
+//   border: 1px solid #ddd;
+//   border-radius: 10px;
+//   overflow: hidden; /* Ensure the image doesn't overflow the card */
+// }
+
+// .activity-card:hover {
+//   transform: translateY(-5px); /* Slightly lift the card */
+//   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+// }
+
+// .activity-img {
+//   transition: opacity 0.3s; /* Smooth transition for image */
+// }
+
+// .activity-card:hover .activity-img {
+//   opacity: 0.8; /* Slightly fade the image on hover */
+// }
+
+// .hotel-card {
+//   transition: transform 0.3s, box-shadow 0.3s;
+//   border: 1px solid #ddd;
+//   border-radius: 10px;
+//   overflow: hidden; /* Ensure the image doesn't overflow the card */
+// }
+
+// .hotel-card:hover {
+//   transform: translateY(-5px); /* Slightly lift the card */
+//   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+// }
+
+// .hotel-img {
+//   transition: opacity 0.3s; /* Smooth transition for image */
+// }
+
+// .hotel-card:hover .hotel-img {
+//   opacity: 0.8; /* Slightly fade the image on hover */
+// }
+// .blog-card {
+//   transition: transform 0.3s, box-shadow 0.3s;
+//   border: 1px solid #ddd;
+//   border-radius: 10px;
+//   overflow: hidden; /* Prevents the image from overflowing the card */
+// }
+
+// .blog-card:hover {
+//   transform: translateY(-5px); /* Slightly lifts the card */
+//   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+// }
+
+// .blog-img {
+//   transition: opacity 0.3s; /* Smooth transition for image */
+// }
+
+// .blog-card:hover .blog-img {
+//   opacity: 0.8; /* Slightly fades the image on hover */
+// }
+
+// body {
+//   font-family: Arial, sans-serif;
+//   background-color: #f8f9fa;
+//   margin: 0;
+// }
+
+// .navbar {
+//   background-color: #007bff;
+// }
+
+// .nav-link {
+//   color: #fff;
+//   transition: color 0.3s;
+// }
+
+// .nav-link:hover {
+//   color: #ffc107; /* Highlight color on hover */
+// }
+
+// .card {
+//   border: none;
+//   border-radius: 8px;
+//   transition: transform 0.2s, box-shadow 0.2s;
+// }
+
+// .card:hover {
+//   transform: scale(1.05);
+//   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+// }
+
+// .travel-panel, .activity-panel, .hotel-panel, .blog-panel {
+//   margin: 20px 0;
+//   background-color: #ffffff;
+//   border-radius: 8px;
+//   padding: 20px;
+// }
+
+// .centered-container {
+//   text-align: center;
+//   margin-bottom: 20px;
+// }
+
+// .heading-container {
+//   text-align: center;
+//   margin-bottom: 15px;
+// }
+
+// .btn-link {
+//   color: #007bff;
+// }
+
+// .btn-link:hover {
+//   text-decoration: underline;
+// }
+
+// /* Card Images */
+// .travel-img, .activity-img, .hotel-img, .blog-img {
+//   border-top-left-radius: 8px;
+//   border-top-right-radius: 8px;
+//   height: 200px;
+//   object-fit: cover;
+// }
+
+// .centered-heading {
+//   position: relative;
+//   display: inline-block;
+//   padding-bottom: 5px;
+//   font-size: 1.5em;
+// }
+
+// .centered-heading::after {
+//   content: '';
+//   position: absolute;
+//   width: 100%;
+//   height: 2px;
+//   bottom: 0;
+//   left: 0;
+//   background-color: #000; /* Customize the color as needed */
+// }
+// h2 {
+//   position: relative;
+//   display: inline-block;
+//   padding-bottom: 5px;
+//   font-size: 1.5em; /* Adjust font size as needed */
+// }
+
+// h2::after {
+//   content: '';
+//   position: absolute;
+//   width: 100%;
+//   height: 2px;
+//   bottom: 0;
+//   left: 0;
+//   background-color: #000; /* Customize the color as needed */
+// }
+
+
+//========================================================================================================
+
+
+
+// Sticky icons css
+
+.sticky-icon  {
+	z-index:1;
+	position:fixed;
+	top:15%;
+	right:0%;
+	width:220px;
+	display:flex;
+	flex-direction:column;}  
+.sticky-icon a  {
+	transform:translate(160px,0px);
+	border-radius:50px 0px 0px 50px;
+	text-align:left;
+	margin:2px;
+	text-decoration:none;
+	text-transform:uppercase;
+	padding:10px;
+	font-size:22px;
+	font-family:'Oswald', sans-serif;
+	transition:all 0.8s;}
+.sticky-icon a:hover  {
+	color:#FFF;
+	transform:translate(0px,0px);}	
+.sticky-icon a:hover i  {
+	transform:rotate(360deg);}
+/*.search_icon a:hover i  {
+	transform:rotate(360deg);}*/
+.Facebook  {
+	background-color:#2C80D3;
+	color:#FFF;}
+	
+.Youtube  {
+	background-color:#2C80D3;
+	color:#FFF;}
+	
+.Twitter  {
+	background-color:#2C80D3;
+	color:#FFF;}
+	
+.Instagram  {
+	background-color:#2C80D3;
+	color:#FFF;}
+	
+.Google  {
+	background-color:#2C80D3;
+	color:#FFF;}						
+.sticky-icon a i {
+	background-color:#FFF;
+	height:40px;
+	width:40px;
+	color:#000;
+	text-align:center;
+	line-height:40px;
+	border-radius:50%;
+	margin-right:20px;
+	transition:all 0.5s;}
+.sticky-icon a i.fa-facebook-f  {
+	background-color:#FFF;
+	color:#2C80D3;}
+	
+.sticky-icon a i.fa-google-plus-g  {
+	background-color:#FFF;
+	color:#d34836;}
+	
+.sticky-icon a i.fa-instagram  {
+	background-color:#FFF;
+	color:#FD1D1D;}
+	
+.sticky-icon a i.fa-youtube  {
+	background-color:#FFF;
+	color:#fa0910;}
+	
+.sticky-icon a i.fa-twitter  {
+	background-color:#FFF;
+	color:#53c5ff;}
+.fas fa-shopping-cart  {
+	background-color:#FFF;}	
+#myBtn {
+	height:50px;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  text-align:center;
+  padding:10px;
+  text-align:center;
+	line-height:40px;
+  border: none;
+  outline: none;
+  background-color: #1e88e5;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.fa-arrow-circle-up  {
+	font-size:30px;}
+
+#myBtn:hover {
+  background-color: #555;
+}			
+
+
+// Hotel section css
+
+.card-img-tiles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  z-index: 5
+}
+
+// .card-img-tiles .main-img>img,
+// .card-img-tiles .thumblist>img {
+//   display: block;
+//   width: 100%
+// }
+
+.card-img-tiles .main-img>img
+{
+  // display: block;
+  width: 100%;
+  height: 200px;
+  
+}
+
+.card-img-tiles .main-img {
+  width: 100%;
+  // padding-right: .375rem
+}
+
+// .card-img-tiles .thumblist {
+//   width: 33%;
+//   padding-left: .375rem
+// }
+
+.card-img-tiles .thumblist>img {
+  margin-bottom: .75rem
+}
+
+.card-img-tiles .thumblist>img:last-child {
+  margin-bottom: 0
+}
+
+.mb-grid-gutter {
+  margin-bottom: 30px !important;
+}
+
+
+// Room list start
+
+
+.project .row {
+  margin: 0;
+  padding: 15px 0;
+  margin-bottom: 15px
+}
+
+.project div[class*='col-'] {
+  border-right: 1px solid #eee
+}
+
+.project .text h3 {
+  margin-bottom: 0;
+  color: #555
+}
+
+.project .text small {
+  color: #aaa;
+  font-size: 0.75em
+}
+
+.project .project-date span {
+  font-size: 0.9em;
+  color: #999
+}
+
+.project .image {
+  max-width: 50px;
+  min-width: 50px;
+  height: 50px;
+  margin-right: 15px
+}
+
+.project .time,
+.project .comments,
+.project .project-progress {
+  color: #999;
+  font-size: 0.9em;
+  margin-right: 20px
+}
+
+.project .time i,
+.project .comments i,
+.project .project-progress i {
+  margin-right: 5px
+}
+
+.project .project-progress {
+  width: 200px
+}
+
+.project .project-progress .progress {
+  height: 4px
+}
+
+.project .card {
+  margin-bottom: 0
+}
+
+@media (max-width: 991px) {
+  .project .right-col {
+      margin-top: 20px;
+      margin-left: 65px
+  }
+  .project .project-progress {
+      width: 150px
+  }
+}
+
+@media (max-width: 480px) {
+  .project .project-progress {
+      display: none
+  }
+}
+.has-shadow {
+  -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.1), -1px 0 2px rgba(0,0,0,0.05);
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.1), -1px 0 2px rgba(0,0,0,0.05);
+}
+.bg-white {
+  background: #fff !important;
+}
+
+.bg-red {
+  background: #ff7676 !important;
+  color: #fff
+}
+
+.bg-red:hover {
+  color: #fff
+}
+
+.bg-blue {
+  background: #85b4f2 !important;
+  color: #fff
+}
+
+.bg-blue:hover {
+  color: #fff
+}
+
+.bg-yellow {
+  background: #eef157 !important;
+  color: #fff
+}
+
+.bg-yellow:hover {
+  color: #fff
+}
+
+.bg-green {
+  background: #54e69d !important;
+  color: #fff
+}
+
+.bg-green:hover {
+  color: #fff
+}
+
+.bg-orange {
+  background: #ffc36d !important;
+  color: #fff
+}
+
+.bg-orange:hover {
+  color: #fff
+}
+
+.bg-violet {
+  background: #796AEE !important;
+  color: #fff
+}
+
+.bg-violet:hover {
+  color: #fff
+}
+
+.bg-gray {
+  background: #ced4da !important
+}
+
+// room list end
+
+.travebutton{
+  // position: absolute;
+  // right: 0px;
+  // align-items: end;
+  // justify-items: end;
+  // justify-content: end;
+  border-radius: 5px;
+  background-color: blue;
+  color: White;
+}
+
+
+//==========================================================
+
+/* Blog Panel Styling */
+.blog-panel {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.blog-panel h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Blog Card Styling */
+.blog-card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.blog-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Body Styling */
+.blog-card .card-body {
+  padding: 20px;
+}
+
+.blog-card .card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.blog-card .card-text {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Blog Image Styling */
+.blog-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  transition: opacity 0.3s;
+}
+
+.blog-card:hover .blog-img {
+  opacity: 0.9;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .blog-panel {
+    padding: 20px 10px;
+  }
+
+  .blog-card {
+    margin-bottom: 20px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+// .sliderimg stsrt
+
+
+$animationSpeed: 40s;
+
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+
+.slider {
+	height: 100px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: auto;
+	
+	.slide-track {
+		animation: scroll $animationSpeed linear infinite;
+		display: flex;
+		width: calc(250px * 14);
+	}
+	.slide {
+		height: 100px;
+		width: 250px;
+	}
+}
+
+//=======================wathrt report CSS=======================================
+/* Weather Marquee Container */
+.weather-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  background: #f0f0f0; /* Light background */
+  padding: 8px 0;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+/* Fixed Weather Symbol */
+.weather-symbol {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0 15px;
+  color: #f39c12; /* Yellow-Orange color for sun */
+  position: relative; /* Keep it inline with the scrolling row */
+  background: #f0f0f0; /* Same background as container */
+  padding: 5px 10px;
+  border-radius: 50%;  /* Circular background */
+  z-index: 2; /* Ensures it's above the scrolling text */
+}
+
+/* Scrolling Row */
+.weather-row {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between items */
+  min-width: 100%;
+  animation: scrollLeft 15s linear infinite;
+  position: relative;
+}
+
+/* Weather Boxes */
+.weather-box {
+  background: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Icons & Weather Data */
+.weather-box img {
+  width: 20px; /* Small icon */
+  height: 20px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+/* Scrolling Animation */
+@keyframes scrollLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .weather-symbol {
+    font-size: 20px;
+    padding: 4px 8px;
+  }
+
+  .weather-box {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .weather-box img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .weather-row {
+    gap: 10px;
+    animation: scrollLeft 10s linear infinite; /* Faster scroll on smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .weather-symbol {
+    font-size: 18px;
+    padding: 3px 6px;
+  }
+
+  .weather-box {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  .weather-box img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .weather-row {
+    gap: 5px;
+    animation: scrollLeft 8s linear infinite; /* Even faster scroll on extra small screens */
+  }
+}
+
+/* Error Message */
+.error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+
+//========================================================================

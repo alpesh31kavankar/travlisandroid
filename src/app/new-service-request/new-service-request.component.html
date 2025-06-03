@@ -1,0 +1,68 @@
+<div class="container-scroller">
+    <!-- Navbar -->
+    <app-navbar></app-navbar>
+  
+    <div class="container-fluid page-body-wrapper">
+      <!-- Sidebar -->
+      <app-vendor-sidebar></app-vendor-sidebar>
+  
+      <!-- Main Content Panel -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <!-- New Service Request Form Section -->
+          <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">New Service Request</h4>
+                  <p class="card-description">Send a request to the admin to add a service.</p>
+                  
+                  <!-- New Service Request Form -->
+                  <form #NewServiceReqForm="ngForm" (ngSubmit)="onSubmit()" class="forms-sample">
+                    <div class="row">
+                      <!-- Service Name -->
+                      <div class="form-group col-lg-12">
+                        <label for="ServiceName">Service Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="ServiceName" placeholder="Enter Service Name" 
+                               [(ngModel)]="newServiceReq.ServiceName" name="ServiceName" required minlength="2" maxlength="50" />
+                        <div *ngIf="NewServiceReqForm.controls['ServiceName']?.invalid && 
+                                    (NewServiceReqForm.controls['ServiceName']?.dirty || NewServiceReqForm.controls['ServiceName']?.touched)" 
+                             class="text-danger">
+                          <div *ngIf="NewServiceReqForm.controls['ServiceName']?.errors?.['required']">Service Name is required.</div>
+                          <div *ngIf="NewServiceReqForm.controls['ServiceName']?.errors?.['minlength']">Service Name must be at least 2 characters.</div>
+                          <div *ngIf="NewServiceReqForm.controls['ServiceName']?.errors?.['maxlength']">Service Name cannot exceed 50 characters.</div>
+                        </div>
+                      </div>
+                      
+                      <!-- Service Description -->
+                      <div class="form-group col-lg-12">
+                        <label for="ServiceDescription">Service Description <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="ServiceDescription" placeholder="Enter Service Description" 
+                               [(ngModel)]="newServiceReq.ServiceDescription" name="ServiceDescription" required minlength="2" maxlength="100" />
+                        <div *ngIf="NewServiceReqForm.controls['ServiceDescription']?.invalid && 
+                                    (NewServiceReqForm.controls['ServiceDescription']?.dirty || NewServiceReqForm.controls['ServiceDescription']?.touched)" 
+                             class="text-danger">
+                          <div *ngIf="NewServiceReqForm.controls['ServiceDescription']?.errors?.['required']">Service Description is required.</div>
+                          <div *ngIf="NewServiceReqForm.controls['ServiceDescription']?.errors?.['minlength']">Description must be at least 2 characters.</div>
+                          <div *ngIf="NewServiceReqForm.controls['ServiceDescription']?.errors?.['maxlength']">Description cannot exceed 100 characters.</div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- Submit and Cancel Buttons -->
+                    <div class="mt-3">
+                      <button type="submit" [disabled]="NewServiceReqForm.invalid" class="btn btn-primary mr-2">Submit</button>
+                      <button type="button" class="btn btn-gray">Cancel</button>
+
+                    </div>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

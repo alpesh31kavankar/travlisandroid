@@ -1,0 +1,138 @@
+<div class="container">  
+  <div class="form-group">
+    <label for="filter">Search By</label>
+    <select id="filter" name="filter" ngModel [(ngModel)]="filter" (change)="onFilterChange($event)">
+      <option value="hotel">Hotel</option>
+      <option value="travel">Travel</option> 
+    </select>
+  </div>
+
+  <form #flightForm="ngForm" (ngSubmit)="onSearch(flightForm)">
+    <div class="main-div">
+      <div class="form-row">
+
+       
+  
+
+        <div class="form-group position-relative">
+          <label for="Search City">Leaving From <span class="text-danger">*</span></label>
+          <input
+          type="text"
+          class="form-control"
+          placeholder="Search City"
+          [(ngModel)]="searchTerm"
+          name="searchTerm"
+          (input)="filterCities()"
+          (focus)="toggleDropdown()"
+          (blur)="hideDropdown()"
+          autocomplete="off"
+          />
+          
+     
+          <ul class="dropdown-menu" [class.show]="showDropdown" style="max-height: 150px; overflow-y: auto;">
+          <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+              <a class="dropdown-item">{{ city }}</a>
+          </li>
+          </ul>
+
+      </div>
+
+
+
+
+        <div class="form-group position-relative">
+          <label for="Search City">
+            Going To <span class="text-danger">*</span></label>
+          <input
+          type="text"
+          class="form-control"
+          placeholder="Search City"
+          [(ngModel)]="searchTerm1"
+          name="searchTerm1"
+          (input)="filterCities1()"
+          (focus)="toggleDropdown1()"
+          (blur)="hideDropdown1()"
+          autocomplete="off"
+          />
+          
+   
+          <ul class="dropdown-menu" [class.show]="showDropdown1" style="max-height: 150px; overflow-y: auto;">
+          <li *ngFor="let city of filteredCities" (click)="selectCity1(city)">
+              <a class="dropdown-item">{{ city }}</a>
+          </li>
+          </ul>
+
+      </div>
+
+       
+        <div class="form-group">
+          <label for="departure">Departure Date</label>
+          <input type="date" id="departure" name="departure" ngModel (change)="updateDepartureDay(departure.value)" #departure>
+          <p class="date-info my-3">{{ departure.value | date:'MMM d, y' }} {{ departureDay }}</p>
+        </div>
+
+       
+<!--          
+        <div class="form-group">
+          <label for="return">Return</label>
+          <input type="date" id="return" name="return" ngModel (change)="updateReturnDay(return.value)" #return>
+          <p class="date-info my-3">{{ return.value | date:'MMM d, y' }} {{ returnDay }}</p>
+        </div> -->
+
+      </div>
+    </div>
+
+    <div class="form-row button_sb">
+      <button type="submit">Search</button>
+    </div>
+  </form>
+</div>
+
+
+<!-- *********************************************************************************************** -->
+
+<!-- <div class="form-group">
+  <label for="filter">Search By</label>
+  <div class="icon-group">
+    <i class="fas fa-hotel icon" (click)="setFilter('hotel')" title="Hotel"></i>
+    <i class="fas fa-plane icon" (click)="setFilter('travel')"></i>
+    <i class= "fas fa-bus icon"  (click)="setFilter('travel')"></i>
+   
+  </div>
+</div>
+
+
+<div class="container">  
+
+
+  <form #flightForm="ngForm" (ngSubmit)="onSearch(flightForm)">
+    <div class="main-div">
+      <div class="form-row">
+
+      
+        <div class="form-group">
+          <label for="from">From</label>
+          <input type="text" id="from" name="from" ngModel [(ngModel)]="from" placeholder="">
+        </div>
+
+       
+        <div class="form-group">
+          <label for="to">To</label>
+          <input type="text" id="to" name="to" ngModel [(ngModel)]="to" placeholder="">
+        </div>
+
+       
+        <div class="form-group">
+          <label for="departure">Departure</label>
+          <input type="date" id="departure" name="departure" ngModel (change)="updateDepartureDay(departure.value)" #departure>
+          <p class="date-info my-3">{{ departure.value | date:'MMM d, y' }} {{ departureDay }}</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-row button_sb">
+      <button type="submit">Search</button>
+    </div>
+  </form>
+</div> -->

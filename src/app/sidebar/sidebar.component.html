@@ -1,0 +1,105 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+
+    <li class="nav-item  profile">
+      <app-profile-icon></app-profile-icon>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/UserDashbord">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+
+    <!-- 
+    <li class="nav-item" *ngIf="!myhide1 ">
+   
+      <a class="nav-link" routerLink="/Vendor">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Be a Vendor</span>
+      </a>
+    </li>   -->
+
+
+    <li class="nav-item" *ngIf="!myhide1 ">
+      <a class="nav-link" routerLink="/Vendor">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Be a Vendor</span>
+      </a>
+    </li>
+
+
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/Subscription">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Subscription</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/mybookings">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">My Bookings</span>
+      </a>
+    </li>
+
+    <!-- <li class="nav-item">
+    
+        <a class="nav-link" (click)="navigateToVendorDashboard()">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Switch Role</span>
+      </a>
+    </li>   -->
+
+    <!-- 
+    <li class="nav-item" >
+      <a class="nav-link" data-toggle="collapse" href="#switchrole" aria-expanded="false" aria-controls="ui-basic">
+      <i class="icon-layout menu-icon"></i>
+      <span class="menu-title">Switch Role</span>
+      <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="switchrole">
+      <ul class="nav flex-column sub-menu" *ngFor="let ur of this.matchedRoles">
+      <li class="nav-item"> <a class="nav-link" (click)="switchRole(ur.role.Title)">{{ ur.role.Title }} Dashboard</a></li>
+      </ul>
+      </div>
+      </li> -->
+
+
+    <li class="nav-item" *ngIf="!myhide">
+      <a class="nav-link" data-toggle="collapse" href="#switchrole" aria-expanded="false" aria-controls="ui-basic">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Switch Role</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="switchrole">
+        <ul class="nav flex-column sub-menu" *ngFor="let ur of matchedRoles">
+          <li class="nav-item">
+            <a class="nav-link" (click)="switchRole(ur.role.Title)">
+              {{ ur.role.Title }} Dashboard
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+
+
+
+
+
+    <li class="nav-item">
+      <a class="nav-link">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title" (click)="Logout()">Logout</span>
+      </a>
+    </li>
+
+
+
+
+
+
+  </ul>
+</nav>

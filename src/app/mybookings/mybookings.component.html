@@ -1,0 +1,227 @@
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <!-- NAVBAAAAAR HERE -->
+    <app-navbar></app-navbar>
+    <!-- partial -->
+    <div class=" page-body-wrapper" style="justify-content: center !important;">
+
+
+        <!-- SIDEBAAAAR HERE -->
+        <app-sidebar></app-sidebar>
+        <!-- $$$$$$$$$$$$$ DASHBORD  Start-->
+
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+
+
+<!--Start Sticky Icon-->
+<div class="sticky-icon">
+    <a (click)="showSection('travel')" class="Facebook"><i class="fas fa-plane"> </i> Travel Bookings </a>
+    
+
+    <a (click)="showSection('activities')" class="Google"><i class="fas fa-hotel"> </i> Hotel Bookings </a>
+
+    <a (click)="showSection('activities1')" class="Google"><i class="fas fa-hotel"> </i>Acitivity Bookings </a>
+ 
+</div>
+<!--End Sticky Icon-->
+                <div class="row mx-0">
+
+                    <!-- Left Panel: Travel and Activities -->
+                    <div class="col-md-12 d-flex flex-column gap-3">
+
+                        <!-- Travel Section -->
+                        <section *ngIf="currentSection === 'travel'" class="travel-panel panel-item">
+                          <div class="centered-container">
+                          
+                          </div>
+                          <section class="container" id="travel-data">
+                            <h1 style="margin-top: 2%;">Travel Bookings</h1>
+                            <div class="row" *ngFor="let i of travelBookingList">
+                              <article class="card fl-left"  style="margin-left: 10px;">
+                                <section class="date">
+                                  <time datetime="23th feb">
+                                    <span>{{ i.TravelDate | date: 'd MMM y' }}</span>
+                                  </time>
+                                </section>
+                                <section class="card-cont">
+                                  <!-- <small>Live</small> -->
+                                  <h3>{{ getTrvel(i.TravelId) }} <b>To</b> {{ getTrvelFrom(i.TravelId) }}</h3>
+                                  <div class="even-date">
+                                    <time>
+                                      <span>{{ i.TravelDate }}</span>
+                                      <span>Departure: {{ getDept(i.TravelId) }}<br>Arrival: {{ getArv(i.TravelId) }}</span>
+                                    </time>
+                                  </div>
+                                  <div class="even-info">
+                                    <p>No Of Seats: {{ i.NoOfSets }} &nbsp; <b style="color: black;">CAD {{ i.TotalPrice }}</b></p>
+                                  </div>
+                                  <button class="card2 btn btn-primary" (click)="downloadPDF()">Download </button>
+                                
+                                </section>
+                              </article>
+                            </div>
+                          </section>
+                        </section>
+                        
+                       
+
+                        <!-- <section *ngIf="currentSection === 'activities'" class="activity-panel panel-item">
+                          <div class="centered-container">
+                            <h2 style="margin-top: 2%;">Hotel Bookings</h2>
+                           
+                          </div>
+                          <section class="projects no-padding-top" id="hotel-booking-data">
+                            <div class="container">
+                              <div class="project" *ngFor="let hotel of HotelList">
+                                <div class="row bg-white has-shadow"  style="margin-left: 10px;">
+                                  <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
+                                    <div class="project-title d-flex align-items-center">
+                                      <div class="image has-shadow">
+                                       
+                                        <img [src]="imgPath + 'Content/Hotel/' + getHotelImage(hotel.RegistrationId)" 
+                                        class="square-img img-fluid imgActivity" 
+                                        alt="Hotel Image" >
+
+                                       
+                                      </div>
+                                      <div class="text">
+                                        <small class="h4"><b>HotelName: {{ getHotelname(hotel.RoomId)}}</b></small><br>
+                                        <small class="h4">Check-In Date: {{ hotel.CheckIn }}</small><br>
+                                        <small>Check-Out: {{ hotel.CheckOut }}</small>
+                                      </div>
+                                    </div>
+                                    <div class="project-date">
+                                      <span class="hidden-sm-down">No of Rooms Booked: {{ hotel.NoOfRooms }}</span> <br>
+                                      No of Persons: {{ hotel.NoOfPersons }}
+                                    </div>
+                                  </div>
+                                  <div class="right-col col-lg-6 d-flex align-items-center">
+                                    <div class="time"><i class="fa fa-money"></i> Total Price: {{ hotel.TotalPrice }}</div>
+                                
+                                       <button (click)="downloadPDF1()" class="btn btn-primary">Download PDF</button>
+                                 
+                                      </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </section> -->
+                        
+
+                        <section *ngIf="currentSection === 'activities'" class="activity-panel panel-item">
+                          <div class="centered-container">
+                            <h2 style="margin-top: 2%;">Hotel Bookings</h2>
+                          </div>
+                          <section class="projects no-padding-top" id="hotel-booking-data">
+                            <div class="container">
+                              <div class="project" *ngFor="let hotel of HotelList; let i = index">
+                                <!-- Assign a unique id for each section -->
+                                <div [id]="'hotel-section-' + i" class="row bg-white has-shadow" style="margin-left: 10px;">
+                                  <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
+                                    <div class="project-title d-flex align-items-center">
+                                      <div class="image has-shadow">
+                                        <!-- Image source -->
+                                        <img 
+                                          [src]="imgPath + 'Content/Hotel/' + getHotelImage(hotel.RegistrationId)" 
+                                          class="square-img img-fluid imgActivity" 
+                                          alt="Hotel Image" />
+                                      </div>
+                                      <div class="text">
+                                        <small class="h4"><b>Hotel Name: {{ getHotelname(hotel.RoomId) }}</b></small><br>
+                                        <small class="h4">Check-In Date: {{ hotel.CheckIn }}</small><br>
+                                        <small>Check-Out: {{ hotel.CheckOut }}</small>
+                                      </div>
+                                    </div>
+                                    <div class="project-date">
+                                      <span class="hidden-sm-down">No of Rooms Booked: {{ hotel.NoOfRooms }}</span><br>
+                                      No of Persons: {{ hotel.NoOfPersons }}
+                                    </div>
+                                  </div>
+                                  <div class="right-col col-lg-6 d-flex align-items-center">
+                                    <div class="time">
+                                      <i class="fa fa-money"></i> Total Price: {{ hotel.TotalPrice }}
+                                    </div>
+                                    <!-- Button to download specific section -->
+                                    <button (click)="downloadPDF1(i)" class="btn btn-primary">Download PDF</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </section>
+                        
+                        
+                        
+<!-- //==================================================================================================================== -->
+
+                      <section *ngIf="currentSection === 'activities1'" class="activity-panel panel-item">
+                        <div class="centered-container">
+                            <h2 style="margin-top: 2%;">Acitivity Bookings</h2>
+                        </div>
+<!-- 
+                        <div class="container pb-5 mb-sm-1">
+                            <div class="row"> -->
+                                <section class="projects no-padding-top " id="Activity-booking-data">
+                                    <div class="container">
+                                      <!-- Project-->
+                                      <div class="project"  *ngFor="let Activity of ActivityList">
+                                        <div class="row bg-white has-shadow" >
+                                          <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
+                                            <div class="project-title d-flex align-items-center">
+                                               <div class="image has-shadow">
+                                                <!-- <img src="\assets\iimmgg\pngwing.com (25).png" alt="..." class="img-fluid"> --> 
+                                              <img [src]="imgPath + '/Content/Activities/' + getActivityImage(Activity.RegistrationId)" 
+                                              class="square-img img-fluid  imgActivity"  
+                                              alt="Activity Image" />
+                                            </div>
+                                              {{Activity.Name}}
+                                              <div class="text">
+                                                <!-- <small class="h4">CheckIn Date :{{hotel.Noa}}</small><br><small>CheckIn out :{{hotel.CheckOut}}</small> -->
+                                              </div>
+                                            </div>
+                                            <div class="project-date"><span class="hidden-sm-down">  No of Persons:-{{Activity.NoOfPersons}}</span> <br>
+                                            
+                                            </div>
+                                          </div>
+                                          <div class="right-col col-lg-6 d-flex align-items-center">
+                                            <div class="time"><i class="fa fa-money"></i>Total price :{{Activity.TotalPrice}}</div>
+                                            <!-- <a style="position: absolute;
+                                            right: 0px !important;" class="btn btn-pill btn-outline-primary btn-sm"
+                                            routerLink="/hotel-room-detail/2" data-dismiss="modal">Download</a> -->
+                                            <button (click)="downloadPDF2()" class="btn btn-primary">Download PDF</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                   
+                                    </div>
+                                    </section>
+                            <!-- </div>
+                        </div> -->
+                    </section>
+
+
+
+                    </div>
+                
+
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+</div>

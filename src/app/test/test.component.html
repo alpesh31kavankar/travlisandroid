@@ -1,0 +1,38 @@
+
+
+  <!-- <div class="movie-container" *ngIf="toggleOn">
+    <div *ngFor="let movie of popularMovies" class="movie-item">
+  
+      <img [src]="movie.poster_path" alt="{{ movie.title }}" height="200px" width="150px">
+      <h6>{{ movie.title }} ({{ movie.vote_average }})</h6>
+    </div>
+  </div>
+   -->
+   <form (ngSubmit)="calculateTotalDays()">
+    <label for="checkIn">Check-in Date:</label>
+    <input
+      type="date"
+      id="checkIn"
+      [(ngModel)]="checkIn"
+      name="checkIn"
+      required
+      [min]="today"
+      (change)="updateCheckOutMinDate()"
+    />
+  
+    <label for="checkOut">Check-out Date:</label>
+    <input
+      type="date"
+      id="checkOut"
+      [(ngModel)]="checkOut"
+      name="checkOut"
+      required
+      [min]="minCheckOutDate"
+    />
+  
+    <button type="submit">Calculate Days</button>
+  </form>
+  
+  <div *ngIf="totalDays !== null">
+    <p>Total Days: {{ totalDays }}</p>
+  </div>

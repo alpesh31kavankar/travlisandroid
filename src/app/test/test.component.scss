@@ -1,0 +1,43 @@
+
+  
+
+// .movie-container {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 20px;
+//   justify-content: center;
+// }
+
+// .movie-item {
+//   width: 150px; /* Width of each movie card */
+//   text-align: center; /* Center text alignment */
+//   margin-bottom: 20px; /* Bottom margin for spacing */
+// }
+
+// .movie-item img {
+//   width: 100%; /* Make image take full width of card */
+//   height: auto; /* Maintain aspect ratio */
+//   border-radius: 8px; /* Rounded corners for images */
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+// }
+
+// .movie-item h6 {
+//   margin-top: 10px; /* Space between image and title */
+//   font-size: 14px; /* Font size for title */
+//   font-weight: 600; /* Bold font weight for title */
+// }
+
+
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px;
+}

@@ -1,0 +1,90 @@
+<div class="wrapper">
+  <div class="back-button-container">
+   <button class="back-button" (click)="goBack()">
+    ← Back
+  </button>
+  </div>
+
+  <div class="card" style="    margin-top: 35px;">
+    <div class="card-banner">
+      <p class="category-tag popular">{{acitivities.City}}</p>
+      <img class="banner-img" [src]="imgPath + 'Content/Activities/' + acitivities.Image" alt="Kashmir" />
+    </div>
+
+    <div class="card-body">
+      <h2 class="blog-title">{{acitivities.Name}}</h2>
+      <p class="blog-description">{{acitivities.Description}}</p>
+      <div class="price">
+        <span>Price:</span>
+        <span class="amount">{{acitivities.Amount}} (CA$)</span>
+      </div>
+    </div>
+    <button class="btn btn-primary book-now" (click)="toggleBookingForm()">
+      Book Now
+    </button>
+    
+    <!-- Booking Form -->
+    <div *ngIf="isBookingFormVisible" class="booking-form">
+      <form #activityBookingForm="ngForm" (ngSubmit)="OnSubmit()" class="booking-form">
+        <div class="row">
+          <!-- Check-In Date -->
+          <div class="input_field col-lg-6">
+            <label for="checkIn">Check-In Date<span class="text-danger">*</span></label>
+            <input 
+              type="date" 
+              id="checkIn" 
+              class="form-control" 
+              [(ngModel)]="activityBooking.City" 
+              name="checkIn" 
+              required 
+              [min]="today" 
+              autofocus>
+          </div>
+    
+          <!-- Number of Persons -->
+          <div class="input_field col-lg-6">
+            <label for="NoOfPersons">Number of Persons<span class="text-danger">*</span></label>
+            <input 
+              type="number" 
+              id="NoOfPersons" 
+              class="form-control" 
+              [(ngModel)]="activityBooking.NoOfPersons" 
+              name="NoOfPersons" 
+              required 
+              min="1" 
+              (input)="updateTotalPrice()">
+          </div>
+        </div>
+    
+        <!-- Total Price -->
+        <div class="row">
+          <div class="input_field col-lg-6">
+            <label for="TotalPrice">Total Price CAD($) <span class="text-danger">*</span></label>
+            <input 
+              type="number" 
+              id="TotalPrice" 
+              class="form-control" 
+              [(ngModel)]="activityBooking.TotalPrice" 
+              name="TotalPrice" 
+              required 
+              readonly>
+          </div>
+        </div>
+         <!-- <button 
+                      class="submit-button" 
+                      type="submit" 
+                
+                      [disabled]="activityBookingForm.invalid">
+                      Pay Now
+                    </button> -->
+      </form>
+    
+      <!-- PayPal Button -->
+      <div class="card-footer text-center">
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+    
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="container-scroller">
+  
+    <app-navbar></app-navbar>
+  
+    <div class="container-fluid page-body-wrapper">
+
+        
+      
+        <app-vendor-sidebar></app-vendor-sidebar>
+        <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-danger">
+                      <h4 class="card-title">Hotel List</h4>
+                      <p class="card-category">View all Hotel records</p>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class="text-primary" style="    background-color: #6762621c;">
+                            <tr>
+                              <!-- <th>HotelId</th>
+                              <th>VendorId</th>
+                              <th>RegistrationId</th> -->
+
+                              <th>HotelName</th>
+                              <th>Address</th>
+                              <th>ContactNo</th>
+
+                              <th>PropertyRules</th>
+                              <th>Amenities</th>
+                              <th>Image</th>
+
+                              <th> City</th>
+                              <th>Status</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let hotel of HotelList">
+                              <!-- <td>{{hotel.HotelId}}</td>
+                              <td>{{hotel.VendorId}}</td>
+                              <td>{{hotel.RegistrationId}}</td> -->
+
+                              <td>{{hotel.HotelName}}</td>
+                              <td>{{hotel.Address}}</td>
+                              <td>{{hotel.ContactNo}}</td>
+
+                              <td>{{hotel.PropertyRules}}</td>
+                              <td>{{hotel.Amenities}}</td>
+                              <td>
+                                <img [src]="imgPath + 'Content/Hotel/' + hotel.Image" class="square-img">
+                              </td>
+                              <td>{{hotel.City}}</td>
+                        
+                              <td>{{hotel.Status}}</td>
+                              <td>
+                                <i class="fas fa-pencil-alt iconaction" (click)="Edit(hotel.HotelId)" aria-hidden="true"></i>
+                            
+                                <i class="fa fa-trash iconaction mx-3" (click)="Delete(hotel.HotelId)" aria-hidden="true"></i>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          

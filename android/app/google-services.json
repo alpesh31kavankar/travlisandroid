@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "772278678318",
+    "project_id": "travlis-ec959",
+    "storage_bucket": "travlis-ec959.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772278678318:android:b0f3c978b8d630910180bf",
+        "android_client_info": {
+          "package_name": "com.travlis.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772278678318-l5cqs8cco8q53dkn08vl3kb1139bj75u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.travlis.app",
+            "certificate_hash": "f8e758a63213e5d7e1489bc4d1217c40bd4b3ef1"
+          }
+        },
+        {
+          "client_id": "772278678318-msd4b4rja5q6b9meug65gu1u6ukjpcf8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZTV2oujicOwkGcFVOS8x4y7njZfq5ocM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772278678318-msd4b4rja5q6b9meug65gu1u6ukjpcf8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

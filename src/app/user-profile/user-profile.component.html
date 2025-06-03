@@ -1,0 +1,232 @@
+<!-- <div class="container-scroller">
+
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid page-body-wrapper">
+
+
+   
+      <app-sidebar></app-sidebar>
+
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12 grid-margin">
+
+         <app-search></app-search>
+        <div class="row">
+          <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+          
+          
+        </div>
+       
+        </div>
+      </div>
+    </div>
+  
+    
+  </div>
+
+
+</div>
+
+</div>  
+</div>
+
+ -->
+
+
+<!-- //==================================================================================== -->
+
+
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+  <app-navbar></app-navbar>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+
+
+    <!-- partial -->
+    <!-- partial:partials/_sidebar.html -->
+    <app-sidebar></app-sidebar>
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">User Information</h4>
+
+                <div class="row">
+                  <div class="col-md-6 form-group input_field">
+                    <label for="Contact">First Name<span class="text-danger">*</span></label>
+                    <input type="text" id="Contact" class="form-control dark-select" placeholder="Contact"
+                      [(ngModel)]="userInfo.FName" name="Contact" required disabled>
+                  </div>
+                  <div class="col-md-6 form-group input_field">
+                    <label for="Contact">Last Name<span class="text-danger">*</span></label>
+                    <input type="text" id="Contact" class="form-control dark-select" placeholder="Contact"
+                      [(ngModel)]="userInfo.LName" name="Contact" required disabled>
+                  </div>
+                  <div class="col-md-6 form-group input_field">
+                    <label for="Tagline">Email Id<span class="text-danger">*</span></label>
+                    <input type="text" id="Tagline" class="form-control dark-select" placeholder="Tagline"
+                      [(ngModel)]="userInfo.Email" name="Tagline" required disabled>
+                  </div>
+                </div>
+
+
+                <div class="content">
+                  <ng-container [ngSwitch]="currentView">
+                    <div *ngSwitchCase="'profile'" class="personal-info">
+                      <div class="header  d-flex justify-content-between align-items-center">
+
+                        <!-- <button class="btn btn-sm btn-primary enable-edit-btn" (click)="toggleEditMode()">
+                      {{ editMode ? 'Disable Edit' : 'Enable Edit' }}
+                    </button> -->
+
+
+
+                        <button class="btn btn-sm btn-primary enable-edit-btn" (click)="toggleEditMode()"
+                          style="background-color: #4B49AC; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">
+                          {{ editMode ? 'Disable Edit' : 'Enable Edit' }}
+                        </button>
+
+
+                      </div>
+
+
+                      <form (ngSubmit)="saveInfo()" #form="ngForm">
+
+
+                        <div class="row">
+                          <div class="col-md-6 form-group input_field">
+                            <label for="Contact">Contact<span class="text-danger">*</span></label>
+                            <input type="text" id="Contact" class="form-control dark-select" placeholder="Contact"
+                              [(ngModel)]="userDetail.Contact" name="Contact" required [disabled]="!editMode">
+                          </div>
+                          <div class="col-md-6 form-group input_field">
+                            <label for="Tagline">Tagline<span class="text-danger">*</span></label>
+                            <input type="text" id="Tagline" class="form-control dark-select" placeholder="Tagline"
+                              [(ngModel)]="userDetail.Tagline" name="Tagline" required [disabled]="!editMode">
+                          </div>
+                        </div>
+
+
+
+                        <div class="row">
+                          <div class="col-md-6 form-group input_field">
+                            <label for="BirthDate">Birth Date<span class="text-danger">*</span></label>
+                            <input type="date" id="BirthDate" class="form-control dark-select"
+                              [(ngModel)]="userDetail.BirthDate" name="BirthDate" [max]="today" required
+                              [disabled]="!editMode">
+                          </div>
+
+
+
+
+                          <div class="col-lg-6 form-group">
+                            <label for="TravelPreference">Travel Preference<span class="text-danger">*</span></label>
+                            <select class="form-control dark-select" name="TravelPreference" id="TravelPreference"
+                              [(ngModel)]="userDetail.UpdatedBy" #TravelPrefControl="ngModel" required
+                              [disabled]="!editMode">
+                              <option value="" disabled>Select your travel preference</option>
+                              <option *ngFor="let preference of travelPreferences" [value]="preference">{{ preference }}
+                              </option>
+                            </select>
+                            <div
+                              *ngIf="TravelPrefControl.invalid && (TravelPrefControl.dirty || TravelPrefControl.touched)"
+                              class="text-danger">
+                              Travel preference is required.
+                            </div>
+                          </div>
+
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 form-group input_field">
+                            <label for="Address">Address<span class="text-danger dark-select">*</span></label>
+                            <input type="text" id="Address" class="form-control dark-select" placeholder="Address"
+                              [(ngModel)]="userDetail.Address" name="Address" required [disabled]="!editMode">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-6 form-group input_field">
+                            <label for="Gender">Gender<span class="text-danger">*</span></label>
+                            <select id="Gender" class="form-control dark-select" [(ngModel)]="userDetail.Gender"
+                              name="Gender" required [disabled]="!editMode">
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                              <option value="Other">Other</option>
+                            </select>
+                          </div>
+
+
+                          <div class="col-md-6 form-group input_field position-relative">
+                            <label for="Search City">Select Your City <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control dark-select" placeholder="Select Your City"
+                              [(ngModel)]="searchTerm" name="searchTerm" (ngModelChange)="onCityChange($event)"
+                              (input)="filterCities()" (focus)="toggleDropdown()" (blur)="hideDropdown()"
+                              autocomplete="off" [disabled]="!editMode" />
+
+
+                            <ul class="dropdown-menu" [class.show]="showDropdown"
+                              style="max-height: 150px; overflow-y: auto;">
+                              <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+                                <a class="dropdown-item">{{ city }}</a>
+                              </li>
+                            </ul>
+                          </div>
+
+
+                        </div>
+
+
+
+
+
+
+                        <div class="row">
+                          <div class="col-md-6 form-group input_field">
+                            <label for="AdmCountryMasterId">Country<span class="text-danger">*</span></label>
+                            <input type="text" id="AdmCountryMasterId" class="form-control dark-select"
+                              placeholder="Country" [(ngModel)]="userDetail.AdmCountryMasterId"
+                              name="AdmCountryMasterId" required disabled>
+                          </div>
+
+                          <div class="col-md-6 form-group input_field">
+                            <label for="AdmStateMasterId">State<span class="text-danger">*</span></label>
+                            <input type="text" id="AdmStateMasterId" class="form-control dark-select"
+                              placeholder="State" [(ngModel)]="userDetail.AdmStateMasterId" name="AdmStateMasterId"
+                              required disabled>
+                          </div>
+                        </div>
+
+
+                        <div class="row">
+                          <div class="col-md-12">
+                            <button type="submit" class="btn btn-sm btn-primary enable-edit-btn" [disabled]="!editMode"
+                              style="background-color: #4B49AC; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Save</button>
+                          </div>
+                        </div>
+
+                      </form>
+
+                      <!-- //=================================================================================================== -->
+
+
+                    </div>
+
+                  </ng-container>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

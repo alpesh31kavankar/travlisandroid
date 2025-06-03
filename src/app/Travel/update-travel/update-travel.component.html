@@ -1,0 +1,179 @@
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- Sidebar -->
+    <app-vendor-sidebar></app-vendor-sidebar>
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Trip Form</h4>
+
+                <form #TravelForm="ngForm" (ngSubmit)="OnSubmit()" novalidate>
+                  <!-- Vehicle ID Field -->
+
+                  <div class="form-group ">
+                    <label for="VehicleId">Vehicle  <span class="text-danger">*</span></label>
+                    <select class="form-control  dark-select" [(ngModel)]="travel.vehicle.VehicleId" name="VehicleId"
+                      #vehicleControl="ngModel" (change)="updateSelectedVehicle()" required>
+                      <option value="" disabled selected>Select Vehicle</option>
+                      <option *ngFor="let i of VehicleList" [value]="i.VehicleId">{{ i.VehicleNo }}</option>
+                    </select>
+                    <div *ngIf="vehicleControl.invalid && (TravelForm.submitted || vehicleControl.touched)"
+                      class="text-danger">
+                      Vehicle  is required.
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-lg-6">
+                      <label for="NoOfSeat">Number of Seats</label>
+                      <input type="text" class="form-control  dark-select" [(ngModel)]="travel.CreatedBy" id="CreatedBy"
+                        name="CreatedBy" [value]="selectedVehicle?.NoOfSeats || ''" readonly>
+                    </div>
+
+
+                    <div class="form-group col-lg-6">
+                      <label for="NoOfSeat">Available of Seats</label>
+                      <input type="text" class="form-control  dark-select" [(ngModel)]="travel.UpdatedBy" id="UpdatedBy"
+                        name="UpdatedBy" (input)="validateAvailableSeats()" required>
+                      <div *ngIf="isAvailableSeatsInvalid" class="text-danger">
+                        Available seats cannot be greater than the total number of seats.
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- City Fields -->
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group position-relative">
+                        <label for="LeavingFrom">Leaving From <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control  dark-select" placeholder="Search City" [(ngModel)]="searchTerm2"
+                          name="LeavingFrom" #leavingFromControl="ngModel" (input)="filterCities2()"
+                          (focus)="toggleDropdown2()" (blur)="hideDropdown2()" autocomplete="off" required />
+                        <div *ngIf="leavingFromControl.invalid && (TravelForm.submitted || leavingFromControl.touched)"
+                          class="text-danger">
+                          Leaving From is required.
+                        </div>
+                        <ul class="dropdown-menu" [class.show]="showDropdown2"
+                          style="max-height: 150px; overflow-y: auto;">
+                          <li *ngFor="let city of filteredCities" (click)="selectCity2(city)">
+                            <a class="dropdown-item">{{ city }}</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group position-relative">
+                        <label for="GoingTo">Going To <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control  dark-select" placeholder="Search City" [(ngModel)]="searchTerm1"
+                          name="GoingTo" #goingToControl="ngModel" (input)="filterCities1()" (focus)="toggleDropdown1()"
+                          (blur)="hideDropdown1()" autocomplete="off" required />
+                        <div *ngIf="goingToControl.invalid && (TravelForm.submitted || goingToControl.touched)"
+                          class="text-danger">
+                          Going To is required.
+                        </div>
+                        <ul class="dropdown-menu" [class.show]="showDropdown1"
+                          style="max-height: 150px; overflow-y: auto;">
+                          <li *ngFor="let city of filteredCities" (click)="selectCity1(city)">
+                            <a class="dropdown-item">{{ city }}</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Time Fields -->
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="Departure">Departure <span class="text-danger">*</span></label>
+                        <input type="datetime-local" id="Departure" class="form-control  dark-select" [(ngModel)]="travel.Departure"
+                          name="Departure" #departureControl="ngModel" required />
+                        <div *ngIf="departureControl.invalid && (departureControl.touched || TravelForm.submitted)"
+                          class="text-danger">
+                          Departure time is required.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="Arrival">Arrival <span class="text-danger">*</span></label>
+                        <input type="datetime-local" id="Arrival" class="form-control  dark-select" [(ngModel)]="travel.Arrival"
+                          name="Arrival" #arrivalControl="ngModel" required />
+                        <div *ngIf="arrivalControl.invalid && (arrivalControl.touched || TravelForm.submitted)"
+                          class="text-danger">
+                          Arrival time is required.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Price and Amenities -->
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="Price">Price (CA$) <span class="text-danger">*</span></label>
+                        <input type="number" id="Price" class="form-control  dark-select" [(ngModel)]="travel.Price" name="Price"
+                          #priceControl="ngModel" min="1" required />
+                        <div *ngIf="priceControl.invalid && (priceControl.touched || TravelForm.submitted)"
+                          class="text-danger">
+                          Price is required and must be positive.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                      <label for="Amenities">Amenities <span class="text-danger">*</span></label>
+                      <input type="text" id="Amenities" class="form-control  dark-select" placeholder="Amenities"
+                        [(ngModel)]="travel.Amenities" name="Amenities" required />
+
+                      <!-- Use the TravelForm for validation -->
+                      <div
+                        *ngIf="TravelForm.form.controls['Amenities']?.invalid && (TravelForm.submitted || TravelForm.form.controls['Amenities']?.touched)"
+                        class="text-danger">
+                        Amenities are required.
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- Status Field -->
+                  <div class="form-group">
+                    <label for="Status">Status <span class="text-danger">*</span></label>
+                    <select class="form-control  dark-select" [(ngModel)]="travel.Status" name="Status" #statusControl="ngModel"
+                      required>
+                      <option value="" disabled selected>Select Status</option>
+                      <option value="active">Active</option>
+                      <option value="inactive">Inactive</option>
+                    </select>
+                    <div *ngIf="statusControl.invalid && (statusControl.touched || TravelForm.submitted)"
+                      class="text-danger">
+                      Status is required.
+                    </div>
+                  </div>
+
+                  <!-- Submit Button -->
+                  <button type="submit" [disabled]="TravelForm.invalid" class="btn btn-primary mr-2"
+                    style="background-color: blue; color: white; padding: 10px 20px; border-radius: 5px;">
+                    Submit
+                  </button>
+                </form>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

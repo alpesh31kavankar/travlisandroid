@@ -1,0 +1,126 @@
+<!-- <app-header></app-header> -->
+
+
+<app-navbar></app-navbar>
+<br>
+<br>
+<div class="row">
+  <div class="col-lg-2 ">
+    <app-vendor-sidebar></app-vendor-sidebar>
+  </div>
+  <div class="col-lg-10" style="    padding: 2%;">
+    <div class="container">
+      <br>
+      <!-- Main start -->
+      <h4 class="formtitle2" style="text-align: left;"> Subscription For Vendor</h4>
+      <br>
+      <!-- <div class="container-fluid"> -->
+      <!-- <div class="row" style="    justify-content: center;"> -->
+      <!-- <h6 style="text-align: left;"*ngFor="let i of mainPurchasePlanList">"You have already subscribed to the <b>{{i.admSubscription.Title}} Subscription </b>plan."</h6>
+      <h6 style="text-align: left;"*ngIf="mainPurchasePlanList.length === 0">"You have not purchased any subscription plan yet. Please choose and purchase one of the <b>subscriptions</b> below."</h6> -->
+
+
+      <!-- <div class="highlight-card"*ngFor="let i of mainPurchasePlanList">
+        <h6 class="highlight-text">
+          "You have already subscribed to the <b>{{i.admSubscription.Title}} Subscription</b> plan."
+        </h6>
+      </div> -->
+      <!-- <div class="info-card"*ngIf="mainPurchasePlanList.length === 0">
+        <h6 class="info-text">
+          "You have not purchased any subscription plan yet. Please choose and purchase one of the <b>subscriptions</b> below."
+        </h6>
+      </div> -->
+
+      <!-- <br>
+         <h4 class="formtitle2" style="text-align: center;">Demo Form</h4> -->
+      <!-- <div class="col-lg-10 col-12"> -->
+
+
+
+      <!-- <div class="progress-container text-center">
+                  <div class="progress-step">
+                    <div class="step">1</div>
+                    <span>Setup Profile</span>
+                  </div>
+                  <div class="progress-line"></div>
+                  <div class="progress-step">
+                    <div class="step">2</div>
+                    <span>Connect Card</span>
+                  </div>
+                  <div class="progress-line"></div>
+                  <div class="progress-step">
+                    <div class="step">3</div>
+                    <span>Link Property</span>
+                  </div>
+                  <div class="progress-line"></div>
+                  <div class="progress-step">
+                    <div class="step">4</div>
+                    <span>Payment</span>
+                  </div>
+                </div> -->
+
+
+      <div class="row mt-4">
+        <div class="col-md-4" *ngFor="let i of admVendorSubscriptionList">
+          <div class="card subscription-card shadow-sm">
+            <div class="card-body" style="text-align: center;">
+              <h5 class="card-title">{{i.Title}} </h5>
+              <p class="card-text">CAD {{i.Price}} </p>
+              <ul class="list-unstyled">
+                <li><a href="#!">
+                    <pre>{{i.Description}}</pre>
+                  </a></li>
+                <!-- <li><a href="#">Advantages</a></li>
+                                <li><a href="#">Financial Blogs</a></li>
+                                <li><a href="#">+ Add-ons</a></li> -->
+              </ul>
+              <a class="btn btn-outline-primary" (click)="onClick(i.AdmVendorSubscriptionId)">Buy Now</a>
+              <br>
+              <!-- <a style="color:rgb(156, 153, 153); cursor: pointer;"  class="" [ngClass]="{'disabled-link': mainPurchasePlanList.length > 0}"(click)="onClickwithoutPaypal(i.AdmSubscriptionId)">Buy Without Paypal </a> -->
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-md-4">
+                    <div class="card subscription-card">
+                      <div class="card-body text-center">
+                        <h5 class="card-title">2 Years</h5>
+                        <p class="card-text">CAD 00.00/per month</p>
+                        <ul class="list-unstyled">
+                          <li><a href="#">Service</a></li>
+                          <li><a href="#">Advantages</a></li>
+                          <li><a href="#">Financial Blogs</a></li>
+                          <li><a href="#">+ Add-ons</a></li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">More >></a>
+                      </div>
+                    </div>
+                  </div> -->
+        <!-- <div class="col-md-4">
+                    <div class="card subscription-card">
+                      <div class="card-body text-center">
+                        <h5 class="card-title">Landlord</h5>
+                        <p class="card-text">CAD 00.00/per month</p>
+                        <ul class="list-unstyled">
+                          <li><a href="#">Service</a></li>
+                          <li><a href="#">Advantages</a></li>
+                          <li><a href="#">Financial Blogs</a></li>
+                          <li><a href="#">+ Add-ons</a></li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">More >></a>
+                      </div>
+                    </div>
+                  </div> -->
+      </div>
+
+
+      <!-- </div> -->
+
+
+      <!-- </div> -->
+      <!-- </div> -->
+      <br>
+    </div>
+    <!-- Main End -->
+    <!-- <app-footer></app-footer> -->
+  </div>
+</div>

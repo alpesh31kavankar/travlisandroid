@@ -1,0 +1,155 @@
+.container {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+
+  }
+  
+  .main-div {
+
+    
+    border: 1px solid #15a2e8; /* Border around all input fields */
+    border-radius: 30px; /* Rounded corners for the main div */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    align-items: center; /* Center items horizontally */
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 20px; /* Optional: space below the row */
+  }
+  
+  .form-group {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    border-left: 1px solid #15a2e8; /* Vertical lines between divs */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+  }
+  
+  .form-group:first-child {
+    border-left: none; /* Remove left border for the first column */
+  }
+  
+  .form-group:last-child {
+    border-right: none; /* Remove right border if you don't want it in the last column */
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    font-weight: bold;
+    padding: 15px; /* Increase padding for better visual appearance */
+    margin-top: 5px;
+    border: none;
+    font-size: 18px; /* Increase font size */
+    color: #0f78e9; /* Change text color to blue */
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 20px;
+  }
+  
+  input[type="date"], input[type="number"] {
+    width: 100%;
+    padding: 15px; /* Increase padding for better visual appearance */
+    margin-top: 5px;
+    border: none;
+    font-size: 20px; /* Increase font size */
+    color: #0f78e9; /* Change text color to blue */
+ 
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  
+  .travellers-class input[type="number"] {
+    width: 100%;
+    font-size: 20px; /* Increase font size */
+    color: #0f78e9; /* Change text color to blue */
+  }
+  
+  .date-info {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+    white-space: nowrap;
+  }
+  
+  button {
+    
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    width: 200px;
+    cursor: pointer;
+    font-size: medium;
+    font-size: 25px; /* Adjust font size if needed */
+  }
+  
+  .button_sb{
+
+    margin-top: 10px;
+    justify-content: center;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  label {
+    color: black;
+    font-size: large;
+    font-weight: bold;
+  }
+  
+
+
+  p{
+    font-size:15px ;
+    color: black;
+  }
+
+
+  select {
+    width: 100%;
+    padding: 15px;
+    margin-top: 5px;
+    border: none;
+    font-size: 20px;
+    color: #0f78e9;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between the dropdowns */
+  }
+  
+  .form-group select {
+    font-size: 20px; /* Consistent font size */
+  }
+
+  
+  @media (max-width: 768px) {
+    .form-row {
+      flex-direction: column;
+    }
+  
+    .form-group {
+      margin-right: 0; /* Ensure no additional margin on small screens */
+      border-left: 0; /* Remove vertical border on small screens */
+    }
+  }
+  

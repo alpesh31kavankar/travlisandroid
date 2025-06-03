@@ -1,0 +1,229 @@
+
+<!-- <div class="container-scroller">
+  <app-navbar></app-navbar>
+
+  <div class=" page-body-wrapper">
+    <app-sidebar></app-sidebar>
+
+    <div class="main-panel">
+            <div class="content-wrapper" style="background-image: url('/assets/iimmgg/bg.png') !important;     background-size: cover !important;">
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+            <div class="slogan text-center my-4">
+              <h2>Your Journey Awaits: Explore the World with Us!</h2>
+            </div>
+             <div class="search-container">
+              <form #flightForm="ngForm" (ngSubmit)="onSearch1(flightForm)">
+                <div class="main-div">
+                  <div class="form-row">
+                    <div class="form-group position-relative">
+                      <label for="Search City">Leaving From <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" placeholder="Search City" [(ngModel)]="searchTerm2"
+                        name="searchTerm2" (input)="filterCities2()" (focus)="toggleDropdown2()"
+                        (blur)="hideDropdown2()" autocomplete="off" />
+
+                      <ul class="dropdown-menu" [class.show]="showDropdown2"
+                        style="max-height: 150px; overflow-y: auto;">
+                        <li *ngFor="let city of filteredCities" (click)="selectCity2(city)">
+                          <a class="dropdown-item">{{ city }}</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="form-group position-relative">
+                      <label for="Search City">Going To <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" placeholder="Search City" [(ngModel)]="searchTerm1"
+                        name="searchTerm1" (input)="filterCities1()" (focus)="toggleDropdown1()"
+                        (blur)="hideDropdown1()" autocomplete="off" />
+
+                      <ul class="dropdown-menu" [class.show]="showDropdown1"
+                        style="max-height: 150px; overflow-y: auto;">
+                        <li *ngFor="let city of filteredCities" (click)="selectCity1(city)">
+                          <a class="dropdown-item">{{ city }}</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="departure">Departure Date</label>
+                      <input type="date" id="departure" name="departure" ngModel
+                        (change)="updateDepartureDay(departure.value)" #departure>
+                      <p class="date-info my-3">{{ departure.value | date:'MMM d, y' }} {{
+                        departureDay }}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row button_sb">
+                  <button type="submit">Search</button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+
+
+
+<!-- //=================================================================================================== -->
+<!-- <div class="container-scroller">
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid page-body-wrapper">
+    <app-sidebar></app-sidebar>
+
+    <div class="main-panel" style="background-image: url('\assets\iimmgg\bg.png');">
+      <div class="content-wrapper" style="background-image: url('/assets/iimmgg/bg.png') !important;">
+       
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+<!--  -->
+
+
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+  <!-- NAVBAAAAAR HERE -->
+  <app-navbar></app-navbar>
+  <!-- partial -->
+  <div class=" page-body-wrapper" style="justify-content: center !important;">
+
+
+    <!-- SIDEBAAAAR HERE -->
+    <app-sidebar></app-sidebar>
+    <!-- $$$$$$$$$$$$$ DASHBORD  Start-->
+
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper" style="background-image: url('/assets/iimmgg/bg.png') !important;     background-size: cover !important">
+
+
+
+
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+
+            <!-- Add your slogan here -->
+            <div class="slogan text-center my-4">
+              <h2 class="txxt">Your Journey Awaits: Explore the World with Us!</h2>
+            </div>
+
+            <div class="search-container">
+              <form #flightForm="ngForm"  class="srchform">
+                <div class="main-div">
+                  <div class="form-row">
+                    <div class="form-group position-relative">
+                      <label for="Search City">Leaving From <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" placeholder="Source" [(ngModel)]="searchTerm2"
+                        name="searchTerm2" (input)="filterCities2()" (focus)="toggleDropdown2()"
+                        (blur)="hideDropdown2()" autocomplete="off" />
+
+                      <ul class="dropdown-menu" [class.show]="showDropdown2"
+                        style="max-height: 150px; overflow-y: auto;">
+                        <li *ngFor="let city of filteredCities" (click)="selectCity2(city)">
+                          <a class="dropdown-item">{{ city }}</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="form-group position-relative">
+                      <label for="Search City">Going To <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" placeholder="Destination" [(ngModel)]="searchTerm1"
+                        name="searchTerm1" (input)="filterCities1()" (focus)="toggleDropdown1()"
+                        (blur)="hideDropdown1()" autocomplete="off" />
+
+                      <ul class="dropdown-menu" [class.show]="showDropdown1"
+                        style="max-height: 150px; overflow-y: auto;">
+                        <li *ngFor="let city of filteredCities" (click)="selectCity1(city)">
+                          <a class="dropdown-item">{{ city }}</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="departure">Departure Date</label>
+                      <input type="date" id="departure" name="departure" ngModel
+                             (change)="updateDepartureDay(departure.value)" #departure="ngModel" 
+                             [min]="todayDate" class="form-control">
+                      <div *ngIf="departure.invalid && departure.touched" class="text-danger">
+                        Departure date cannot be in the past.
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="return">Return Date</label>
+                      <input type="date" id="return" name="return" ngModel
+                             (change)="updateReturnDate(return.value)" #return="ngModel" [min]="departureDate"
+                             class="form-control">
+                      <div *ngIf="returnDate && return.value < departureDate" class="text-danger">
+                        Return date cannot be before departure date.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="form-row">
+
+                    <div class="form-group">
+                      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary" style="color: black; background-color: aliceblue;">
+                          <input type="radio" name="tripType" [(ngModel)]="tripType" value="TripType" disabled> Trip Type >>
+                        </label>
+                        <label class="btn btn-secondary active">
+                          <input type="radio" name="tripType" [(ngModel)]="tripType" value="Solo" checked> Solo
+                        </label>
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="tripType" [(ngModel)]="tripType" value="Family"> Family
+                        </label>
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="tripType" [(ngModel)]="tripType" value="Business"> Business
+                        </label>
+                      </div>
+                    </div>
+                    
+                    <div class="form-group position-relative">
+                      <input type="number" class="form-control persons" placeholder="No of Persons"
+                        [(ngModel)]="noOfPersons" name="noOfPersons" />
+                    </div>
+                  </div> -->
+
+                </div>
+
+                <div class="form-row button_sb srchbtn">
+                  <button type="submit" (click)="onSearch1(flightForm)"   style="border-radius: 10px;">Search</button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+</div>

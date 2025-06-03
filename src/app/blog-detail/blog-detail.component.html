@@ -1,0 +1,22 @@
+
+<button class="back-button" (click)="goBack()">
+  ← Back
+</button>
+
+
+<div class="destination-card">
+
+
+  <!-- Back Button -->
+
+  <h2>{{blog.Name}}</h2>
+
+  <div class="content">
+    <img [src]="imgPath + 'Content/Blog/' + blog.Image" alt="Kashmir" class="destination-image">
+    <div class="details">
+      <p>City: {{blog.City}}</p>
+      <p>{{blog.Subtitle}}</p>
+      <p>{{blog.Description}}</p>
+    </div>
+  </div>
+</div>

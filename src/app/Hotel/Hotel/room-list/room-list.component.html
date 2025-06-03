@@ -1,0 +1,84 @@
+<div class="container-scroller">
+  
+    <app-navbar></app-navbar>
+  
+    <div class="container-fluid page-body-wrapper">
+
+        
+      
+        <app-vendor-sidebar></app-vendor-sidebar>
+        <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-danger">
+                      <h4 class="card-title">Room List</h4>
+                      <p class="card-category">View all Hotel records</p>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class="text-primary" style="    background-color: #6762621c;">
+                            <tr>
+                                
+                              <!-- <th>HotelId</th> -->
+                              <!-- <th>RoomId</th> -->
+                               <!-- <th>Id</th> -->
+                              <th>RoomType</th>
+                              <th>PricePerNight</th>
+
+                              <th>Amenities</th>
+                              <th>Image</th>
+                              <!-- <th>HImage</th> -->
+                              <!-- <th>Status</th> -->
+
+                              <!-- <th>Address</th> -->
+                             <!-- <th>ContactNo</th> -->
+                             <!-- <th>PropertyRules</th> -->
+
+
+
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let room of RoomList">
+                               
+                              <!-- <td>{{room.hotel.HotelId}}</td> -->
+                              <!-- <td>{{room.RoomsId}}</td> -->
+                              <td>{{room.RoomType}}</td>
+                              <td>{{room.PricePerNight}}</td>
+
+                              <td>{{room.Amenities}}</td>
+                              <td>
+                                <img [src]="imgPath + 'Content/Rooms/' + room.Image" class="square-img">
+                              </td>
+
+                              <!-- <td>
+                                <img [src]="imgPath + 'Content/Hotel/' + room.hotel.Image" class="square-img">
+                              </td> -->
+                             
+                             
+                              <!-- <td>{{room.Status}}</td> -->
+
+                              <!-- <td>{{room.hotel.Address}}</td> -->
+                              <!-- <td>{{room.hotel.ContactNo}}</td> -->
+                              <!-- <td>{{room.hotel.PropertyRules}}</td> -->
+                            
+                              <td>
+                                <i class="fas fa-pencil-alt iconaction" (click)="Edit(room.RoomsId)" aria-hidden="true"></i>
+                            
+                                <i class="fa fa-trash iconaction mx-3" (click)="Delete(room.RoomsId)" aria-hidden="true"></i>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          

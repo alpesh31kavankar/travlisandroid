@@ -1,0 +1,102 @@
+<section>
+  <div class="container-fluid">
+      <div class="row" style="    justify-content: center;">
+       
+          <div class="col-lg-5 col-12 text-center " style="padding: 2%;">
+            
+  
+             
+
+
+      <div class="card " style="     padding: 5%; box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;">
+        <div class="card-body boxshadoww bottomborder topborder py-5 px-lg-5">
+          <div class="svg-icon svg-icon-xl text-purple">
+            <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>ionicons-v5-g</title><path d="M336,208V113a80,80,0,0,0-160,0v95" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path><rect x="96" y="208" width="320" height="272" rx="48" ry="48" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></rect></svg>
+          </div>
+          <h3 class="fw-normal text-dark mt-4">
+            2-step verification
+          </h3>
+          <p class="mt-4 mb-1">
+            We sent a verification code to your email.
+          </p>
+        
+            
+        <!-- <div class="row mt-4 pt-2">
+            <div class="col">
+              <input type="text" class="form-control form-control-lg text-center py-4"[(ngModel)]="otp1"maxlength="1" #input1 (input)="moveToNext(input1, input2)" >
+            </div>
+            <div class="col">
+              <input type="text" class="form-control form-control-lg text-center py-4" [(ngModel)]="otp2" maxlength="1"#input2 (input)="moveToNext(input2, input3)">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control form-control-lg text-center py-4" [(ngModel)]="otp3" maxlength="1"#input3 (input)="moveToNext(input3, input4)" >
+            </div>
+            <div class="col">
+              <input type="text" class="form-control form-control-lg text-center py-4"[(ngModel)]="otp4" maxlength="1"#input4 (input)="moveToNext(input4, input5)">
+              </div>
+            <div class="col">
+              <input type="text" class="form-control form-control-lg text-center py-4" [(ngModel)]="otp5"maxlength="1"#input5 (input)="moveToNext(input5, input6)" >
+            </div>
+            <div class="col">
+              <input type="text" class="form-control form-control-lg text-center py-4"[(ngModel)]="otp6" maxlength="1" #input6 >
+            </div>
+          </div>   -->
+
+          <div class="row mt-4 pt-2">
+            <div class="col">
+              <input type="text" class="form-control form-control-lg text-center py-4" [(ngModel)]="otp1" maxlength="1" #input1
+                (input)="moveToNext(input1, input2)" (keydown)="moveBack($event, input1, input1)" >
+            </div>
+            <div class="col">
+              <input type="text" class="form-control form-control-lg text-center py-4" [(ngModel)]="otp2" maxlength="1" #input2
+                (input)="moveToNext(input2, input3)" (keydown)="moveBack($event, input2, input1)" >
+            </div>
+            <div class="col">
+              <input type="text" class="form-control form-control-lg text-center py-4" [(ngModel)]="otp3" maxlength="1" #input3
+                (input)="moveToNext(input3, input4)" (keydown)="moveBack($event, input3, input2)" >
+            </div>
+            <div class="col">
+              <input type="text" class="form-control form-control-lg text-center py-4" [(ngModel)]="otp4" maxlength="1" #input4
+                (input)="moveToNext(input4, input5)" (keydown)="moveBack($event, input4, input3)" >
+            </div>
+            <div class="col">
+              <input type="text" class="form-control form-control-lg text-center py-4" [(ngModel)]="otp5" maxlength="1" #input5
+                (input)="moveToNext(input5, input6)" (keydown)="moveBack($event, input5, input4)" >
+            </div>
+            <div class="col">
+              <input type="text" class="form-control form-control-lg text-center py-4" [(ngModel)]="otp6" maxlength="1" #input6
+                (keydown)="moveBack($event, input6, input5)" >
+            </div>
+          </div>
+
+
+          <a (click)="OnSubmit1()" class="btn btn-purple btn-lg w-100 hover-lift-light mt-4">
+            Verify my account
+          </a>
+        </div>
+      </div>
+
+      <p class="text-center text-muted mt-4">
+        Didn't receive it?
+        <!-- <a ="#!" class="text-decoration-none ms-2"> -->
+          <!-- Resend code -->
+
+          <!-- <a href="javascript:void(0);" (click)="SendOTPEmail()">Resend code</a> -->
+           
+
+          <a [style.cursor]="isResendDisabled ? 'not-allowed' : 'pointer'"
+          [style.pointer-events]="isResendDisabled ? 'none' : 'auto'" (click)="onResendOtpClick()">
+          Resend OTP <span *ngIf="isResendDisabled">({{ countdown }}s)</span>
+        </a>
+
+
+
+
+        <!-- </a> -->
+      </p>
+    <!-- </div>
+  </div> -->
+  </div>
+  </div>
+  </div>
+</section>

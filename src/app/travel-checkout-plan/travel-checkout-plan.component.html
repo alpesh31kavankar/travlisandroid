@@ -1,0 +1,58 @@
+<!-- <button type="submit"(click)="makePayment()">Make Payment</button> -->
+
+
+<div class="row">
+    <div class="col-lg-2 ">
+<app-sidebar></app-sidebar>
+    </div>
+    <div class="col-lg-10" style="    padding: 2%;">
+        <div class="container my-5">
+            <h2 class="text-center mb-4">Payment  Details</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- Plan Details -->
+                    <div class="card plan-card shadow-lg">
+                        <div class="card-header text-center">
+                            <!-- <h4 style="color:white" class="card-title">{{ this.admSubscription.Title }}</h4> -->
+                        </div>
+                        <!-- <img src="../assets/Images/PayNow.png" class="card-img-top" alt="Plan Image">side -->
+                        <div class="card-body">
+                            <h5 class="card-subtitle mb-2 text-muted">CAD {{ this.PlanId}}</h5>
+                            <p class="card-text">Enjoy the best features with our premium plan. Includes access to all services, priority support, and exclusive content.</p>
+                            <!-- <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle"></i> Unlimited Access</li>
+                                <li><i class="fas fa-check-circle"></i> 24/7 Support</li>
+                                <li><i class="fas fa-check-circle"></i> Exclusive Content</li>
+                                <li><i class="fas fa-check-circle"></i> Monthly Reports</li>
+                            </ul> -->
+                        </div>
+                        <div class="card-footer text-center">
+                            <!-- <a href="#" (click)="makePayment()" class="btn btn-primary btn-lg">Checkout Now</a> -->
+                            <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                            <!-- <button class="btn btn-primary w-100 mt-2" (click)="onMakePayment()">Make Payment</button> -->
+                            <div id="paypal-button-container"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Additional Information -->
+                    <div class="card shadow-sm border-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Why Choose Us?</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-star"></i> High-Quality Services</li>
+                                <li><i class="fas fa-star"></i> Trusted by Thousands</li>
+                                <li><i class="fas fa-star"></i> Money-Back Guarantee</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+</div>
+
+
+
+

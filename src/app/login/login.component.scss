@@ -1,0 +1,84 @@
+.input-group-text {
+  border-left: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.form-control-lg {
+  padding-right: 2.5rem; /* Add space for the icon */
+}
+
+.input-group-append {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  z-index: 10;
+}
+
+.input-group-append .input-group-text {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+
+// asl-google-signin-button{
+//   height: 100px;
+//   width:200px
+// }
+.form-check-input {
+  margin-left: 0.75rem !important;
+}
+.form-check {
+  display: flex;
+  align-items: center;
+}
+
+.form-check-input {
+  margin-right: 10px; /* Adjust spacing between checkbox and label */
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+
+
+
+
+
+input{
+border-radius: .25rem;
+}
+
+
+.auth .auth-form-light {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.auth .auth-form-light{
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 5% !important;
+}
+
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px;
+  border: none;
+  background-color: white;
+  border-radius: 69px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.google-icon {
+  width: 18px;
+  height: 18px;
+}

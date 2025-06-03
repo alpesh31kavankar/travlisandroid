@@ -1,0 +1,55 @@
+<div class="container">
+    <form #flightForm="ngForm" (ngSubmit)="onSearch(flightForm)">
+      <div class="main-div">
+        <div class="form-row">
+          <!-- From Input -->
+          <div class="form-group">
+            <label for="from">From</label>
+            <input type="text" id="from" name="from" ngMode [(ngModel)]="from" placeholder="">
+            <!-- <p class="airport-code my-3">DEL, Delhi Airport India</p> -->
+          </div>
+  
+          <!-- To Input -->
+          <div class="form-group">
+            <label for="to">To</label>
+            <input type="text" id="to" name="to" [(ngModel)]="to" ngModel placeholder="">
+            <!-- <p class="airport-code  my-3">BLR, Bengaluru International Airport ...</p> -->
+          </div>
+  
+          <!-- Departure Date -->
+          <div class="form-group">
+            <label for="departure">Departure</label>
+            <input type="date" id="departure" name="departure" ngModel (change)="updateDepartureDay(departure.value)" #departure>
+            <p class="date-info  my-3">{{ departure.value | date:'MMM d, y' }} {{ departureDay }}</p>
+          </div>
+  
+          <!-- Return Date -->
+          <div class="form-group">
+            <label for="return">Return</label>
+            <input type="date" id="return" name="return" ngModel (change)="updateReturnDay(return.value)" #return>
+            <p class="date-info  my-3">{{ return.value | date:'MMM d, y' }} {{ returnDay }}</p>
+          </div>
+  
+          <!-- Travellers & Class -->
+          
+          <!-- <div class="form-group">
+            <label for="adults">Adults</label>
+            <select id="adults" name="adults" ngModel>
+              <option *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8, 9]" [value]="num">{{ num }}</option>
+            </select>
+            
+            <label for="children">Children</label>
+            <select id="children" name="children" ngModel>
+              <option *ngFor="let num of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]" [value]="num">{{ num }}</option>
+            </select>
+          </div> -->
+
+
+        </div>
+      </div>
+      <div class="form-row   button_sb ">
+        <button type="submit">Search</button>
+      </div>
+    </form>
+  </div>
+  

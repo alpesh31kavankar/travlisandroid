@@ -1,0 +1,260 @@
+<div class="container-scroller">
+
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid ">
+
+    <br><br><br>
+
+    <!-- Back Button Section -->
+    <!-- 
+           <div class="back-button-container" style="margin-bottom: 20px;">
+            <button class="back-button btn btn-primary" (click)="goBack()" style="display: flex; align-items: center;">
+              <i class="fas fa-arrow-left" style="margin-right: 5px;"></i> Back
+            </button>
+          </div> -->
+
+    <div class="row" style="    padding: 1%;">
+      <div class="col-md-4 contentbox imgboxx">
+        <img [src]="imgPath + 'Content/Rooms/' + RoomsList.Image" class="modal-img" alt="Room Image" />
+        <!-- <img [src]="imgPath + 'Content/Rooms/' + RoomsList.Image" class="modal-img" alt="Room Image" />
+        <img [src]="imgPath + 'Content/Rooms/' + RoomsList.Image" class="modal-img" alt="Room Image" /> -->
+
+      </div>
+
+
+  
+        <!-- <div class="col-md-4 contentbox imgboxx">
+            <div *ngFor="let imageUrl of imageUrls">
+                <img [src]="imgPath + 'Content/Rooms/' + imageUrl" class="modal-img" alt="Room Image" />
+            </div>
+        </div>
+   -->
+
+      <div class="col-md-8 contentbox" style="  padding: 2%;">
+        <!-- <div class="modal-details"> -->
+        <h2 style="    color: #007bff;">{{ RoomsList.hotel.HotelName || 'Hotel Name Not Available' }}</h2>
+
+        <div class="detail-row">
+          <p class="detail-item amenities">
+            <strong>Amenities:</strong> {{ RoomsList.Amenities || 'N/A' }}
+          </p>
+          <p class="detail-item price">
+
+
+            <!-- <strong>CA$ {{ RoomsList.PricePerNight }}</strong> -->
+
+               <strong>CA$:- &nbsp; <span style="color: red; text-decoration: line-through;">{{ RoomsList.PricePerNight }}</span> &nbsp;
+
+                {{this.finalPrice }}</strong> 
+
+            &nbsp;<span>Per Night</span>
+            &nbsp;  &nbsp;
+            <span >( Spacial Discount {{ RoomsList.UpdatedDate }} %)</span>
+          </p>
+        </div>
+
+
+
+        <div class="detail-row">
+          <p class="detail-item amenities">
+            <strong>Room Type:</strong>
+            {{ RoomsList.RoomType || 'N/A' }}
+          </p>
+
+          <p class="detail-item contact">
+            <strong>Contact No:</strong>
+            {{ RoomDetail.ContactNo || 'Not available' }}
+          </p>
+        </div>
+
+        <div class="detail-row">
+          <p class="detail-item rules">
+            <strong>Room Available:</strong>
+            {{ RoomsList.AvilableRooms || 'No AvilableRoomss' }}
+          </p>
+          <p class="detail-item contact">
+            <strong>Address:</strong>
+            {{ RoomDetail.Address || 'Not available' }}
+          </p>
+        </div>
+
+
+        <div class="detail-row">
+
+          <p class="detail-item rules">
+            <strong>Property Rules:</strong>
+            {{ RoomDetail.PropertyRules || 'No rules provided' }}
+          </p>
+          <!-- <p class="detail-item price">
+                    <strong>CA$ {{ RoomsList.PricePerNight }}</strong>
+                    &nbsp;<span>Per Night</span>
+                  </p> -->
+        </div>
+
+        <!-- Book Now Button -->
+        <button class="btn btn-primary book-now" (click)="toggleBookingForm()">
+          Book Now
+        </button>
+
+        <!-- Booking Form -->
+        <!-- Booking Form -->
+        <div *ngIf="isBookingFormVisible" class="booking-form">
+          <form #hotelBookingForm="ngForm" (ngSubmit)="OnSubmit()" class="booking-form">
+            <div class="row">
+              <div class="input_field col-lg-6">
+                <label for="checkIn">Check-In Date<span class="text-danger">*</span></label>
+                <input type="date" id="checkIn" class="form-control" [(ngModel)]="hotelBooking.CheckIn" name="checkIn"
+                  required [min]="today" (change)="updateCheckOutMinDate(); calculateTotalDays()" autofocus>
+              </div>
+
+              <div class="input_field col-lg-6">
+                <label for="checkOut">Check-Out Date<span class="text-danger">*</span></label>
+                <input type="date" id="checkOut" class="form-control" [(ngModel)]="hotelBooking.CheckOut"
+                  name="checkOut" required [min]="minCheckOutDate" (change)="calculateTotalDays()">
+              </div>
+              <p class="total-days">Total Days: {{totalDays}}</p>
+            </div>
+
+            <div class="row">
+              <div class="input_field col-lg-6">
+                <label for="NoOfRooms">Number of Rooms<span class="text-danger">*</span></label>
+                <input type="number" id="NoOfRooms" class="form-control" [(ngModel)]="hotelBooking.NoOfRooms"
+                  name="NoOfRooms" required min="1" (input)="calculateTotalDays()" readonly>
+              </div>
+
+              <!-- <div class="input_field col-lg-6">
+                      <label for="NoOfPersons">Number of Persons<span class="text-danger">*</span></label>
+                      <input type="number" id="NoOfPersons" class="form-control" [(ngModel)]="hotelBooking.NoOfPersons" name="NoOfPersons" required min="1" >
+                    </div>
+                  </div>
+                 -->
+
+
+              <div class="input_field col-lg-6">
+                <label for="NoOfPersons">Number of Persons<span class="text-danger">*</span></label>
+                <input type="number" id="NoOfPersons" class="form-control" [(ngModel)]="hotelBooking.NoOfPersons"
+                  name="NoOfPersons" required min="1" (ngModelChange)="calculateTotalDays()" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input_field col-lg-6">
+                <label for="TotalPrice">Total Price CAD($) <span class="text-danger">*</span></label>
+                <input type="number" id="TotalPrice" class="form-control" [(ngModel)]="hotelBooking.TotalPrice"
+                  name="TotalPrice" required readonly>
+              </div>
+
+              <!-- <div class="input_field col-lg-6">
+                      <label for="Status">Status<span class="text-danger">*</span></label>
+                      <select id="Status" class="form-control" [(ngModel)]="hotelBooking.Status" name="Status" required>
+                        <option value="" disabled>Select Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                      </select>
+                    </div> -->
+
+            </div>
+
+            <!-- <button 
+                    class="submit-button" 
+                    type="submit" 
+                   
+                    [disabled]="hotelBookingForm.invalid">
+                    Pay Now
+                  </button> -->
+
+
+          </form>
+          <div class="card-footer text-center">
+            <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+            <div id="paypal-button-container"></div>
+          </div>
+
+
+
+        </div>
+        <!-- </div> -->
+      </div>
+
+
+
+    </div>
+    <br><br><br>
+    <!-- <div class="modal fade" id="bookingSummaryModal" tabindex="-1" role="dialog" aria-labelledby="bookingSummaryModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="bookingSummaryModalLabel">Booking Summary</h5>
+                  <button type="button" class="close" (click)="closeSummaryModal()">
+                    <span>&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p><strong>Check-In:</strong> {{ hotelBooking.CheckIn }}</p>
+                  <p><strong>Check-Out:</strong> {{ hotelBooking.CheckOut }}</p>
+                  <p><strong>Number of Rooms:</strong> {{ hotelBooking.NoOfRooms }}</p>
+                  <p><strong>Number of Persons:</strong> {{ hotelBooking.NoOfPersons }}</p>
+                  <p><strong>Total Price:</strong> CA$ {{ hotelBooking.TotalPrice }}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="closeSummaryModal()">Close</button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+
+    <h2>{{ selectedProperty?.hotel.HotelName }}</h2>
+
+    <img 
+      [src]="imgPath + 'Content/Rooms/' + selectedProperty?.Image" 
+      class="modal-img" 
+      alt="Room Image" 
+    />
+
+    <div class="modal-details">
+      <div class="detail-row">
+        <p class="detail-item amenities">
+          <strong>Amenities:</strong> {{ selectedProperty?.Amenities }}
+        </p>
+        <p class="detail-item price">
+          <strong>CA$ {{ selectedProperty?.PricePerNight }}</strong> &nbsp;<span >Per Night</span> 
+        </p>
+      </div>
+
+      <div class="detail-row">
+        <p class="detail-item rules">
+          <strong>Property Rules:</strong> {{ RoomDetail.PropertyRules }}
+        </p>
+        <p class="detail-item contact">
+          <strong>Contact No:</strong> {{ RoomDetail.ContactNo }}
+        </p>
+      </div>
+    </div>
+
+    <button class="btn btn-secondary close-btn" (click)="closeModal()">Close</button>
+  </div>
+</div> -->

@@ -1,0 +1,288 @@
+<!-- <nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item  profile">
+      <app-profile-icon></app-profile-icon>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/VendorDashboard">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" (click)="toggleMenu('Blog')" [attr.aria-expanded]="activeMenu === 'Blog'" aria-controls="Blog">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Blog</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div [ngClass]="{'collapse': activeMenu !== 'Blog'}" id="Blog">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/AddBlog">Add Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/BlogList">Blog List</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" (click)="toggleMenu('Hotel')" [attr.aria-expanded]="activeMenu === 'Hotel'" aria-controls="Hotel">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Hotel</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div [ngClass]="{'collapse': activeMenu !== 'Hotel'}" id="Hotel">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/AddHotel">Add Hotel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/HotelList">Hotel List</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" (click)="toggleMenu('Travel')" [attr.aria-expanded]="activeMenu === 'Travel'" aria-controls="Travel">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Travel</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div [ngClass]="{'collapse': activeMenu !== 'Travel'}" id="Travel">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/AddTravel">Add Travel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/TravelList">Travel List</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" (click)="toggleMenu('Activities')" [attr.aria-expanded]="activeMenu === 'Activities'" aria-controls="Activities">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Activities</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div [ngClass]="{'collapse': activeMenu !== 'Activities'}" id="Activities">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/AddActivity">Add Activities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/ActivityList">Activities List</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/AddService">
+        <span class="menu-title">Add Services</span>
+      </a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" routerLink="/AllServices">
+        <span class="menu-title">All Services</span>
+      </a>
+    </li>
+    
+  
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/ActiveUser">
+        <span class="menu-title">Active Users</span>
+      </a>
+    </li>
+  
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/UserDashbord">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Switch Role</span>
+      </a>
+    </li>  
+    
+  </ul>
+</nav> -->
+
+
+
+
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item  profile">
+      <app-profile-icon></app-profile-icon>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/VendorDashboard">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" (click)="toggleMenu('Blog')" [attr.aria-expanded]="activeMenu === 'Blog'" aria-controls="Blog">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Blog</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div [ngClass]="{'collapse': activeMenu !== 'Blog'}" id="Blog">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/AddBlog">Add Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/BlogList">Blog List</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" (click)="toggleMenu('Hotel')" [attr.aria-expanded]="activeMenu === 'Hotel'" aria-controls="Hotel">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Hotel</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div [ngClass]="{'collapse': activeMenu !== 'Hotel'}" id="Hotel">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/AddHotel">Add Hotel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/HotelList">Hotel List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/AddRoom">Add Room</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/RoomList">Room List</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" (click)="toggleMenu('Travel')" [attr.aria-expanded]="activeMenu === 'Travel'" aria-controls="Travel">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Travel</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div [ngClass]="{'collapse': activeMenu !== 'Travel'}" id="Travel">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/AddVehicle">Add Vehicle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/VehicleList"> Vehicle List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/AddTravel">Add Trip</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/TravelList">Trip List</a>
+          </li>
+         
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" (click)="toggleMenu('Activities')" [attr.aria-expanded]="activeMenu === 'Activities'" aria-controls="Activities">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Activities</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div [ngClass]="{'collapse': activeMenu !== 'Activities'}" id="Activities">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/AddActivity">Add Activities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/ActivityList">Activities List</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!-- //-================================================================================== -->
+
+    <li class="nav-item">
+      <a class="nav-link" (click)="toggleMenu('Booking')" [attr.aria-expanded]="activeMenu === 'Booking'" aria-controls="Booking">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Booking</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div [ngClass]="{'collapse': activeMenu !== 'Booking'}" id="Booking">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/HotelBooking">Hotel Booking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/TravelBooking">Travel Booking</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!-- ================================================================================================== -->
+
+    <!-- <li class="nav-item">
+      <a class="nav-link" routerLink="/AddService">
+        <span class="menu-title">Add Services</span>
+      </a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" routerLink="/AllServices">
+        <span class="menu-title">All Services</span>
+      </a>
+    </li> -->
+    
+    
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/VendorSubscription">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Subscription</span>
+      </a>
+    </li>
+    <!-- <li class="nav-item">
+      <a class="nav-link" routerLink="/Home">
+        <span class="menu-title">Active Users</span>
+      </a>
+    </li> -->
+
+  
+    
+    <li class="nav-item">
+      <a class="nav-link"  routerLink="/NewServiceRequest" >
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">New Service Request</span>
+ 
+      </a>
+    </li>
+    
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/UserDashbord">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Switch Role</span>
+      </a>
+    </li>  
+
+
+    <!-- <li class="nav-item">
+      <a class="nav-link" >
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title"  (click)="Logout()">Logout</span>
+      </a>
+    </li>  -->
+  </ul>
+</nav>

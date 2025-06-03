@@ -1,0 +1,79 @@
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <app-navbar></app-navbar>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <app-vendor-sidebar></app-vendor-sidebar>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title">Vehicle-list</h4>
+                          
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="text-primary" style="    background-color: #6762621c;">
+                                            <!-- <th>VehicleId</th> -->
+                                            <!-- <th>VendorId</th> -->
+                                            <!-- <th>RegistrationId</th> -->
+                                            <th>VehicleNo</th>
+                                            <!-- <th>VehicleNo</th> -->
+                                            <th>AgencyName</th>
+                                            <th>VehicleType</th>
+                                            <th>NoOfSeats</th>
+                                            <th>TypesOfVehicle</th>
+                                            <th>Amenities</th>
+                                            <th>Image</th>
+                                            <th>Status</th>
+                                            <!-- <th>CreatedDate </th>
+                                            <th>CreatedBy </th>
+                                            <th>UpdatedDate </th>
+                                            <th>UpdatedBy </th> -->
+                                            <th>Action </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let i of vehicleList">
+                                                <!-- <td>{{i.VehicleId}}</td> -->
+                                                <!-- <td>{{i.VendorId}}</td> -->
+                                                <!-- <td>{{i.RegistrationId}}</td> -->
+                                                <td>{{i.VehicleNo}}</td>
+                                                <td>{{i.AgencyName}}</td>
+                                                <td>{{i.VehicleType}}</td>
+                                                <td>{{i.NoOfSeats}}</td>
+                                                <td>{{i.TypesOfVehicle}}</td>
+                                                <td>{{i.Amenities}}</td>
+                                                <td>{{i.Image}}</td>
+                                                <td>{{i.Status}}</td>
+
+
+                                                <!-- <td>{{i.CreatedDate}}</td>
+                                                <td>{{i.CreatedBy}}</td>
+                                                <td>{{i.UpdatedDate}}</td>
+                                                <td>{{i.UpdatedBy}}</td> -->
+                                                <td>
+                                                    <i class="fas fa-pencil-alt iconaction" (click)="Edit(i.VehicleId)"
+                                                        aria-hidden="true"></i>
+                                                    <i class="fa fa-trash iconaction mx-3"
+                                                        (click)="Delete(i.VehicleId)"></i>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>

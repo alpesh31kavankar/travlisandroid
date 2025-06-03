@@ -1,0 +1,52 @@
+[
+    {
+      "AdmCityMasterId": 1,
+      "CityName": "Los Angeles",
+      "admStateMaster": {
+        "AdmStateMasterId": 1
+      }
+    },
+    {
+      "AdmCityMasterId": 2,
+      "CityName": "San Francisco",
+      "admStateMaster": {
+        "AdmStateMasterId": 1
+      }
+    },
+    {
+      "AdmCityMasterId": 3,
+      "CityName": "Houston",
+      "admStateMaster": {
+        "AdmStateMasterId": 2
+      }
+    },
+    {
+      "AdmCityMasterId": 4,
+      "CityName": "Dallas",
+      "admStateMaster": {
+        "AdmStateMasterId": 2
+      }
+    },
+    {
+      "AdmCityMasterId": 5,
+      "CityName": "Toronto",
+      "admStateMaster": {
+        "AdmStateMasterId": 3
+      }
+    },
+    {
+      "AdmCityMasterId": 6,
+      "CityName": "Montreal",
+      "admStateMaster": {
+        "AdmStateMasterId": 4
+      }
+    },
+    {
+      "AdmCityMasterId": 7,
+      "CityName": "Sydney",
+      "admStateMaster": {
+        "AdmStateMasterId": 5
+      }
+    }
+  ]
+  

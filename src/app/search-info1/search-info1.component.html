@@ -1,0 +1,322 @@
+ <!-- <div class="container-scroller">
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+      
+          <div class="col-md-8 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="grid-container">
+                  <div class="grid-item">
+                    <h2>Travel {{ From }} to {{ to }}</h2>
+                    <div class="flex-container">
+                      <div class="flex-item" *ngFor="let property of filteredproperties">
+                        <div class="card">
+                          <img [src]="imgPath + 'Content/Hotel/' + property.Image" class="square-img" alt="{{ property.Title }}">
+                          <div class="card-content">
+                            <h4 class="name">{{ property.Title }}</h4>
+                            <p>C${{ property.Amount }}</p>
+                            <button class="explore-button" (click)="HotelDetails()">See Details</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          
+
+         
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+
+
+
+
+               
+
+                <div class="additional-section activity-section">
+                  <h3>Activity</h3>
+                
+                 
+                  <div *ngIf="!showMoreActivities"  class="activity-card">
+                  
+                    <img [src]="imgPath + 'Content/Activities/' + activities[0].Image" class="activity-img" >
+                 
+                   
+                    <p><strong> Acitivty Name :- </strong>{{ activities[0].Name }}</p>
+                    <p> <strong>Acitivty Cost(CA$):-</strong> {{ activities[0].Amount }}</p>
+                  </div>
+           
+                  <div *ngIf="showMoreActivities">
+                    <div *ngFor="let activity of activities" class="activity-card">
+                      <img [src]="imgPath + 'Content/Activities/' + activity.Image" class="activity-img" >
+                  
+                      <p> Acitivty Name :-{{ activity.Name }}</p>
+                      <p> Acitivty Cost(CA$):-{{ activity.Amount }}</p>
+                    </div>
+                  </div>
+                
+                  
+                  <button class="explore-button" (click)="toggleActivities()">
+                    {{ showMoreActivities ? 'See Less' : 'See More' }}
+                  </button>
+                </div>
+                
+
+
+                <div class="additional-section blog-section">
+                  <h3>Blogs</h3>
+                
+                 
+                  <div *ngIf="!showAllBlogs">
+                    <div class="blog-post">
+                      
+                         <img [src]="imgPath + 'Content/Blog/' + filteredblogs[0].Image" class="activity-img" >
+
+                     
+                    </div>
+                
+                    <button class="see-more-button" (click)="seeMoreBlogs()">See More Blogs</button>
+                  </div>
+                
+                 
+                  <div *ngIf="showAllBlogs">
+
+                    
+                    <div *ngFor="let blog of filteredblogs" class="blog-post">
+                   
+
+                 
+                    </div>
+                
+                   
+                    <button class="see-less-button" (click)="seeLessBlogs()">See Less Blogs</button>
+                  </div>
+                </div>
+                
+
+
+
+             
+                <h4>{{to}} &nbsp;City images</h4>
+             
+                <div id="cityCarousel" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+
+             
+
+                       
+                      <div *ngFor="let img of allCityImages; let i = index"
+                      [ngClass]="{'carousel-item': true, 'active': i === 0}">
+
+
+                      <img [src]="imgPath + 'Content/CityInfo/' + img"  alt="City Image {{ i + 1 }}" class="d-block w-100" >
+                     
+                     
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#cityCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#cityCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+             
+             
+              </div>
+            </div>
+          </div>
+
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>  -->
+
+
+<!-- ******************************************************************************************************* -->
+ 
+
+<div class="container-scroller">
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+          <!-- Back Button Section -->
+          <div class="back-button-container" style="margin-bottom: 20px;">
+            <button class="back-button btn btn-primary" (click)="goBack()" style="display: flex; align-items: center;">
+              <i class="fas fa-arrow-left" style="margin-right: 5px;"></i> Back
+            </button>
+          </div>
+          
+        <div class="row">
+          
+          <!-- =======================Main Content Section (col-md-8) ===========================-->
+
+          <div class="col-md-9 grid-margin stretch-card">
+
+       
+           
+           
+            <div class="card">
+              <div class="card-body">
+                <div class="grid-container">
+                  <div class="grid-item">
+                    <h2>Hotel in  {{ to }}</h2>
+                    <div class="grid-layout">
+                      <div class="grid-card" *ngFor="let property of filteredproperties">
+                        <div class="card-content">
+                          <img [src]="imgPath + 'Content/Hotel/' + property.Image" class="square-img" alt="{{ property.Title }}">
+                          <h4 class="name my-03 text-center"><b><i>{{ property.HotelName}}</i></b></h4>
+                          <h2 class=" priceRange"> <strong>Price Start From -</strong>{{ property.Amenities }} <i>(CA$)</i></h2>
+                          <p class=" Hcity text-center"><strong ><span style="color: rgb(7, 232, 244);"> {{ property.City }} &nbsp; |</span> &nbsp;</strong> <i>{{ property.Address }}</i></p>
+                          <div class="button-container">
+                            <button class="explore-button" (click)="HotelDetails(property.HotelId)">See Details</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+          
+          </div>
+
+          <!--================================== Activity and Blog Section (col-md-4) =======================-->
+          <div class="col-md-3 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+
+                <!-- ================================ Activity Section ===================================== -->
+                <!-- <div class="additional-section activity-section">
+                  <h4>Activity</h4>
+                  <div class="activities-container">
+                    <div *ngFor="let activity of activities" class="latest-post-aside media">
+                    
+                      <div class="lpa-left media-body">
+                        <div class="lpa-title">
+                          <h5>{{ activity.Name }}</h5>
+                        </div>
+                        <div class="lpa-meta">
+                      
+                          <strong>CA$:- {{ activity.Amount }}</strong>
+
+                        </div>
+                        <div class="lpa-meta">
+                          <strong>Description :-</strong> {{ activity.Description }}
+                        </div>
+                      
+                      </div>
+                      <a   (click)="ActivityDeails(activity.ActivitiesId)">
+                        <div class="lpa-right">
+                          <img [src]="imgPath + 'Content/Activities/' + activity.Image" class="activity-img">
+                       
+                      </div>
+                      </a>
+                    
+
+                  </div>
+                  </div>
+                </div> -->
+
+
+                <div class="additional-section activity-section">
+                  <h4>Activity</h4>
+                  <div class="activities-container">
+                    <div 
+                      *ngFor="let activity of activities" 
+                      class="latest-post-aside media activity-card"
+                      (click)="ActivityDeails(activity.ActivitiesId)"
+                    >
+                      <div class="lpa-left media-body">
+                        <div class="lpa-title">
+                          <h5>{{ activity.Name }}</h5>
+                        </div>
+                        <div class="lpa-meta">
+                          <strong>CA$:- {{ activity.Amount }}</strong>
+                        </div>
+                        <div class="lpa-meta">
+                          <strong>Description :-</strong> {{ activity.Description }}
+                        </div>
+                      </div>
+                
+                      <div class="lpa-right">
+                        <img 
+                          [src]="imgPath + 'Content/Activities/' + activity.Image" 
+                          class="activity-img" 
+                          alt="Activity Image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- //===============================Blog Section=============================================== -->
+                <div class="additional-section blog-section">
+                  <h4>Blogs</h4>
+                  <div class="blogs-container">
+                    <div *ngFor="let blog of filteredblogs" class="latest-post-aside media">
+                      <div class="lpa-left media-body">
+                        <div class="lpa-title">
+                          <h5><strong>{{ blog.Name }}</strong></h5>
+                        </div>
+                        <div class="lpa-meta">
+                          Description: {{ blog.Description }} <br>
+                        </div>
+                        <div class="button-container">
+                          <button class="explore-button" (click)="BlogDeails(blog.BlogId)">See Details</button>
+                        </div>
+                      </div>
+                      <div class="lpa-right">
+                        <img [src]="imgPath + 'Content/Blog/' + blog.Image" class="activity-img">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ===================================City Photo Section============================================= -->
+                <h5>{{to}} &nbsp;City images</h5>
+                <div id="cityCarousel" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <div *ngFor="let img of allCityImages; let i = index" [ngClass]="{'carousel-item': true, 'active': i === 0}">
+                      <img [src]="imgPath + 'Content/CityInfo/' + img" alt="City Image {{ i + 1 }}" class="d-block w-100">
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#cityCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#cityCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

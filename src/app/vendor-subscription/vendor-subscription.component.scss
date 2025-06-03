@@ -1,0 +1,179 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .progress-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .step {
+    background-color: #96b2fb;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .card.subscription-card {
+    border: 1px solid #96b2fb;
+    transition: transform 0.3s;
+  }
+  
+  .card.subscription-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card-title {
+    background-color: #96b2fb;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .features {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  .features h5 {
+    font-weight: bold;
+  }
+  
+  .features ol {
+    padding-left: 20px;
+  }
+  
+
+  // 
+  .progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #96b2fb;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+  
+  .progress-line {
+    width: 50px; /* Adjust this width to change the distance between steps */
+    height: 2px;
+    border-top: 2px dotted #96b2fb;
+    margin: 0 10px;
+  }
+  
+  .progress-step span {
+    font-weight: bold;
+    color: #96b2fb;
+  }
+  
+
+    ///new
+ .disabled-link {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+// highlight status
+
+.highlight-card {
+  background-color: #e8f5e9; /* Light green background for success */
+  border-left: 4px solid #4caf50; /* Success green border */
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.highlight-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-text {
+  color: #2e7d32; /* Dark green text color */
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0;
+  text-align: left;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// not have plan highlight
+.info-card {
+  background-color: #fde3e3a1; /* Light blue background for info */
+  border-left: 4px solid red; /* Info blue border */
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.info-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.info-text {
+  color: red; /* Dark blue text color */
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0;
+  text-align: left;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

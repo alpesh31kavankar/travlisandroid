@@ -1,0 +1,272 @@
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <app-navbar></app-navbar>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial -->
+        <!-- partial:partials/_sidebar.html -->
+        <app-vendor-sidebar></app-vendor-sidebar>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Vehicle Form</h4>
+
+
+                          
+                                <form #vehicleForm="ngForm" (ngSubmit)="OnSubmit()">
+                                    <!-- <div class="row">
+                                        <div class="form-group col-lg-6">
+                                            <label for="VendorId">VendorId <span class="text-danger">*</span></label>
+                                            <input type="Int32" id="VendorId" class="form-control"
+                                                placeholder="VendorId" [(ngModel)]="vehicle.VendorId"
+                                                #VendorIdControl="ngModel" name="VendorId" required autofocus="">
+                                     
+                                            <div *ngIf="!vehicle.VendorId && VendorIdControl.touched"
+                                                class="text-danger">
+                                                VendorId is required.
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-lg-6">
+                                            <label for="RegistrationId">RegistrationId <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="Int32" id="RegistrationId" class="form-control"
+                                                placeholder="RegistrationId" [(ngModel)]="vehicle.RegistrationId"
+                                                #RegistrationIdControl="ngModel" name="RegistrationId" required
+                                                autofocus="">
+                                           
+                                            <div *ngIf="!vehicle.RegistrationId && RegistrationIdControl.touched"
+                                                class="text-danger">
+                                                RegistrationId is required.
+                                            </div>
+                                        </div>
+                                    </div> -->
+
+                                    <div class="row">
+                                        <div class="form-group col-lg-6">
+                                            <label for="VehicleNo">Vehicle Number <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" id="VehicleNo" class="form-control dark-select"
+                                                placeholder="Enter Vehicle Number" [(ngModel)]="vehicle.VehicleNo"
+                                                name="VehicleNo" #VehicleNoControl="ngModel" required minlength="1"
+                                                maxlength="50" pattern="^(?!\s*$).+" />
+
+                                            <div *ngIf="VehicleNoControl.invalid && (VehicleNoControl.dirty || VehicleNoControl.touched)"
+                                                class="text-danger">
+                                                <div *ngIf="VehicleNoControl.errors?.['required']">Vehicle Number is
+                                                    required.</div>
+                                                <div *ngIf="VehicleNoControl.errors?.['minlength']">Vehicle Number must
+                                                    be at least 1 character.</div>
+                                                <div *ngIf="VehicleNoControl.errors?.['maxlength']">Vehicle Number
+                                                    cannot exceed 50 characters.</div>
+                                                <div *ngIf="VehicleNoControl.errors?.['pattern']">Vehicle Number cannot
+                                                    contain only whitespace.</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-lg-6">
+                                            <label for="AgencyName">Agency Name <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" id="AgencyName" class="form-control dark-select"
+                                                placeholder="Enter Agency Name" [(ngModel)]="vehicle.AgencyName"
+                                                name="AgencyName" #AgencyNameControl="ngModel" required minlength="1"
+                                                maxlength="50" pattern="^(?!\s*$).+"  />
+
+                                            <!-- Validation message for Agency Name -->
+                                            <div *ngIf="AgencyNameControl.invalid && (AgencyNameControl.dirty || AgencyNameControl.touched)"
+                                                class="text-danger">
+                                                <div *ngIf="AgencyNameControl.errors?.['required']">Agency Name is
+                                                    required.</div>
+                                                <div *ngIf="AgencyNameControl.errors?.['minlength']">Agency Name must be
+                                                    at least 1 character long.</div>
+                                                <div *ngIf="AgencyNameControl.errors?.['maxlength']">Agency Name cannot
+                                                    exceed 50 characters.</div>
+                                                <div *ngIf="AgencyNameControl.errors?.['pattern']">Agency Name cannot
+                                                    contain only whitespace.</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+
+                                       <div class="form-group col-lg-6">
+                                            <label for="VehicleType">Vehicle Type <span class="text-danger">*</span></label>
+                                            <select id="VehicleType" class="form-control dark-select" [(ngModel)]="vehicle.VehicleType" name="VehicleType"
+                                                #VehicleTypeControl="ngModel" required [ngClass]="{ 'is-invalid': VehicleTypeControl.invalid && (VehicleTypeControl.dirty || VehicleTypeControl.touched) }">
+                                                <option value="" disabled>Select Vehicle Type</option>
+                                            
+                                                <option value="Bus">Bus</option>
+                                                <option value="Car">Car</option>
+                                            </select>
+
+                                            <!-- Validation message for Vehicle Type -->
+                                            <div *ngIf="VehicleTypeControl.invalid && (VehicleTypeControl.dirty || VehicleTypeControl.touched)" class="text-danger">
+                                                <div *ngIf="VehicleTypeControl.errors?.['required']">Vehicle Type is required.</div>
+                                            </div>
+                                            </div>
+
+
+                                        <div class="form-group col-lg-6">
+                                            <label for="NoOfSeats">NoOfSeats <span class="text-danger">*</span></label>
+                                            <input type="text" id="NoOfSeats" class="form-control dark-select"
+                                                placeholder="Enter Number of Seats" [(ngModel)]="vehicle.NoOfSeats"
+                                                name="NoOfSeats" #NoOfSeatsControl="ngModel" required minlength="1"
+                                                maxlength="50" pattern="^(?!\s*$).+"  />
+
+                                            <!-- Validation message for NoOfSeats -->
+                                            <div *ngIf="NoOfSeatsControl.invalid && (NoOfSeatsControl.dirty || NoOfSeatsControl.touched)"
+                                                class="text-danger">
+                                                <div *ngIf="NoOfSeatsControl.errors?.['required']">NoOfSeats is
+                                                    required.</div>
+                                                <div *ngIf="NoOfSeatsControl.errors?.['minlength']">NoOfSeats must be at
+                                                    least 1 character long.</div>
+                                                <div *ngIf="NoOfSeatsControl.errors?.['maxlength']">NoOfSeats cannot
+                                                    exceed 50 characters.</div>
+                                                <div *ngIf="NoOfSeatsControl.errors?.['pattern']">NoOfSeats cannot
+                                                    contain only whitespace.</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-lg-6">
+                                            <label for="TypesOfVehicle">AC or Non AC
+                                                 <span class="text-danger">*</span><span></span></label>
+                                            <select id="TypesOfVehicle" class="form-control dark-select"
+                                                [(ngModel)]="vehicle.TypesOfVehicle" name="TypesOfVehicle"
+                                                #TypesOfVehicleControl="ngModel" required
+                                                [ngClass]="{ 'is-invalid': TypesOfVehicleControl.invalid && (TypesOfVehicleControl.dirty || TypesOfVehicleControl.touched) }">
+                                                <option value="" disabled>Select Type of Vehicle</option>
+                                                <option value="AC">AC</option>
+                                                <option value="Non-AC">Non-AC</option>
+                                            </select>
+
+                                            <!-- Validation message for TypesOfVehicle -->
+                                            <div *ngIf="TypesOfVehicleControl.invalid && (TypesOfVehicleControl.dirty || TypesOfVehicleControl.touched)"
+                                                class="text-danger">
+                                                <div *ngIf="TypesOfVehicleControl.errors?.['required']">Types of Vehicle
+                                                    is required.</div>
+                                                <div *ngIf="TypesOfVehicleControl.errors?.['pattern']">Please select a
+                                                    valid type of vehicle (no whitespace allowed).</div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group col-lg-6">
+                                            <label for="Amenities">Amenities <span class="text-danger">*</span></label>
+                                            <input type="text" id="Amenities" class="form-control dark-select"
+                                                placeholder="Enter Amenities" [(ngModel)]="vehicle.Amenities"
+                                                name="Amenities" #AmenitiesControl="ngModel" required minlength="1"
+                                                maxlength="50" pattern="^(?!\s*$).+"  />
+
+                                            <!-- Validation message for Amenities -->
+                                            <div *ngIf="AmenitiesControl.invalid && (AmenitiesControl.dirty || AmenitiesControl.touched)"
+                                                class="text-danger">
+                                                <div *ngIf="AmenitiesControl.errors?.['required']">Amenities are
+                                                    required.</div>
+                                                <div *ngIf="AmenitiesControl.errors?.['minlength']">Amenities must be at
+                                                    least 1 character long.</div>
+                                                <div *ngIf="AmenitiesControl.errors?.['maxlength']">Amenities cannot
+                                                    exceed 50 characters.</div>
+                                                <div *ngIf="AmenitiesControl.errors?.['pattern']">Amenities cannot
+                                                    contain only whitespace.</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <!-- <div class="form-group col-lg-6">
+                                            <label for="Image">Image <span class="text-danger">*</span></label>
+                                            <input class="form-control dark-select" type="file" name="Image"
+                                                (change)="fileChangeEvent($event)" required
+                                                accept="image/png, image/jpeg" #image="ngModel" id="formFile" ngModel />
+
+                                          
+                                            <div *ngIf="image.invalid && image.touched" class="text-danger">
+                                                <div *ngIf="image.errors?.['required']">Image is required.</div>
+                                                <div *ngIf="image.errors?.['accept']">Only PNG and JPEG images are
+                                                    allowed.</div>
+                                            </div>
+                                        </div> -->
+
+                                        <div class="form-group d-flex align-items-center col-lg-6">
+                                            <!-- Image Upload Section -->
+                                            <div class="col-lg-6">
+                                              <label for="Image">Image<span class="text-danger">*</span></label>
+                                              <input 
+                                                class="form-control dark-select" 
+                                                type="file" 
+                                                name="Image" 
+                                                (change)="fileChangeEvent($event)" 
+                                                required
+                                                accept="image/png, image/jpeg" 
+                                                #image="ngModel" 
+                                                id="formFile" 
+                                                [(ngModel)]="vehicle.Image" 
+                                                ngModel>
+                                              <!-- Validation Error Message for Image -->
+                                              <div *ngIf="image.invalid && image.touched" class="text-danger">
+                                                Image is required.
+                                              </div>
+                                            </div>
+                                          
+                                            <!-- Image Preview Section -->
+                                            <div class="col-lg-6 text-center">
+                                              <div *ngIf="imagePreview || vehicle.Image">
+                                                <img 
+                                                  *ngIf="imagePreview" 
+                                                  [src]="imagePreview" 
+                                                  alt="New Image Preview" 
+                                                  class="img-fluid preview-img">
+                                                <img 
+                                                  *ngIf="!imagePreview && vehicle.Image" 
+                                                  [src]="imgPath + 'Content/Vehicle/' + vehicle.Image" 
+                                                  alt="Existing Image Preview" 
+                                                  class="img-fluid preview-img">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                        <div class="form-group col-lg-6">
+                                            <label for="Status">Status <span class="text-danger">*</span></label>
+                                            <select class="form-control dark-select" id="Status" name="Status"
+                                                [(ngModel)]="vehicle.Status" #StatusControl="ngModel" required>
+                                                <option value="" disabled selected>Select Status</option>
+                                                <option value="active">Active</option>
+                                                <option value="inactive">Inactive</option>
+                                            </select>
+
+                                            <!-- Validation message for Status -->
+                                            <div *ngIf="!vehicle.Status && StatusControl.touched" class="text-danger">
+                                                Status is required.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" [disabled]="vehicleForm.invalid" class="btn btn-primary mr-2">
+                                        Submit
+                                    </button>
+                                </form>
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

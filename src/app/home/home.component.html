@@ -1,0 +1,207 @@
+<div class="banner">
+    <video src="\assets\bgvid.mp4" type="video/mp4" autoplay muted loop></video>
+  
+  
+  
+    <div class="content" id="home">
+      <nav>
+        <img src="../../assets/TravlisLogo.png" class="logo" alt="Logo" title="FirstFlight Travels">
+  
+        <ul class="navbar">
+          <li>
+            <a routerLink="#home">Home</a>
+
+            <a routerLink="./about.html">About Us</a>
+            <a routerLink="./about.html">Contact Us</a>
+            <a routerLink="/Login">Login</a>
+          </li>
+        </ul>
+      </nav>
+  
+      <!-- <nav>
+        <img src="assets/logo.png" class="logo" alt="Logo" title="FirstFlight Travels">
+        
+        <ul class="navbar" [ngClass]="{ 'active': isNavOpen }">
+          <li><a routerLink="/home">Home</a></li>
+          <li><a routerLink="/about">About Us</a></li>
+          <li><a routerLink="/contact">Contact Us</a></li>
+          <li><a routerLink="/Login">Login</a></li>
+        </ul>
+        
+        <button class="navbar-toggle" (click)="toggleNav()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav> -->
+  
+      <div class="title">
+        
+       
+        <h1>FIRSTFLIGHT TRAVELS</h1>
+        <p>Plan your trip with us and travel around the world with the most affordable packages!</p>
+       <a routerLink="/Registration"> <button class="stylish-button">Register Now</button></a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Services -->
+  
+  <section class="container">
+    <div class="text">
+      <h2>We have the best services available for you!</h2>
+    </div>
+    <div class="rowitems">
+      <div class="container-box">
+        <div class="container-image">
+          <img src="assets/1a.jpg" alt="Flight Services">
+        </div>
+        <h4>Flight Services</h4>
+        <p>Arrival and Departure</p>
+      </div>
+      <!--     
+          <div class="container-box">
+          <div class="container-image">
+             <img src="assets/2a.jpg" alt="Food Services">
+          </div>
+              <h4>Food Services</h4>
+              <p>Catering</p>
+          </div> -->
+  
+      <div class="container-box">
+        <div class="container-image">
+          <a [routerLink]="['/travelservices']">
+            <img src="assets/4a.jpg" alt="Hotel Services">
+          </a>
+        </div>
+        <h4>Travel Services</h4>
+        <p>Pick-up/drop</p>
+      </div>
+  
+      <div class="container-box">
+        <div class="container-image">
+          <a [routerLink]="['/hotelservices']">
+            <img src="assets/4a.jpg" alt="Hotel Services">
+          </a>
+        </div>
+        <h4>Hotel Services</h4>
+        <p>Check-in/out</p>
+      </div>
+  
+      <div class="container-box">
+        <div class="container-image">
+          <a [routerLink]="['/activites']">
+            <img src="assets/fun.png" alt="Hotel Services">
+          </a>
+        </div>
+        <h4>Activites</h4>
+        <p>Book and Enjoy</p>
+      </div>
+  
+    </div>
+  
+  
+  
+  </section>
+  
+  
+  
+  <!-- //======================================= -->
+  
+  <div class="header">
+    <h1>Most Beautiful Places in Canada</h1>
+  </div>
+  
+  <div class="card-container">
+    <div class="card"
+      style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJNXaZ_qRS_LHIYR1kDWh7j-uRvtGrlGaQkA&s');">
+      <h2 class="card-title">Canada Waterfall</h2>
+      <div class="card-content">
+        <button class="explore-button" onclick="onExploreClick('Canada Waterfall')">Explore</button>
+      </div>
+    </div>
+    <div class="card"
+      style="background-image: url('https://i.natgeofe.com/n/11e30e6f-6fd8-4755-9647-0df41738713a/92565_4x3.jpg');">
+      <h2 class="card-title">Rocky Mountains</h2>
+      <div class="card-content">
+        <button class="explore-button" onclick="onExploreClick('Rocky Mountains')">Explore</button>
+      </div>
+    </div>
+    <div class="card"
+      style="background-image: url('https://media.tacdn.com/media/attractions-splice-spp-674x446/12/73/85/14.jpg');">
+      <h2 class="card-title">Niagara Falls</h2>
+      <div class="card-content">
+        <button class="explore-button" onclick="onExploreClick('Niagara Falls')">Explore</button>
+      </div>
+    </div>
+    <div class="card"
+      style="background-image: url('https://vastphotos.com/files/uploads/photos/10521/toronto-skyline-sunset-l.jpg?v=20220712073521');">
+      <h2 class="card-title">Toronto Skyline</h2>
+      <div class="card-content">
+        <button class="explore-button" onclick="onExploreClick('Toronto Skyline')">Explore</button>
+      </div>
+    </div>
+    <div class="card"
+      style="background-image: url('https://cdn.audleytravel.com/2058/1470/79/526979-a-pod-of-orca-off-vancouver-island.jpg');">
+      <h2 class="card-title">Vancouver Island</h2>
+      <div class="card-content">
+        <button class="explore-button" onclick="onExploreClick('Vancouver Island')">Explore</button>
+      </div>
+    </div>
+    <div class="card"
+      style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmmMENotsAeTDK19fMUV6aDX8YqwTegqevfg&s');">
+      <h2 class="card-title">Whistler</h2>
+      <div class="card-content">
+        <button class="explore-button" onclick="onExploreClick('Whistler')">Explore</button>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- //==============slider image ========================== -->
+  
+  <div class="photo-gallery-container">
+    <h1 class="gallery-heading">Photo Gallery</h1>
+    <div class="slider-container">
+      <input type="radio" name="slider" id="slide1" checked>
+      <input type="radio" name="slider" id="slide2">
+      <input type="radio" name="slider" id="slide3">
+      <input type="radio" name="slider" id="slide4">
+  
+      <div class="slides">
+        <div class="slide" id="s1">
+          <div class="slide-content">
+            <h2 class="card-title1">Bay of Fundy</h2>
+            <button class="explore-button">Explore</button>
+          </div>
+        </div>
+        <div class="slide" id="s2">
+          <div class="slide-content">
+            <h2 class="card-title1">Mountains</h2>
+            <button class="explore-button">Explore</button>
+          </div>
+        </div>
+        <div class="slide" id="s3">
+          <div class="slide-content">
+            <h2 class="card-title1">Jasper National Park</h2>
+            <button class="explore-button">Explore</button>
+          </div>
+        </div>
+        <div class="slide" id="s4">
+          <div class="slide-content">
+            <h2 class="card-title1">Ripley's Aquarium of Canada</h2>
+            <button class="explore-button">Explore</button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="navigation">
+        <label for="slide1" class="nav-dot"></label>
+        <label for="slide2" class="nav-dot"></label>
+        <label for="slide3" class="nav-dot"></label>
+        <label for="slide4" class="nav-dot"></label>
+      </div> 
+    </div>
+  </div>
+  
+  
+  
+  <!-- <app-hedder></app-hedder> -->

@@ -1,0 +1,67 @@
+<!-- <app-header></app-header> -->
+<app-navbar></app-navbar>
+
+<br>
+<br>
+
+<div class="row">
+  <div class="col-lg-2 ">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-lg-10" style="    padding: 2%;">
+    <div class="container">
+      <!-- Main start -->
+      <br>
+      <h4 class="formtitle2" style="text-align: left;   margin-top: 10px;">Subscription For End User</h4>
+      <br>
+
+
+      <!--               
+                <div class="row mt-4">
+                  <div class="col-md-4" *ngFor="let i of admSubscriptionList">
+                    <div class="card subscription-card shadow-sm">
+                        <div class="card-body" style="text-align: center;">
+                            <h5 class="card-title">{{i.Title}} </h5>
+                            <p class="card-text">CAD {{i.Price}} </p>
+                            <ul class="list-unstyled">
+                                <li><a href="#!"><pre>{{i.Description}}</pre></a></li>
+                            
+                            </ul>
+                            <a  class="btn btn-outline-primary" (click)="onClick(i.AdmSubscriptionId)">Buy Now</a>
+                       <br>
+                    
+                          </div>
+                    </div>
+                </div>
+                
+                </div> -->
+
+
+
+
+      <div class="row mt-4">
+        <div class="col-md-4" *ngFor="let i of admSubscriptionList">
+          <div class="card subscription-card shadow-sm">
+            <div class="card-body" style="text-align: center;">
+              <h5 class="card-title">{{ i.Title }}</h5>
+              <p class="card-text">CAD {{ i.Price }}</p>
+              <ul class="list-unstyled">
+                <li><a href="#!">
+                    <pre>{{ i.Description }}</pre>
+                  </a></li>
+              </ul>
+              <a class="btn btn-outline-primary" [ngClass]="{'disabled-link': i.isPurchased}"
+                (click)="!i.isPurchased && onClick(i.AdmSubscriptionId)">
+                {{ i.isPurchased ? 'Already Purchased' : 'Buy Now' }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div><br>
+
+
+      <br>
+    </div>
+
+  </div>
+</div>

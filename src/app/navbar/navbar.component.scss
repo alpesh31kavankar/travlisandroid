@@ -1,0 +1,165 @@
+// .navbar-menu-wrapper img {
+//     border: 2px solid white; /* Optional: adds a border around the user photo */
+// }
+
+// .navbar-menu-wrapper span {
+//     color: white; /* Change to the appropriate text color */
+//     font-weight: bold; /* Optional: makes the user name bold */
+// }
+.sss{
+    width: -webkit-fill-available;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    background-color: #4f93ff;
+    color: white;
+}
+
+.ll:focus {
+    box-shadow: none !important;
+   
+}
+
+
+.ll {
+  
+    border:none;
+}
+
+/* Ensure dropdown opens properly */
+// .dropdown:hover .dropdown-menu {
+//     display: block;
+//   }
+  
+//   /* Adjust spacing */
+//   .dropdown-menu {
+//     margin-top: 5px;
+//     min-width: 150px;
+//   }
+  
+//   .dropdown-toggle::after {
+//     display: none;
+//   }
+  
+/* Ensure the dropdown appears properly */
+// .dropdown-menu {
+//     min-width: 180px;
+//     border-radius: 8px;
+//     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+//   }
+  
+//   /* Button styling */
+//   .dropdown-toggle {
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+//   }
+  
+//   /* Ensure spacing for text */
+//   .dropdown-toggle span {
+//     white-space: nowrap;
+//   }
+  
+//   /* Dropdown item hover effect */
+//   .dropdown-menu .dropdown-item:hover {
+//     background-color: #f8f9fa;
+//   }
+  
+/* Ensure the dropdown appears properly */
+/* Style for the dropdown menu */
+.dropdown-menu {
+    min-width: 200px; /* Adjust width */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style for dropdown items */
+  .dropdown-item {
+    font-size: 16px;
+    padding: 10px 15px;
+    // color: #333;
+    transition: background 0.3s ease-in-out;
+    border-radius: 5px;
+  }
+  
+  /* Dropdown item hover effect */
+  .dropdown-menu .dropdown-item:hover {
+    background-color: #027efa;
+    color: white;
+  }
+  
+  /* Specific styling for Logout button */
+  .dropdown-item:first-child {
+    font-weight: bold;
+    color: #dc3545;
+  }
+  
+  .dropdown-item:first-child:hover {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  /* Specific styling for Feedback button */
+  .dropdown-item:last-child {
+    font-weight: bold;
+    color: #1105f6;
+  }
+  
+  .dropdown-item:last-child:hover {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  /* Default styles for sidebar */
+.sidebar-offcanvas {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hide it off-screen initially */
+  width: 250px; /* Adjust as needed */
+  height: 100%;
+  background-color: #333;
+  transition: transform 0.3s ease-in-out;
+  z-index: 9999;
+  color: white;
+  padding: 20px;
+}
+
+/* Active state for sidebar when toggled */
+.sidebar-offcanvas.active {
+  transform: translateX(250px); /* Move sidebar into view */
+}
+
+/* Body background overlay when sidebar is open */
+body.sidebar-open {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Button or menu icon to toggle the sidebar */
+.sidebar-toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Mobile-specific sidebar styles */
+@media (max-width: 768px) {
+  .sidebar-offcanvas {
+    display: block;
+  }
+
+  /* Optional: Make sidebar more narrow or adjust size for mobile */
+  .sidebar-offcanvas.active {
+    transform: translateX(0); /* Sidebar enters the viewport */
+  }
+
+  /* Sidebar toggle button for mobile view */
+  .sidebar-toggle {
+    display: block;
+  }
+}

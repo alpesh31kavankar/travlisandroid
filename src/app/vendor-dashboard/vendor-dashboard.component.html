@@ -1,0 +1,178 @@
+<div class="container-scroller">
+
+
+  <app-navbar></app-navbar>
+
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+
+
+    <!-- partial -->
+    <!-- partial:partials/_sidebar.html -->
+    <!-- <app-sidebar></app-sidebar> -->
+
+
+    <app-vendor-sidebar></app-vendor-sidebar>
+
+    <!-- partial -->
+    <!-- <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                
+              </div>
+              
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card tale-bg">
+                <div class="card-people mt-auto">
+                  <img src="https://i.pinimg.com/736x/84/70/94/847094a5d2df67f4fc7a7a6b77bcfe7b.jpg" alt="people">
+                  <div class="weather-info">
+                    <div class="d-flex">
+                      <div>
+                        <h2 class="mb-0 font-weight-normal"><i class="icon-search mr-2"></i></h2>
+                      </div>
+                      <div class="ml-2" style="color: white;">
+                        <h4 class="location font-weight-normal">Bookings</h4>
+                        <h6 class="font-weight-normal">History</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 grid-margin transparent">
+              <div class="row">
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                  <div class="card card-tale" style="background-image: url('/assets/newassets/1.png');">
+                    <div class="card-body">
+                      <p class="mb-4">Total Bolg</p>
+                      <p class="fs-30 mb-2">{{  BlogListCount }}</p>
+                    
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                  <div class="card card-dark-blue" style="background-image: url('/assets/newassets/2.png');">
+                    <div class="card-body">
+                      <p class="mb-4">Total Acitivity</p>
+                      <p class="fs-30 mb-2">{{AcitivityListCount}}</p>
+                
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                  <div class="card card-light-blue" style="background-image: url('/assets/newassets/3.png');">
+                    <div class="card-body">
+                      <p class="mb-4">Number of Hotel</p>
+                      <p class="fs-30 mb-2">{{HotelListCount}}</p>
+  
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 stretch-card transparent">
+                  <div class="card card-light-danger" style="background-image: url('/assets/newassets/4.png');">
+                    <div class="card-body">
+                      <p class="mb-4">Number of Travel Trip</p>
+                      <p class="fs-30 mb-2">{{TravelListCount}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+  
+  
+      </div> -->
+
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+            <div class="container my-4">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                  <h3 class="font-weight-bold"> Welcome to the Vendor Panel! </h3><br>
+                  <h6 class="styled-heading">
+                    Your journey towards seamless travel management starts here—let's create unforgettable experiences!
+                  </h6>
+
+                </div>
+
+                <div class="col-12 col-xl-4">
+                  <div class="justify-content-end d-flex">
+                    <!-- Optional button or stats can be added here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="container my-4">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card text-white bg-info">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Total Blog!</h5>
+                  <h2 class="card-count">{{ BlogListCount }}</h2>
+                  <a routerLink="/BlogList" class="btn btn-light">View Details</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card text-white bg-secondary">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Total Acitivity!</h5>
+                  <h2 class="card-count">{{AcitivityListCount}}</h2>
+                  <a routerLink="/ActivityList" class="btn btn-light">View Details</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card text-white bg-info">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Number of Hotel!</h5>
+                  <h2 class="card-count">{{HotelListCount}}</h2>
+                  <a routerLink="/HotelList" class="btn btn-light">View Details</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card text-white bg-secondary">
+                <div class="card-body text-center">
+                  <h5 class="card-title">No of Travel Trip!</h5>
+                  <h2 class="card-count">{{TravelListCount}}</h2>
+                  <a routerLink="/TravelList" class="btn btn-light">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+  </div>
+</div>

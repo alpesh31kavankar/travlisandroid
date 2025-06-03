@@ -1,0 +1,23 @@
+.text-center {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2f2c33; /* Deep Purple */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle Shadow */
+    padding: 10px;
+    border-bottom: 3px solid #2f2c33; /* Underline Effect */
+    display: inline-block;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .text-center {
+      font-size: 22px; /* Smaller Font for Mobile */
+    }
+  }
+  

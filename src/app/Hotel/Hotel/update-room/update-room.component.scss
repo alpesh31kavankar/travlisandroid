@@ -1,0 +1,18 @@
+.d-flex {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .align-items-center {
+    align-items: center;
+  }
+  
+  .preview-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover; /* Ensures the image scales properly */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+    

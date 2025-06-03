@@ -1,0 +1,297 @@
+ <!-- <div class="container-scroller">
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+      
+          <div class="col-md-8 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="grid-container">
+                  <div class="grid-item">
+                    <h2>Travel {{ From }} to {{ to }}</h2>
+                    <div class="flex-container">
+                      <div class="flex-item" *ngFor="let property of filteredproperties">
+                        <div class="card">
+                          <img [src]="imgPath + 'Content/Hotel/' + property.Image" class="square-img" alt="{{ property.Title }}">
+                          <div class="card-content">
+                            <h4 class="name">{{ property.Title }}</h4>
+                            <p>C${{ property.Amount }}</p>
+                            <button class="explore-button" (click)="HotelDetails()">See Details</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          
+
+         
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+
+
+
+
+               
+
+                <div class="additional-section activity-section">
+                  <h3>Activity</h3>
+                
+                 
+                  <div *ngIf="!showMoreActivities"  class="activity-card">
+                  
+                    <img [src]="imgPath + 'Content/Activities/' + activities[0].Image" class="activity-img" >
+                 
+                   
+                    <p><strong> Acitivty Name :- </strong>{{ activities[0].Name }}</p>
+                    <p> <strong>Acitivty Cost(CA$):-</strong> {{ activities[0].Amount }}</p>
+                  </div>
+           
+                  <div *ngIf="showMoreActivities">
+                    <div *ngFor="let activity of activities" class="activity-card">
+                      <img [src]="imgPath + 'Content/Activities/' + activity.Image" class="activity-img" >
+                  
+                      <p> Acitivty Name :-{{ activity.Name }}</p>
+                      <p> Acitivty Cost(CA$):-{{ activity.Amount }}</p>
+                    </div>
+                  </div>
+                
+                  
+                  <button class="explore-button" (click)="toggleActivities()">
+                    {{ showMoreActivities ? 'See Less' : 'See More' }}
+                  </button>
+                </div>
+                
+
+
+                <div class="additional-section blog-section">
+                  <h3>Blogs</h3>
+                
+                 
+                  <div *ngIf="!showAllBlogs">
+                    <div class="blog-post">
+                      
+                         <img [src]="imgPath + 'Content/Blog/' + filteredblogs[0].Image" class="activity-img" >
+
+                     
+                    </div>
+                
+                    <button class="see-more-button" (click)="seeMoreBlogs()">See More Blogs</button>
+                  </div>
+                
+                 
+                  <div *ngIf="showAllBlogs">
+
+                    
+                    <div *ngFor="let blog of filteredblogs" class="blog-post">
+                   
+
+                 
+                    </div>
+                
+                   
+                    <button class="see-less-button" (click)="seeLessBlogs()">See Less Blogs</button>
+                  </div>
+                </div>
+                
+
+
+
+             
+                <h4>{{to}} &nbsp;City images</h4>
+             
+                <div id="cityCarousel" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+
+             
+
+                       
+                      <div *ngFor="let img of allCityImages; let i = index"
+                      [ngClass]="{'carousel-item': true, 'active': i === 0}">
+
+
+                      <img [src]="imgPath + 'Content/CityInfo/' + img"  alt="City Image {{ i + 1 }}" class="d-block w-100" >
+                     
+                     
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#cityCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#cityCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+             
+             
+              </div>
+            </div>
+          </div>
+
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>  -->
+
+
+<!-- ******************************************************************************************************* -->
+ 
+
+<div class="container-scroller">
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+           <!-- Back Button Section -->
+           <div class="back-button-container" style="margin-bottom: 20px;">
+            <button class="back-button btn btn-primary" (click)="goBack()" style="display: flex; align-items: center;">
+              <i class="fas fa-arrow-left" style="margin-right: 5px;"></i> Back
+            </button>
+          </div>
+          
+        <div class="row">
+          
+          <!-- =======================Main Content Section (col-md-8) ===========================-->
+
+          <div class="col-md-12 grid-margin stretch-card">
+
+         
+           
+           
+            <div class="card">
+              <div class="card-body">
+                <div class="grid-container">
+                  <div class="grid-item">
+                    <!-- <h2>Rooms in {{ hotel.HotelName}}</h2> -->
+                    <div class="grid-layout">
+                      <div class="grid-card" *ngFor="let property of filteredproperties">
+                        <div class="card-content">
+                          <img [src]="imgPath + 'Content/Rooms/' + property.Image" 
+                               class="square-img" 
+                               alt="Room Image">
+                          <h4 class="name my-03 text-center" ><i>{{ property.hotel.HotelName }}</i></h4>
+                          <h2 class=" my-03"> <strong>Room Type:-</strong>{{ property.RoomType }}</h2>
+                          <p class="text-center"><strong> CA$:- &nbsp;{{ property.PricePerNight }}</strong>&nbsp; <span class="pernight">(Per Night) </span></p>
+                          <div class="button-container">
+                            <button class="explore-button btn btn-primary my-03" 
+                                    (click)="openModal(property)" (click)="HotelDetails(property.RoomsId)">
+                              See Details
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          
+            
+
+        
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- <div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ selectedProperty?.hotel.HotelName }}</h2>
+    <img [src]="imgPath + 'Content/Rooms/' + selectedProperty?.Image" class="modal-img " height="200px">
+    <p><strong>Amenities: </strong>{{ selectedProperty?.Amenities }}</p>
+    <p><strong>Price Per Night: </strong>{{ selectedProperty?.PricePerNight }}</p>
+
+    <p><strong>PropertyRules:-</strong>{{RoomDetail.PropertyRules}}</p>
+  <p><strong>ContactNo:-</strong>{{RoomDetail.ContactNo}}</p>
+   
+
+    <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+  </div>
+</div> -->
+
+
+<!-- ///////////////////////////////my changes /////////////////////////////// -->
+
+
+<!-- <div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ selectedProperty?.hotel.HotelName }}</h2>
+    <img [src]="imgPath + 'Content/Rooms/' + selectedProperty?.Image" 
+         class="modal-img" 
+         alt="Room Image" />
+
+    <p><strong>Amenities: </strong>{{ selectedProperty?.Amenities }}</p>
+    <p>  <strong>CA$ &nbsp;{{ selectedProperty?.PricePerNight }}</strong>  Per Night </p>
+    <p><strong>Property Rules: </strong>{{ RoomDetail.PropertyRules }}</p>
+    <p><strong>Contact No: </strong>{{ RoomDetail.ContactNo }}</p>
+
+
+    
+   
+
+    <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+  </div>
+</div> -->
+
+
+
+<div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+
+    <h2>{{ selectedProperty?.hotel.HotelName }}</h2>
+
+    <img 
+      [src]="imgPath + 'Content/Rooms/' + selectedProperty?.Image" 
+      class="modal-img" 
+      alt="Room Image" 
+    />
+
+    <div class="modal-details">
+      <div class="detail-row">
+        <p class="detail-item amenities">
+          <strong>Amenities:</strong> {{ selectedProperty?.Amenities }}
+        </p>
+        <p class="detail-item price">
+          <strong>CA$ {{ selectedProperty?.PricePerNight }}</strong> &nbsp;<span >Per Night</span> 
+        </p>
+      </div>
+
+      <div class="detail-row">
+        <p class="detail-item rules">
+          <strong>Property Rules:</strong> {{ RoomDetail.PropertyRules }}
+        </p>
+        <p class="detail-item contact">
+          <strong>Contact No:</strong> {{ RoomDetail.ContactNo }}
+        </p>
+      </div>
+    </div>
+
+    <button class="btn btn-secondary close-btn" (click)="closeModal()">Close</button>
+  </div>
+</div>

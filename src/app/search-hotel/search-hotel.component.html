@@ -1,0 +1,78 @@
+<div class="container form-container">
+  <form #flightForm="ngForm" (ngSubmit)="onSearch(flightForm)">
+    <div class="form-row">
+  
+      <div class="form-group col-md-6">
+        <label for="filter">Search By</label>
+        <select id="filter" name="filter" ngModel [(ngModel)]="filter" (change)="onFilterChange($event)">
+          <option value="hotel">Hotel</option>
+          <option value="travel">Travel</option>
+        </select>
+      </div>
+
+      <!-- <div class="form-group col-md-6">
+        <label for="to"> Select Destination </label>
+        <input type="text" id="to" name="to" ngModel [(ngModel)]="to" placeholder="Enter Destination">
+      </div> -->
+   
+      <div class="form-group position-relative">
+        <label for="Search City">From City <span class="text-danger">*</span></label>
+        <input
+        type="text"
+        class="form-control"
+        placeholder="Search City"
+        [(ngModel)]="searchTerm"
+        name="searchTerm"
+        (input)="filterCities()"
+        (focus)="toggleDropdown()"
+        (blur)="hideDropdown()"
+        autocomplete="off"
+        />
+        
+        <!-- Dropdown for city suggestions -->
+        <ul class="dropdown-menu" [class.show]="showDropdown" style="max-height: 150px; overflow-y: auto;">
+        <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+            <a class="dropdown-item">{{ city }}</a>
+        </li>
+        </ul>
+
+    </div>
+   
+    </div>
+
+    <div class="form-row button_sb">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
+</div>
+
+
+
+<!-- <div class="form-group">
+  <label for="filter">Search By</label>
+  <div class="icon-group">
+    <i class="fas fa-hotel icon" (click)="setFilter('hotel')"></i>
+    <i class="fas fa-plane icon" (click)="setFilter('travel')"></i>
+    <i class= "fas fa-bus icon"  (click)="setFilter('travel')"></i>
+   
+  </div>
+</div>
+
+<div class="container form-container">
+  <form #flightForm="ngForm" (ngSubmit)="onSearch(flightForm)">
+    <div class="form-row">
+      
+    
+
+    
+      <div class="form-group col-md-6">
+        <label for="to">Destination</label>
+        <input type="text" id="to" name="to" ngModel [(ngModel)]="to" placeholder="Enter Destination">
+      </div>
+    </div>
+
+    <div class="form-row button_sb">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
+</div> -->

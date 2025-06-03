@@ -1,0 +1,210 @@
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+ <app-navbar></app-navbar>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+
+     
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <app-sidebar></app-sidebar>
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">User Information</h4>
+
+            <div class="content">
+              <ng-container [ngSwitch]="currentView">
+                <div *ngSwitchCase="'profile'" class="personal-info">
+                  <div class="header  d-flex justify-content-between align-items-center">
+                    <button class="btn btn-sm btn-primary enable-edit-btn" (click)="toggleEditMode()">
+                      {{ editMode ? 'Disable Edit' : 'Enable Edit' }}
+                    </button>
+                    <!-- <button class="btn btn-sm btn-primary enable-edit-btn" (click)="UserDatils()">
+                     Add User Detail
+                    </button> -->
+                  </div>
+                  <!-- <p>{{userInfo.FName}}</p> -->
+                   
+ <!-- <form (ngSubmit)="saveInfo()" #personalInfoForm="ngForm">
+                    <div class="form-row">
+                      <div class="form-group col">
+                        <label for="fname">First Name:</label>
+                        <input
+                          type="text"
+                          id="fname"
+                          [(ngModel)]="userInfo.FName"
+                          name="fname"
+                          class="form-control"
+                          [disabled]="!editMode"
+                          required
+                        />
+                      </div>
+                      <div class="form-group col">
+                        <label for="lname">Last Name:</label>
+                        <input
+                          type="text"
+                          id="lname"
+                          [(ngModel)]="userInfo.LName"
+                          name="lname"
+                          class="form-control"
+                          [disabled]="!editMode"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col">
+                        <label for="email">Email:</label>
+                        <input
+                          type="email"
+                          id="email"
+                          [(ngModel)]="userInfo.Email"
+                          name="email"
+                          class="form-control"
+                          [disabled]="!editMode"
+                          required
+                        />
+                      </div>
+                   
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      [disabled]=" !editMode"
+                    >
+                      Save
+                    </button>
+                  </form>                  -->
+<!-- //============================================================================================ -->
+
+
+
+<form (ngSubmit)="saveInfo()" #form="ngForm">
+
+  <!-- First Row: Contact and Tagline -->
+  <div class="row">
+    <div class="col-md-6 form-group input_field">
+      <label for="Contact">Contact<span class="text-danger">*</span></label>
+      <input type="text" id="Contact" class="form-control" placeholder="Contact" [(ngModel)]="userDetail.Contact" name="Contact" required [disabled]="!editMode">
+    </div>
+    <div class="col-md-6 form-group input_field">
+      <label for="Tagline">Tagline<span class="text-danger">*</span></label>
+      <input type="text" id="Tagline" class="form-control" placeholder="Tagline" [(ngModel)]="userDetail.Tagline" name="Tagline" required [disabled]="!editMode">
+    </div>
+  </div>
+
+  <!-- Second Row: Birth Date and Address -->
+  <div class="row">
+    <div class="col-md-6 form-group input_field">
+      <label for="BirthDate">Birth Date<span class="text-danger">*</span></label>
+      <input type="date" id="BirthDate" class="form-control" [(ngModel)]="userDetail.BirthDate" name="BirthDate" required [disabled]="!editMode">
+    </div>
+    <div class="col-md-6 form-group input_field">
+      <label for="Address">Address<span class="text-danger">*</span></label>
+      <input type="text" id="Address" class="form-control" placeholder="Address" [(ngModel)]="userDetail.Address" name="Address" required [disabled]="!editMode">
+    </div>
+  </div>
+
+  <!-- Third Row: Gender and Country -->
+  <div class="row">
+    <div class="col-md-6 form-group input_field">
+      <label for="Gender">Gender<span class="text-danger">*</span></label>
+      <select id="Gender" class="form-control" [(ngModel)]="userDetail.Gender" name="Gender" required [disabled]="!editMode">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="col-md-6 form-group input_field">
+      <label for="AdmCountryMasterId">Country<span class="text-danger">*</span></label>
+      <input type="text" id="AdmCountryMasterId" class="form-control" placeholder="Country" [(ngModel)]="userDetail.AdmCountryMasterId" name="AdmCountryMasterId" required [disabled]="!editMode">
+    </div>
+  </div>
+
+  <!-- Fourth Row: State and City -->
+  <div class="row">
+    <div class="col-md-6 form-group input_field">
+      <label for="AdmStateMasterId">State<span class="text-danger">*</span></label>
+      <input type="text" id="AdmStateMasterId" class="form-control" placeholder="State" [(ngModel)]="userDetail.AdmStateMasterId" name="AdmStateMasterId" required [disabled]="!editMode">
+    </div>
+    <div class="col-md-6 form-group input_field">
+      <label for="AdmCityMasterId">City<span class="text-danger">*</span></label>
+      <input type="text" id="AdmCityMasterId" class="form-control" placeholder="City" [(ngModel)]="userDetail.AdmCityMasterId" name="AdmCityMasterId" required [disabled]="!editMode">
+    </div>
+  </div>
+
+  <!-- Fifth Row: Photo Upload -->
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <label for="Photo">Photo<span class="text-danger">*</span></label>
+      <input type="file" class="form-control" name="Photo" id="Photo" (change)="fileChangeEvent($event)" required accept="image/png, image/jpeg" [(ngModel)]="userDetail.Photo" #PhotoControl="ngModel" [disabled]="!editMode">
+      <div *ngIf="PhotoControl.invalid && (PhotoControl.dirty || PhotoControl.touched)" class="text-danger">
+        Photo is required.
+      </div>
+    </div>
+  </div>
+
+  <!-- Sixth Row: Status -->
+  <div class="row">
+    <div class="col-md-12 form-group input_field">
+      <label for="Status">Status<span class="text-danger">*</span></label>
+      <select id="Status" class="form-control" [(ngModel)]="userDetail.Status" name="Status" required [disabled]="!editMode">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+      <div *ngIf="form.controls['Status']?.invalid && (form.controls['Status']?.dirty || form.controls['Status']?.touched)" style="color: red;">
+        <div *ngIf="form.controls['Status']?.errors?.['required']">Status is required.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-primary" [disabled]="!editMode">Save</button>
+    </div>
+  </div>
+
+</form>
+
+<!-- //=================================================================================================== -->
+               
+
+</div>
+            
+              </ng-container>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div> 
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

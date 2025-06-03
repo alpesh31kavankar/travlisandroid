@@ -1,0 +1,63 @@
+<div class="container-scroller">
+  <!-- Navbar -->
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- Sidebar -->
+    <app-vendor-sidebar></app-vendor-sidebar>
+    
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-danger">
+                <h4 class="card-title">Hotel Booking List</h4>
+                <!-- <p class="card-category">View all Blog records</p> -->
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="text-primary" style="background-color: #6762621c;">
+                      <tr>
+                        <th>User Name</th>
+                        <th>Room Type</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
+                        <th>No. of Rooms</th>
+                        <th>Total Price</th>
+                        <th>Contact No</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let hotelBooking of hotelBookingList">
+                        <td>{{ getHotels(hotelBooking.RegistrationId )}}</td>
+
+                        <td>{{ getRoomsType(hotelBooking.RoomId )}}</td>
+
+                       
+                  
+                        <td>{{ hotelBooking.CheckIn }}</td>
+                        <td>{{ hotelBooking.CheckOut }}</td>
+                        <td>{{ hotelBooking.NoOfRooms }}</td>
+                        <td>{{ hotelBooking.TotalPrice }}</td>
+                        <!-- <td>{{ getContact(hotelBooking.RegistrationId )}}</td> -->
+                        <td>
+                          <a [href]="'tel:' + getContact(hotelBooking.RegistrationId)">
+                            <i class="fas fa-phone"></i> {{ getContact(hotelBooking.RegistrationId) }}
+                          </a>
+                        </td>
+
+                        
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

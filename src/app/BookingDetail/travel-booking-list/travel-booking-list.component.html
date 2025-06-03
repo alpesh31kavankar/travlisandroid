@@ -1,0 +1,64 @@
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <app-navbar></app-navbar>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+  
+      
+        <!-- partial -->
+        <!-- partial:partials/_sidebar.html -->
+        <app-vendor-sidebar></app-vendor-sidebar>
+        <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-danger">
+                      <h4 class="card-title">Travel Booking List</h4>
+                      <!-- <p class="card-category">View all Blog records</p> -->
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class="text-primary" style="    background-color: #6762621c;">
+                            <tr>
+                              <th>User Name</th>
+                              <!-- <th>Travel from to </th> -->
+                               <th> From------To</th>
+                               <th>Vechical No</th>
+                              <th>NoOfSets</th>
+                            
+                              <th>TravelDate</th>
+                         
+                              <th>TotalPrice</th>
+                            
+                              <th>Contact</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let TravelBooking of TravelBookingList">
+                              <td>{{ getRegistration(TravelBooking.RegistrationId )}}</td>
+                             
+                               <td>{{ getTravelInfoFrom(TravelBooking.TravelId)}}</td>
+
+                               <td>{{ getVechicalNumber(TravelBooking.TravelId)}}</td>
+
+                              <td>{{TravelBooking.NoOfSets}}</td>
+                              <td>{{TravelBooking.TravelDate}}</td>
+                              <td>{{TravelBooking.TotalPrice}}</td>
+                            
+                              <td>
+                                <a [href]="'tel:' + getContact(TravelBooking.RegistrationId)">
+                                  <i class="fas fa-phone"></i> {{ getContact(TravelBooking.RegistrationId) }}
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>

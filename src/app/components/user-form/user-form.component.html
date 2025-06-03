@@ -1,0 +1,74 @@
+<div class="container-scroller">
+  <app-navbar></app-navbar>
+  <br>
+  <br>
+  <br>
+  <br>
+<div class="form-container">
+  <!-- City Search Form -->
+  <!-- <div class="form-card">
+    <div class="form-header">
+      <h3>City Search</h3>
+    </div>
+    <div class="form-body">
+      <form [formGroup]="cityForm" (ngSubmit)="onSubmit()">
+        <div class="form-field">
+          <label for="city">City</label>
+          <input
+            type="text"
+            id="city"
+            formControlName="city"
+            [class.invalid]="cityForm.get('city')?.touched && cityForm.get('city')?.invalid"
+            placeholder="Enter city name"
+          >
+          <div class="error-message" *ngIf="cityForm.get('city')?.touched && cityForm.get('city')?.errors?.['required']">
+            City is required.
+          </div>
+          <div class="error-message" *ngIf="cityForm.get('city')?.touched && cityForm.get('city')?.errors?.['minlength']">
+            City name must be at least 2 characters.
+          </div>
+        </div>
+        
+        <div class="submit-container">
+          <button
+            type="submit"
+            class="submit-button"
+            [disabled]="loading"
+            [class.loading]="loading"
+          >
+            <span *ngIf="loading">Processing...</span>
+            <span *ngIf="!loading">Search City</span>
+          </button>
+        </div>
+        
+        <div *ngIf="errorMessage" class="error-alert">
+          {{ errorMessage }}
+        </div>
+      </form>
+    </div>
+  </div> -->
+
+  <!-- Fitness Report Card -->
+  <div class="report-card">
+    <div class="report-header">
+      <h3>About City  {{cityName}}</h3>
+    </div>
+    <div class="report-body">
+      <div *ngIf="loading" class="loading-container">
+        <div class="loader"></div>
+        <p>Generating your City info .................</p>
+      </div>
+      
+      <div *ngIf="!loading && !report" class="empty-container">
+        <div class="info-message">
+          Complete the form and click "Search City" to see your personalized fitness recommendations.
+        </div>
+      </div>
+      
+      <div *ngIf="!loading && report" class="report-content">
+        <div [innerHTML]="report"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

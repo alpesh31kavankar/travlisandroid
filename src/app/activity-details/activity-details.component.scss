@@ -1,0 +1,318 @@
+/* Wrapper to center content on screen */
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4f4; /* Light background for contrast */
+  padding: 20px;
+}
+
+/* Destination card styling */
+.destination-card {
+  background-color: #1d1d1d; /* Dark background */
+  color: #fff; /* White text color */
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+}
+
+/* Header styles */
+h2 {
+  font-size: 2em;
+  color: #ff4d6d; /* Pinkish-red color */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Star rating section */
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.star {
+  font-size: 1.5em;
+  color: #ffcc00; /* Golden color */
+}
+
+/* Content styling with flex layout */
+.content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Destination image styling */
+.destination-image {
+  max-width: 100%;
+  width: 50%; /* Adjust based on screen size */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+
+/* Details section */
+.details {
+  flex: 1;
+  min-width: 250px;
+}
+
+.details p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Price section */
+.price {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.price span {
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+.amount {
+  font-size: 1.5em;
+  color: #ff4d6d;
+  font-weight: bold;
+}
+
+// /* Responsive design adjustments */
+// @media (max-width: 768px) {
+//   .content {
+//     flex-direction: column; /* Stack content on smaller screens */
+//     align-items: center;
+//   }
+
+//   .destination-image {
+//     width: 100%; /* Full width on smaller screens */
+//   }
+
+//   h2 {
+//     font-size: 1.8em;
+//   }
+// }
+
+// @media (max-width: 480px) {
+//   .details p {
+//     font-size: 1em;
+//   }
+
+//   .price span {
+//     font-size: 1em;
+//   }
+
+//   .amount {
+//     font-size: 1.2em;
+//   }
+// }
+
+
+
+
+
+
+:root {
+  --clr-gray-light: #d7dfe2;
+  --clr-gray-med: #616b74;
+  --clr-gray-dark: #414b56;
+  --clr-link: #4d97b2;
+  --clr-popular: #ef257a;
+  --clr-technology: #651fff;
+  --clr-psychology: #e85808;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 2rem;
+  color: var(--clr-gray-dark);
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  overflow: hidden;
+  box-shadow: 0px 2px 20px var(--clr-gray-light);
+  background: white;
+  border-radius: 0.5rem;
+  position: relative;
+  width: 350px;
+  margin: 1rem;
+  transition: 250ms all ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 2px 40px var(--clr-gray-light);
+}
+
+.banner-img {
+  position: absolute;
+  object-fit: cover;
+  height: 14rem;
+  width: 100%;
+}
+
+.category-tag {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  background: red;
+  padding: 0.5rem 1.3rem 0.5rem 1rem;
+  text-transform: uppercase;
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  border-radius: 0 2rem 2rem 0;
+}
+
+.popular {
+  background:rgb(8, 154, 233);
+}
+
+.technology {
+  background: var(--clr-technology);
+}
+
+.psychology {
+  background: var(--clr-psychology);
+}
+
+.card-body {
+  margin: 15rem 1rem 1rem 1rem;
+}
+
+.blog-hashtag {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--clr-link);
+}
+
+.blog-title {
+  line-height: 1.5rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.blog-description {
+  color: var(--clr-gray-med);
+  font-size: 0.9rem;
+}
+
+.card-profile {
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.profile-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card-profile-info {
+  margin-left: 1rem;
+}
+
+.profile-name {
+  font-size: 1rem;
+}
+
+.profile-followers {
+  color: var(--clr-gray-med);
+  font-size: 0.9rem;
+}
+
+
+
+
+///////////=================================
+//  .wrapper {
+//   position: relative;
+//   padding: 20px;
+// }
+
+// .back-button-container {
+//   position: fixed; /* Makes it stick at the top */
+//   top: 10px;
+//   left: 10px;
+//   z-index: 1000; /* Ensures it's on top of other elements */
+// }
+
+// .back-button {
+//   display: flex;
+//   align-items: center;
+//   background-color: #007bff;
+//   color: white;
+//   border: none;
+//   padding: 10px 15px;
+//   border-radius: 5px;
+//   cursor: pointer;
+// }
+
+// .back-button i {
+//   margin-right: 5px;
+// }
+
+
+.back-button {
+  position: fixed; /* Keep button fixed for easy access */
+  top: 15px;
+  left: 15px;
+  background-color: #55518a;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover Effect */
+.back-button:hover {
+  background-color: #44407a;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .back-button {
+    top: 10px;
+    left: 10px;
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-button {
+    top: 8px;
+    left: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,188 @@
+<!-- <button id="success" (click)="showSuccessAlert()">Show Success Alert</button> -->
+
+
+<div class="container-scroller">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="content-wrapper d-flex align-items-center auth px-0">
+      <div class="row w-100 mx-0">
+        <div class="col-lg-4 mx-auto">
+          <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+            <div class="brand-logo" style="text-align: center;">
+              <img src="\assets\newassets\Logo.png" alt="logo"> <b style="    color: #0770b7;
+              font-size: 134%;
+              vertical-align: sub;"> &nbsp;Login</b>
+            </div>
+
+            <!-- <h4>Hello! let's get started</h4><br> -->
+
+
+            <!-- <asl-google-signin-button  class="gbtn" type="standard"  *ngIf="!user"></asl-google-signin-button>
+
+
+            <div class="row my-3" style="justify-content: center;padding:2%">
+              or continue with email&nbsp;&nbsp;
+            </div> -->
+
+<!-- 
+            <div style="text-align: -webkit-center;  ">
+
+              <h6 style="justify-content: center;width: fit-content; display: flex; align-items: center; margin:0px; border: 1px solid #bdbdbd;
+            border-radius: 3px;   
+           padding:1%"> <asl-google-signin-button type="standard" width="250" style="    text-align: -webkit-center;"
+                  *ngIf="!user"></asl-google-signin-button><b style="font-weight: 200;"></b></h6>
+            </div> -->
+
+            <div class="login-container" style="text-align: -webkit-center;">
+              <button class="google-btn" (click)="signIn()">
+                <img src="assets/glogo.png" alt="Google Logo" class="google-icon" /> 
+              </button>
+              </div>
+
+            <div class="row" style="justify-content: center;padding:2%">
+              or continue with email&nbsp;&nbsp;
+            </div>
+
+
+            <!-- <h6 class="font-weight-light">Sign in to continue.</h6> -->
+            <form class="pt-3" #loginForm="ngForm">
+              <div class="form-group">
+                <!-- <input type="email" [(ngModel)]="searchText1" #EmailControl="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+                 name="Email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email"> -->
+                <input type="email" [(ngModel)]="searchText1" name="Email" #Email="ngModel" required
+                  pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" class="form-control form-control-lg"
+                  id="exampleInputEmail" placeholder="Email">
+                <div *ngIf="Email.invalid && (Email.dirty || Email.touched)" class="text-danger">
+                  <div *ngIf="Email.errors?.['required']">Email is required.</div>
+                  <div *ngIf="Email.errors?.['pattern']">Invalid email format.</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="{{ showPassword ? 'text' : 'password' }}" [(ngModel)]="searchText2" name="Password"
+                    #Password="ngModel" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,20}$"
+                    [minlength]="8" class="form-control form-control-lg" id="exampleInputPassword"
+                    placeholder="Password">
+
+                  <div class="input-group-append">
+                    <span class="input-group-text bg-white border-left-0 cursor-pointer"
+                      (click)="togglePasswordVisibility()">
+                      <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div *ngIf="Password.invalid && (Password.dirty || Password.touched)" class="text-danger">
+                  <div *ngIf="Password.errors?.['required']">Password is required.</div>
+                  <div *ngIf="Password.errors?.['pattern']">
+                    Password must contain at least one lowercase letter, one uppercase letter, one number, one special
+                    character, and be at least 8 characters long.
+                  </div>
+                  <div *ngIf="Password.errors?.['minlength']">Password must be at least 8 characters long.</div>
+                  <!-- <div *ngIf="Password.errors?.['maxlength']">Password cannot exceed 20 characters.</div> -->
+                </div>
+
+              </div>
+
+
+
+              <div class="mt-3">
+                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" (click)="OnSubmit()"
+                  [disabled]="loginForm.invalid">SIGN IN</button>
+              </div>
+              <div class="my-2 d-flex justify-content-between align-items-center">
+                <div class="form-check d-flex align-items-center">
+                  <input type="checkbox" class="form-check-input me-2" id="rememberMe">
+                  <label class="form-check-label text-muted" for="rememberMe">
+                    Remember Me
+                  </label>
+                </div>
+                <a [routerLink]="['/ForgotPassword']" class="auth-link text-black">Forgot password?</a>
+              </div>
+              <!-- <div class="mb-2">
+                <button type="button" class="btn btn-block btn-google auth-form-btn">
+                  <i class="ti-google mr-2"></i>Continue With Google
+                </button>
+              </div> -->
+
+              <!-- <div class="mb-2">
+               <button type="button" class="btn btn-block btn-google auth-form-btn">
+                    <i class="ti-google mr-2"></i>Continue With Google
+                    <asl-google-signin-button style="width: 10% !important;    text-align: -webkit-center;"  *ngIf="!user"></asl-google-signin-button>
+                  </button>
+                </div> -->
+
+              <!-- 
+                <div style="  ">
+                  <h6 style="text-align: center;width: -webkit-fill-available; display: flex; align-items: center; margin:0px; border: 1px solid #bdbdbd;
+                  border-radius: 3px;   
+                 padding:1%"> <asl-google-signin-button style="width: 10% !important;    text-align: -webkit-center;"  *ngIf="!user"></asl-google-signin-button><b style="font-weight: 200;padding-left: 20%;">Sign in with Google</b></h6>    
+                                  </div>
+                                  <div class="row" style="justify-content: center;padding:2%">
+                                    or continue with email&nbsp;&nbsp;
+                                    </div> -->
+
+
+              <!-- 
+                <div style="  ">
+                  <h6 style="text-align: center;width: -webkit-fill-available; display: flex; align-items: center; margin:0px; border: 1px solid #bdbdbd;
+                  border-radius: 3px;   
+                 padding:1%"> <asl-google-signin-button style="width: 10% !important;    text-align: -webkit-center;"  *ngIf="!user"></asl-google-signin-button><b style="font-weight: 200;padding-left: 20%;">Sign in with Google</b></h6>    
+                                  </div>
+                                  <div class="row" style="justify-content: center;padding:2%">
+                                    or continue with email&nbsp;&nbsp;
+                                    </div> -->
+
+              <!-- <div class="mb-2">
+                                      <button type="button" class="btn btn-block btn-google auth-form-btn"  *ngIf="!user">
+                                        <i class="ti-google mr-2"></i>Continue With Google
+                                      </button>
+                                    </div> -->
+
+
+              <!-- //=======================================test Loing======================================-->
+
+
+              <!-- <div style="  ">
+                <h6 style="text-align: center;width: -webkit-fill-available; display: flex; align-items: center; margin:0px; border: 1px solid #bdbdbd;
+        border-radius: 3px;   
+       padding:1%"> <asl-google-signin-button style="width: 10% !important;    text-align: -webkit-center;"
+                    *ngIf="!user"></asl-google-signin-button><b style="font-weight: 200;padding-left: 20%;">Sign in with
+                    Google</b></h6>
+              </div> -->
+              <!-- <div class="row" style="justify-content: center;padding:2%">
+                or continue with email&nbsp;&nbsp;
+              </div> -->
+
+              <!-- <div class="mb-2">
+                            <button type="button" class="btn btn-block btn-google auth-form-btn"  *ngIf="!user">
+                              <i class="ti-google mr-2"></i>Continue With Google
+                            </button>
+                          </div> -->
+
+
+              <!-- <div class="col">
+                            <label>
+                              <input type="checkbox" name="rememberMe" [(ngModel)]="rememberMe"> Remember Me
+                            </label>
+                      
+                            <a [routerLink]="['/ForgotPassword']" class="auth-link text-black">Forgot password?</a>
+                          </div>
+               -->
+
+
+
+
+              <!-- //================================================================================================ -->
+              <div class="text-center mt-4 font-weight-light">
+                Do not have an account? <a [routerLink]="['/Registration']" class="text-primary">Create</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

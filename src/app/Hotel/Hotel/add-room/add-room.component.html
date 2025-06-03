@@ -1,0 +1,173 @@
+<div class="container-scroller">
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid page-body-wrapper">
+    <app-vendor-sidebar></app-vendor-sidebar>
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">rooms Form</h4>
+                <form #roomsForm="ngForm" (ngSubmit)="OnSubmit()">
+                  <div class="row">
+                    <!-- Hotel ID -->
+                    <div class="form-group col-lg-6">
+                      <label for="HotelId">Hotel  <span class="text-danger">*</span></label>
+                      <select class="form-control" [(ngModel)]="rooms.hotel.HotelId" name="HotelId" #HotelId="ngModel"
+                        required>
+                        <option *ngFor="let i of HotelList" [value]="i.HotelId">
+                          {{ i.HotelName }}
+                        </option>
+                      </select>
+                      <div *ngIf="HotelId.invalid && HotelId.touched" class="text-danger">
+                        Hotel  is required.
+                      </div>
+                    </div>
+
+                    <!-- Room Type -->
+                    <div class="form-group col-lg-6">
+                      <label for="RoomType">Room Type <span class="text-danger">*</span></label>
+                      <select class="form-control" id="RoomType" name="RoomType" [(ngModel)]="rooms.RoomType"
+                        #RoomType="ngModel" required>
+                        <option value="" disabled selected>Select Room Type</option>
+                        <option value="AC">AC</option>
+                        <option value="Non-AC">Non-AC</option>
+                      </select>
+                      <div *ngIf="RoomType.invalid && RoomType.touched" class="text-danger">
+                        Room Type is required.
+                      </div>
+                    </div>
+
+                    <!-- Price Per Night -->
+                    <div class="form-group col-lg-6">
+                      <label for="PricePerNight">Price Per Night(CAD$) <span class="text-danger">*</span></label>
+                      <input type="number" id="PricePerNight" class="form-control" placeholder="Price Per Night(CAD$)"
+                        [(ngModel)]="rooms.PricePerNight" name="PricePerNight" #PricePerNight="ngModel" required
+                        min="1" />
+                      <div *ngIf="PricePerNight.invalid && PricePerNight.touched" class="text-danger">
+                        Price must be a required.
+                      </div>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="form-group col-lg-6">
+                      <label for="Image">Image <span class="text-danger">*</span></label>
+                      <input type="file" class="form-control" name="Image" (change)="fileChangeEvent($event)" required
+                        accept="image/png, image/jpeg" #Image="ngModel" multiple [(ngModel)]="rooms.Image" />
+
+                      <div *ngIf="Image.invalid && Image.touched" class="text-danger">
+                        Please upload an image (PNG or JPEG).
+                      </div>
+                    </div>
+
+
+
+                    <!-- <div class="form-group col-lg-6">
+                      <label for="Image">Images <span class="text-danger">*</span></label>
+                      <input 
+                        type="file" 
+                        class="form-control" 
+                        name="Image" 
+                        (change)="fileChangeEvent($event)" 
+                        accept="image/png, image/jpeg" 
+                        #ImageControl="ngModel" 
+                        multiple
+                        required
+                        [(ngModel)]="rooms.Image"
+                      />
+                      
+                      <div *ngIf="ImageControl.invalid && ImageControl.touched" class="text-danger">
+                        Please upload at least one image (PNG or JPEG).
+                      </div>
+                    </div>
+                     -->
+
+                    <!-- Amenities -->
+                    <div class="form-group col-lg-6">
+                      <label for="Amenities">Amenities <span class="text-danger">*</span></label>
+                      <input type="text" id="Amenities" class="form-control" placeholder="Amenities"
+                        [(ngModel)]="rooms.Amenities" name="Amenities" #Amenities="ngModel" required />
+                    
+                      <div *ngIf="Amenities.invalid && Amenities.touched" class="text-danger">
+                        <div *ngIf="Amenities.errors?.['required']">Amenities are required.</div>
+                        <div *ngIf="Amenities.errors?.['pattern']">Amenities should not be just whitespace.</div>
+                      </div>
+                    </div>
+                    
+
+                    <div class="form-group col-lg-6">
+                      <label for="NoOfRoomS">Total Rooms<span class="text-danger">*</span></label>
+                      <input type="number" id="NoOfRoomS" class="form-control" placeholder="Total Rooms"
+                        [(ngModel)]="rooms.NoOfRoomS" name="NoOfRoomS" #NoOfRoomS="ngModel" required pattern="^[0-9]+$" min="1">
+                    
+                      <!-- Validation message for Total Rooms -->
+                      <div *ngIf="NoOfRoomS.invalid && NoOfRoomS.touched" class="text-danger">
+                        <div *ngIf="NoOfRoomS.errors?.['required']">Total Rooms is required.</div>
+                        <div *ngIf="NoOfRoomS.errors?.['pattern']">Please enter a valid number.</div>
+                        <div *ngIf="NoOfRoomS.errors?.['min']">Total Rooms must be greater than zero.</div>
+                      </div>
+                    </div>
+                    
+                    
+
+
+                    <div class="form-group col-lg-6">
+                      <label for="AvilableRooms">Total Available Rooms<span class="text-danger">*</span></label>
+                      <input type="number" id="AvilableRooms" class="form-control" placeholder="Total Available Room"
+                        [(ngModel)]="rooms.AvilableRooms" name="AvilableRooms" #AvilableRooms="ngModel" required pattern="^[0-9]+$" min="1">
+                    
+                      <!-- Validation message for Available Rooms -->
+                      <div *ngIf="AvilableRooms.invalid && AvilableRooms.touched" class="text-danger">
+                        <div *ngIf="AvilableRooms.errors?.['required']">Total Available Rooms is required.</div>
+                        <div *ngIf="AvilableRooms.errors?.['pattern']">Please enter a valid number.</div>
+                        <div *ngIf="AvilableRooms.errors?.['min']">Total Available Rooms must be greater than zero.</div>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                      <label for="Discount"> Discount (In %)<span class="text-danger">*</span></label>
+                      <input type="number" id="Discount" class="form-control" placeholder="Total Discount"
+                        [(ngModel)]="rooms.UpdatedDate" name="UpdatedDate" #UpdatedDate="ngModel" required pattern="^[0-9]+$" min="0">
+                    
+                      <!-- Validation message for Total Rooms -->
+
+                      <div *ngIf="UpdatedDate.invalid && UpdatedDate.touched" class="text-danger">
+                        <div *ngIf="UpdatedDate.errors?.['required']">Discount is required.</div>
+                        <div *ngIf="UpdatedDate.errors?.['pattern']">Please enter a valid number.</div>
+                        <div *ngIf="UpdatedDate.errors?.['min']">Discount must be greater than zero.</div>
+                      </div>
+                    </div>
+                    
+                    <!-- Status -->
+                    <div class="form-group col-lg-6">
+                      <label for="Status">Status <span class="text-danger">*</span></label>
+                      <select class="form-control" id="Status" name="Status" [(ngModel)]="rooms.Status"
+                        #Status="ngModel" required>
+                        <option value="" disabled selected>Select Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                      </select>
+                      <div *ngIf="Status.invalid && Status.touched" class="text-danger">
+                        Status is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Submit Button -->
+                  <input type="submit" [disabled]="roomsForm.invalid" value="Submit" style="background-color: #4B49AC; color: white; border: none; 
+                                padding: 10px 20px; cursor: pointer; border-radius: 5px;" />
+                </form>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

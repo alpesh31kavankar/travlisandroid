@@ -1,0 +1,19 @@
+.custom-btn {
+    background-color: #4B49AC;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.form-control .dark-select {
+    color: #000; /* Dark text for default and selected option */
+  }
+  
+  .dark-select option {
+    color: #000; /* Ensures dropdown options are also dark */
+  }
+  .form-control  {
+    color: #000; /* Dark text for default and selected option */
+  }

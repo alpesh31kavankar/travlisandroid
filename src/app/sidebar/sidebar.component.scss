@@ -1,0 +1,44 @@
+.menu-arrow-down {
+  transform: rotate(90deg);
+}
+
+.nav-item .nav-link.checked {
+  background-color: rgb(0, 183, 255); /* Set your desired background color */
+  color: white !important;
+}
+
+
+.sidebar{
+height: 100%;
+background-color: #3addec;
+// border-radius: 10px;
+margin-top: -25px;
+// margin-left: -25px;
+width: auto !important;
+}
+.profile{
+margin-top: 10px;
+padding: 10px;
+}
+
+.sidebar .nav .nav-item .nav-link {
+display: -webkit-flex;
+display: flex;
+-webkit-align-items: center;
+align-items: center;
+white-space: nowrap;
+padding: 0.8125rem 1.937rem 0.8125rem 1rem;
+color: #040404;
+border-radius: 8px;
+}
+
+.sidebar .nav .nav-item .nav-link i.menu-icon {
+  font-size: 1rem;
+  line-height: 1;
+  margin-right: 1rem;
+  color: #040404;
+}
+
+:host {
+  background-color: #3addec;
+}

@@ -1,0 +1,370 @@
+// .container {
+//     margin-top: 30px;
+//     width: 100%;
+//     max-width: 1200px;
+//     padding: 20px;
+
+//   }
+  
+//   .main-div {
+
+    
+//     border: 1px solid #15a2e8; /* Border around all input fields */
+//     border-radius: 30px; /* Rounded corners for the main div */
+//     padding: 20px;
+//     display: flex;
+//     flex-direction: column;
+//     box-sizing: border-box; /* Ensure padding is included in width */
+//     align-items: center; /* Center items horizontally */
+//   }
+  
+//   .form-row {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: stretch;
+//     margin-bottom: 20px; /* Optional: space below the row */
+//   }
+  
+//   .form-group {
+//     flex: 1;
+//     padding: 20px;
+//     position: relative;
+//     border-left: 1px solid #15a2e8; /* Vertical lines between divs */
+//     box-sizing: border-box; /* Ensure padding and border are included in width */
+//   }
+  
+//   .form-group:first-child {
+//     border-left: none; /* Remove left border for the first column */
+//   }
+  
+//   .form-group:last-child {
+//     border-right: none; /* Remove right border if you don't want it in the last column */
+//   }
+  
+//   input[type="text"] {
+//     width: 100%;
+//     font-weight: bold;
+//     padding: 15px; /* Increase padding for better visual appearance */
+//     margin-top: 5px;
+//     border: none;
+//     font-size: 18px; /* Increase font size */
+//     color: #0f78e9; /* Change text color to blue */
+//     border-radius: 10px;
+//     box-sizing: border-box;
+//     font-size: 20px;
+//   }
+  
+//   input[type="date"], input[type="number"] {
+//     width: 100%;
+//     padding: 15px; /* Increase padding for better visual appearance */
+//     margin-top: 5px;
+//     border: none;
+//     font-size: 20px; /* Increase font size */
+//     color: #0f78e9; /* Change text color to blue */
+ 
+//     border-radius: 10px;
+//     box-sizing: border-box;
+//   }
+  
+//   .travellers-class input[type="number"] {
+//     width: 100%;
+//     font-size: 20px; /* Increase font size */
+//     color: #0f78e9; /* Change text color to blue */
+//   }
+  
+//   .date-info {
+//     margin-top: 5px;
+//     font-size: 14px;
+//     color: #555;
+//     white-space: nowrap;
+//   }
+  
+//   button {
+    
+//     padding: 10px 20px;
+//     background-color: #007bff;
+//     color: #fff;
+//     border: none;
+//     border-radius: 20px;
+//     width: 200px;
+//     cursor: pointer;
+//     font-size: medium;
+//     font-size: 25px; /* Adjust font size if needed */
+//   }
+  
+//   .button_sb{
+
+//     margin-top: 10px;
+//     justify-content: center;
+//   }
+//   button:hover {
+//     background-color: #0056b3;
+//   }
+  
+//   label {
+//     color: black;
+//     font-size: large;
+//     font-weight: bold;
+//   }
+  
+
+
+//   p{
+//     font-size:15px ;
+//     color: black;
+//   }
+
+
+//   select {
+//     width: 100%;
+//     padding: 15px;
+//     margin-top: 5px;
+//     border: none;
+//     font-size: 20px;
+//     color: #0f78e9;
+//     border-radius: 4px;
+//     box-sizing: border-box;
+//   }
+  
+//   .form-group label {
+//     display: block;
+//     margin-bottom: 5px;
+//   }
+  
+//   .form-group {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 10px; /* Space between the dropdowns */
+//   }
+  
+//   .form-group select {
+//     font-size: 20px; /* Consistent font size */
+//   }
+
+  
+//   @media (max-width: 768px) {
+//     .form-row {
+//       flex-direction: column;
+//     }
+  
+//     .form-group {
+//       margin-right: 0; /* Ensure no additional margin on small screens */
+//       border-left: 0; /* Remove vertical border on small screens */
+//     }
+//   }
+  
+
+
+//=====================================================================================
+/* Container Styling */
+// .main-div {
+//   padding: 20px;
+//   border-radius: 10px;
+//   background-color: #fff;
+//   position: relative;
+//   z-index: 1;
+// }
+
+// /* Multicolor Border Effect */
+// .main-div:before {
+//   content: '';
+//   position: absolute;
+//   top: -5px;
+//   left: -5px;
+//   right: -5px;
+//   bottom: -5px;
+//   z-index: -1;
+//   border-radius: 10px;
+//   background: linear-gradient(45deg, 
+//               #ff0000,   /* red */
+//               #ff9900,   /* orange */
+//               #ffff00,   /* yellow */
+//               #33cc33,   /* green */
+//               #0066ff,   /* blue */
+//               #9900cc);  /* purple */
+//   background-size: 400%;
+//   animation: borderAnimation 10s linear infinite;
+// }
+
+// /* Border Animation */
+// @keyframes borderAnimation {
+//   0% {
+//     background-position: 0% 50%;
+//   }
+//   50% {
+//     background-position: 100% 50%;
+//   }
+//   100% {
+//     background-position: 0% 50%;
+//   }
+// }
+
+
+//=================================================================================
+
+
+// .container {
+//   padding: 20px;
+//   border-radius: 10px;
+//   background-color: #fff;
+//   position: relative;
+//   z-index: 1;
+// }
+
+// /* Multicolor Border Effect for Container */
+// .container:before {
+//   content: '';
+//   position: absolute;
+//   top: -5px;
+//   left: -5px;
+//   right: -5px;
+//   bottom: -5px;
+//   z-index: -1;
+//   border-radius: 10px;
+//   background: linear-gradient(45deg, 
+//               #ff0000,   /* red */
+//               #ff9900,   /* orange */
+//               #ffff00,   /* yellow */
+//               #33cc33,   /* green */
+//               #0066ff,   /* blue */
+//               #9900cc);  /* purple */
+//   background-size: 400%;
+//   animation: borderAnimation 10s linear infinite;
+// }
+
+// /* Border Animation */
+// @keyframes borderAnimation {
+//   0% {
+//     background-position: 0% 50%;
+//   }
+//   50% {
+//     background-position: 100% 50%;
+//   }
+//   100% {
+//     background-position: 0% 50%;
+//   }
+// }
+
+
+// .container {
+//   padding: 20px;
+//   border-radius: 10px;
+//   background-color: #fff; /* You can change the background color as needed */
+//   border: 5px solid;
+//   border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+// }
+
+.icon-group {
+  // margin-left: 10px;
+  display: flex;
+  justify-content: center; /* Center icons horizontally */
+  align-items: center; /* Center icons vertically */
+  gap: 25px; /* Space between icons */
+}
+
+.icon {
+  font-size: 50px; /* Adjust size as needed */
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+
+
+
+
+
+
+.container {
+  max-width: 800px;
+  // margin: 0 auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Element Styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+/* Focus state for input fields */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Styling for form rows */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form-group .col-md-6 {
+  width: 48%;
+}
+
+/* Centering and styling the search button */
+.button_sb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+button[type="submit"] {
+  padding: 10px 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  
+  border-radius: .25rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-group .col-md-6 {
+    width: 100%;
+  }
+}
+
+
+//****************************************************************************8
+
+
+
+
+

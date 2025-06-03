@@ -1,0 +1,27 @@
+<div class="profile-container" style="    margin-top: 10px;">
+  <div class="profile">
+    <div class="photo-wrapper">
+      <img [src]="imgPath + 'Content/UserDetail/' + userDetail.Photo ||'/assets/profilePhoto.png'  " 
+      onerror="this.src='/assets/profilePhoto.png'" alt="User Photo" class="profile-photo">
+      <span class="edit-icon" (click)="openModal()">✎</span>
+    </div>
+    <h6 class="uname">{{data?.FName}} {{data?.LName}}</h6>
+    <button (click)="editProfile()" class="edit-button">Edit Profile</button>
+  </div>
+
+  <!-- Modal for uploading image -->
+  <div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+      <h3>Upload New Profile Image</h3>
+      <img *ngIf="imageUrl" [src]="imageUrl" class="modal-image" />
+      <div class="form-group">
+        <input type="file" (change)="onFileSelected($event)" class="form-control" accept="image/*" />
+      </div>
+      
+      <div class="modal-actions">
+        <button class="save-button" (click)="saveImage()">Save</button>
+        <button class="close-button" (click)="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

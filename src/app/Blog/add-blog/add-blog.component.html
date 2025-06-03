@@ -1,0 +1,152 @@
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+  <app-navbar></app-navbar>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+
+
+    <!-- partial -->
+    <!-- partial:partials/_sidebar.html -->
+    <app-vendor-sidebar></app-vendor-sidebar>
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Blog Form</h4>
+
+                <form #form="ngForm" (ngSubmit)="OnSubmit()">
+
+
+                  <div class="row">
+                    <!-- Name Field with Validation -->
+                    <div class="col-lg-6 form-group">
+                      <label for="Name">Name <span class="text-danger">*</span></label>
+                      <input id="Name" placeholder="Name" [(ngModel)]="blog.Name"
+                        (ngModelChange)="blog.Name = blog.Name?.trim()" name="Name" required #nameControl="ngModel"
+                        pattern="^(?! )[A-Za-z ]+$" type="text" class="form-control dark-select" />
+
+                      <div *ngIf="nameControl.invalid && (nameControl.dirty || nameControl.touched)"
+                        class="text-danger">
+                        <div *ngIf="nameControl.errors?.['required']">Name is required.</div>
+                        <div *ngIf="nameControl.errors?.['pattern']">
+                          Name cannot start with whitespace, contain numbers, or special characters.
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <!-- Subtitle Field with Validation -->
+                    <div class="col-lg-6 form-group">
+                      <label for="Subtitle">Subtitle <span class="text-danger">*</span></label>
+                      <input type="text" id="Subtitle" class="form-control dark-select" placeholder="Subtitle"
+                        [(ngModel)]="blog.Subtitle" (ngModelChange)="blog.Subtitle = blog.Subtitle?.trim()"
+                        name="Subtitle" required #subtitleControl="ngModel" pattern="^(?!\s)[A-Za-z ]+$" />
+
+                      <!-- Validation Error Messages -->
+                      <div *ngIf="subtitleControl.invalid && (subtitleControl.dirty || subtitleControl.touched)"
+                        class="text-danger">
+                        <div *ngIf="subtitleControl.errors?.['required']">Subtitle is required.</div>
+                        <div *ngIf="subtitleControl.errors?.['pattern']">
+                          Subtitle cannot start with whitespace, contain numbers, or special characters.
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                  <div class="form-group">
+                    <label for="Description">Description <span class="text-danger">*</span></label>
+                    <textarea id="Description" class="form-control dark-select" placeholder="Description"
+                      [(ngModel)]="blog.Description" (ngModelChange)="blog.Description = blog.Description?.trim()"
+                      name="Description" required #descriptionControl="ngModel" pattern="^\S(.+)$">
+                    </textarea>
+                    <!-- Validation Error Messages -->
+                    <div *ngIf="descriptionControl.invalid && (descriptionControl.dirty || descriptionControl.touched)"
+                      class="text-danger">
+                      <div *ngIf="descriptionControl.errors?.['required']">Description is required.</div>
+                      <div *ngIf="descriptionControl.errors?.['pattern']">
+                        Description cannot start with whitespace and cannot be just whitespace.
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+
+                    <div class="form-group position-relative col-lg-6">
+                      <label for="Search City">City <span class="text-danger ">*</span></label>
+
+                      <div class="position-relative">
+                        <input type="text" class="form-control dark-select" placeholder="Search City"
+                          [(ngModel)]="searchTerm" name="searchTerm" (input)="filterCities()" (focus)="toggleDropdown()"
+                          (blur)="hideDropdown()" autocomplete="off" />
+
+                        <i class="fa fa-caret-down dropdown-icon"></i>
+                      </div>
+
+                      <ul class="dropdown-menu" [class.show]="showDropdown"
+                        style="max-height: 150px; overflow-y: auto;">
+                        <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+                          <a class="dropdown-item">{{ city }}</a>
+                        </li>
+                      </ul>
+                    </div>
+
+
+
+                    <div class="form-group col-lg-6">
+                      <label for="Image">Image<span class="text-danger">*</span></label>
+                      <input class="form-control dark-select" type="file" name="Image"
+                        (change)="fileChangeEvent($event)" required accept="image/png, image/jpeg" #image="ngModel"
+                        id="formFile" ngModel>
+                      <!-- Validation Error Message for Image -->
+                      <!-- <img [src]="imagePreview" alt="Image Preview" class="img-fluid" style="max-width: 100%; max-height: 200px;"> -->
+                      <div *ngIf="image.invalid && image.touched" class="text-danger">
+                        Image is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- <div *ngIf="imagePreview" class="form-group">
+                   
+                    <img [src]="imagePreview" alt="Image Preview" class="img-fluid" style="max-width: 50px; max-height: 50px;">
+                  </div> -->
+
+                  <div class="form-group">
+                    <label for="Status">Status<span class="text-danger">*</span></label>
+                    <select class="form-control dark-select" id="Status" name="Status" [(ngModel)]="blog.Status"
+                      #status="ngModel" required>
+                      <option value="" disabled>Select Status</option> <!-- Placeholder option -->
+                      <option value="active">Active</option>
+                      <option value="inactive">Inactive</option>
+                    </select>
+                    <!-- Validation Error Message for Status -->
+                    <div *ngIf="status.invalid && status.touched" class="text-danger">
+                      status is required.
+                    </div>
+                  </div>
+
+                  <button type="submit" [disabled]="form.invalid" class="btn btn-primary mr-2" style="
+                  background-color: blue;
+                  color: white;
+                  border: none;
+                  padding: 10px 20px;
+                  cursor: pointer;
+                  border-radius: 5px;
+                ">
+                    Submit
+                  </button>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

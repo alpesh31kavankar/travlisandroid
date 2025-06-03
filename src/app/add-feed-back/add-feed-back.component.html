@@ -1,0 +1,89 @@
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <app-navbar></app-navbar>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+
+
+        <!-- partial -->
+        <!-- partial:partials/_sidebar.html -->
+        <app-vendor-sidebar></app-vendor-sidebar>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Your Feedback Matters – Help Us Make Your Experience Better!</h4>
+                                <div class="form_wrapper dashshadow">
+                                    <div class="form_container">
+                                        <div class="title_container">
+
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-12">
+<!-- 
+                                                <form #form="ngForm" (ngSubmit)="OnSubmit()">
+                                                    <div class="form-group">    
+                                                        <textarea id="FeedBackText" class="form-control"
+                                                            placeholder="Feedback Text"
+                                                            [(ngModel)]="feedBack.FeedBackText"
+                                                            #FeedBackTextControl="ngModel" name="FeedBackText"
+                                                            required></textarea>
+                                                        <div *ngIf="FeedBackTextControl.invalid && FeedBackTextControl.touched"
+                                                            class="text-danger">
+                                                            Feedback Text is required.
+                                                        </div>
+                                                    </div>
+
+
+                                                    <button type="submit" [disabled]="form.invalid"
+                                                        class="btn btn-primary mr-2"
+                                                        style="background-color: blue; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">
+                                                        Submit
+                                                    </button>
+                                                </form> -->
+
+                                                <form #form="ngForm" (ngSubmit)="onSubmit()">
+                                                    <div class="form-group">
+                                                      <textarea
+                                                        id="FeedBackText"
+                                                        class="form-control"
+                                                        placeholder="Feedback Text"
+                                                        [(ngModel)]="feedBack.FeedBackText"
+                                                        #FeedBackTextControl="ngModel"
+                                                        name="FeedBackText"
+                                                        required
+                                                      ></textarea>
+                                                      <!-- Validation Error Message for Feedback Text -->
+                                                      <div *ngIf="FeedBackTextControl.invalid && FeedBackTextControl.touched" class="text-danger">
+                                                        Feedback Text is required.
+                                                      </div>
+                                                    </div>
+                                                  
+                                                    <button
+                                                      type="submit"
+                                                      [disabled]="form.invalid"
+                                                      class="btn btn-primary mr-2"
+                                                      style="background-color: blue; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;"
+                                                    >
+                                                      Submit
+                                                    </button>
+                                                  </form>
+                                                  
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

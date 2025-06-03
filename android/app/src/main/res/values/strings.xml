@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">travlis</string>
+    <string name="title_activity_main">travlis</string>
+    <string name="package_name">com.travlis.app</string>
+    <string name="custom_url_scheme">com.travlis.app</string>
+       <string name="server_client_id">128585235049-rqh5anqmpgu82d73g6eed6e67m03eec7.apps.googleusercontent.com</string>
+    <string name="android_client_id">772278678318-msd4b4rja5q6b9meug65gu1u6ukjpcf8.apps.googleusercontent.com</string>
+</resources>

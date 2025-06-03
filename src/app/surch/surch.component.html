@@ -1,0 +1,117 @@
+
+
+<!-- //================================================================== -->
+
+<div class="container my-02">
+ 
+    <div class="search-bar">
+      <div class="search-fields">
+        <label>
+          From:
+          <input type="text" placeholder="From"  [(ngModel)] = "From" value="Mumbai">
+        </label>
+        <label>
+          To:
+          <input type="text" placeholder="To" [(ngModel)] = "To"  value="Canada">
+        </label>
+        <label>
+          Departure:
+          <input type="date" value="2023-11-01">
+        </label>
+        <label>
+          Return:
+          <input type="date" value="2023-11-02">
+        </label>
+      </div>
+      <div class="search-button">
+        <button (click)="surch()">Search</button>
+
+      </div>
+    </div>
+  
+    <!-- <app-dashboard></app-dashboard> -->
+    <!-- //==========================Flights============================= -->
+  
+  
+    <!-- Grid Container -->
+    <!-- <div class="grid-container"> -->
+      <!-- Flights Section -->
+      <!-- <div class="grid-item">
+        <h2>Flights from {{From}} to {{To}}</h2>
+        <table>
+          <tr>
+            <th>Airline</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let flight of flights">
+            <td>{{flight.airline}}</td>
+            <td>{{flight.departure}}</td>
+            <td>{{flight.arrival}}</td>
+            <td>{{flight.price}}</td>
+            <td><button class="Book">Book Now</button></td>
+          </tr>
+        </table>
+      </div> -->
+  
+    <!-- //======================Activities to do in Canada ==================================== -->
+  
+      <!-- <div class="grid-item">
+          <h2>Activities to do in {{To}}</h2>
+          <div class="flex-container">
+          <div class="flex-item" *ngFor="let vendor of vendors">
+            <div class="card-image" [ngStyle]="getBackgroundImage(vendor.photoUrl)">
+              <div class="card-content">
+                <h1>{{ vendor.heading }}</h1>
+                <button class="explore-button">
+                  Book Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div> -->
+  
+  <!-- //=============================Activities============================================= -->
+  
+      
+         
+    
+  
+  <!-- <div class="grid-item">
+      <h2>Activities to do in {{To}}</h2>
+      <div class="flex-container">
+        <div class="flex-item" *ngFor="let property of properties">
+          <img [src]="property.photoUrl" alt="{{ property.name }}">
+          <h6 class="name">{{ property.name }}</h6>
+          <p><span>Cost per night: </span> C${{ property.cost }}</p>
+          <p><span> Services: </span>{{ property.serviceDetails }}</p>
+        </div>
+      </div>
+    </div> -->
+  
+  
+        
+         
+         
+         
+        
+        
+  <!-- //==========================Daily Blogs=========================================== -->
+      <!-- Blogs Section -->
+      <!-- <div class="grid-item">
+        <h2>Daily Blogs</h2>
+        <div class="flex-container">
+          <div class="flex-item" *ngFor="let blog of blogs">
+              <img [src]="blog.photoUrl" alt="123">
+            <h3 class="blogtitle">{{blog.title}}</h3>
+            <p class="bloginfo">{{blog.excerpt}}</p>
+          </div>
+        </div>
+      </div> -->
+  
+  
+    <!-- </div>
+  </div> -->
+  

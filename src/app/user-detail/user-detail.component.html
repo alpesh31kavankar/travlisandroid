@@ -1,0 +1,115 @@
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <app-navbar></app-navbar>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+
+        <app-sidebar></app-sidebar>
+
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Activities Form</h4>
+                                <form #form="ngForm">
+                                
+        
+                                    <!-- Additional Fields -->
+                                    <!-- <div class="row">
+                                        <div class="col-md-6 form-group input_field">
+                                            <label for="UserDetailsId">User Details ID<span class="text-danger">*</span></label>
+                                            <input type="text" id="UserDetailsId" class="form-control" placeholder="User Details ID" [(ngModel)]="userDetail.UserDetailsId" name="UserDetailsId" required>
+                                        </div>
+                                        <div class="col-md-6 form-group input_field">
+                                            <label for="RegistrationId">Registration ID<span class="text-danger">*</span></label>
+                                            <input type="text" id="RegistrationId" class="form-control" placeholder="Registration ID" [(ngModel)]="userDetail.RegistrationId" name="RegistrationId" required>
+                                        </div>
+                                    </div> -->
+        
+                                    <div class="row">
+                                        <div class="col-md-6 form-group input_field">
+                                            <label for="Contact">Contact<span class="text-danger">*</span></label>
+                                            <input type="text" id="Contact" class="form-control" placeholder="Contact" [(ngModel)]="userDetail.Contact" name="Contact" required>
+                                        </div>
+                                        <div class="col-md-6 form-group input_field">
+                                            <label for="Tagline">Tagline<span class="text-danger">*</span></label>
+                                            <input type="text" id="Tagline" class="form-control" placeholder="Tagline" [(ngModel)]="userDetail.Tagline" name="Tagline" required>
+                                        </div>
+                                    </div>
+        
+                                    <div class="row">
+                                        <div class="col-md-6 form-group input_field">
+                                            <label for="BirthDate">Birth Date<span class="text-danger">*</span></label>
+                                            <input type="date" id="BirthDate" class="form-control" [(ngModel)]="userDetail.BirthDate" name="BirthDate" required>
+                                        </div>
+                                        <div class="col-md-6 form-group input_field">
+                                            <label for="Address">Address<span class="text-danger">*</span></label>
+                                            <input type="text" id="Address" class="form-control" placeholder="Address" [(ngModel)]="userDetail.Address" name="Address" required>
+                                        </div>
+                                    </div>
+        
+                                    <div class="row">
+                                        <div class="col-md-6 form-group input_field">
+                                            <label for="Gender">Gender<span class="text-danger">*</span></label>
+                                            <select id="Gender" class="form-control" [(ngModel)]="userDetail.Gender" name="Gender" required>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 form-group input_field">
+                                            <label for="AdmCountryMasterId">Country<span class="text-danger">*</span></label>
+                                            <input type="text" id="AdmCountryMasterId" class="form-control" placeholder="Country" [(ngModel)]="userDetail.AdmCountryMasterId" name="AdmCountryMasterId" required>
+                                        </div>
+                                    </div>
+        
+                                    <div class="row">
+                                        <div class="col-md-6 form-group input_field">
+                                            <label for="AdmStateMasterId">State<span class="text-danger">*</span></label>
+                                            <input type="text" id="AdmStateMasterId" class="form-control" placeholder="State" [(ngModel)]="userDetail.AdmStateMasterId" name="AdmStateMasterId" required>
+                                        </div>
+                                        <div class="col-md-6 form-group input_field">
+                                            <label for="AdmCityMasterId">City<span class="text-danger">*</span></label>
+                                            <input type="text" id="AdmCityMasterId" class="form-control" placeholder="City" [(ngModel)]="userDetail.AdmCityMasterId" name="AdmCityMasterId" required>
+                                        </div>
+                                    </div>
+        
+                   
+                                    
+        
+                                    <div class="form-group">
+                                        <label for="Photo">Photo<span class="text-danger">*</span></label>
+                                        <input type="file" class="form-control" name="Photo" id="Photo" (change)="fileChangeEvent($event)" required accept="image/png, image/jpeg" [(ngModel)]="userDetail.Photo" #PhotoControl="ngModel">
+                                        <div *ngIf="PhotoControl.invalid && (PhotoControl.dirty || PhotoControl.touched)" class="text-danger">
+                                            Photo is required.
+                                        </div>
+                                    </div>
+        
+                                   
+        
+                                    <div class="form-group input_field">
+                                        <label for="Status">Status<span class="text-danger">*</span></label>
+                                        <select id="Status" class="form-control" [(ngModel)]="userDetail.Status" name="Status" required>
+                                            <option value="Active">Active</option>
+                                            <option value="Inactive">Inactive</option>
+                                        </select>
+                                        <div *ngIf="form.controls['Status']?.invalid && (form.controls['Status']?.dirty || form.controls['Status']?.touched)" style="color: red;">
+                                            <div *ngIf="form.controls['Status']?.errors?.['required']">Status is required.</div>
+                                        </div>
+                                    </div>
+        
+                                    <!-- <input class="button" type="submit" [disabled]="form.invalid" (click)="OnSubmit();" value="Submit" style="background-color: blue; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;" /> -->
+                                   
+                                    <input class="button" type="submit" [disabled]="form.invalid" (click)="OnSubmit();" value="Submit" style="background-color: blue; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,681 @@
+
+.container-scroller {
+  width: 100%;
+}
+
+.page-body-wrapper {
+  display: flex;
+}
+
+.main-panel {
+  width: 100%;
+}
+
+.content-wrapper {
+  padding: 10px;
+}
+
+.grid-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.grid-item {
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.flex-item {
+  flex: 1 1 calc(25% - 20px);
+  margin: 10px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+
+//==============================================================================
+
+// /* Grid Layout: 4 Cards per Row */
+// .grid-layout {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
+//   gap: 15px; /* Space between cards */
+// }
+
+// /* Card Style */
+// .grid-card {
+//   background-color: white;
+//   border-radius: 10px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//   overflow: hidden;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   height: 220px; /* Ensures all cards have the same height */
+//   transition: transform 0.3s ease-in-out;
+// }
+
+// /* Image Styling */
+// .square-img {
+//   width: 100%;
+//   height: 100px;
+//   object-fit: cover;
+//   border-bottom: 1px solid #ddd;
+// }
+
+// /* Button styling */
+// .button-container {
+//   display: flex;
+//   justify-content: center;
+//   margin-top: 10px;
+// }
+
+// .explore-button {
+//   background-color: #007bff;
+//   color: white;
+//   border: none;
+//   padding: 8px 12px;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   font-size: 0.8em;
+// }
+
+// .explore-button:hover {
+//   background-color: #0056b3;
+// }
+
+// /* Responsive layout for smaller screens */
+// @media (max-width: 768px) {
+//   .grid-layout {
+//     grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+//   }
+// }
+
+// @media (max-width: 480px) {
+//   .grid-layout {
+//     grid-template-columns: 1fr; /* 1 column for very small screens */
+//   }
+// }
+
+
+
+
+/* Grid Layout: 4 Cards per Row */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
+  gap: 15px; /* Space between cards */
+}
+
+/* Card Style */
+.grid-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: Auto; /* Ensures all cards have the same height */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect on Card */
+.grid-card:hover {
+  transform: scale(1.05); /* Slight scaling on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+  cursor: pointer;
+}
+
+/* Image Styling */
+.square-img {
+  width: 100%;
+  height: 100px;
+
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Button Styling */
+.explore-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Button Hover Effect */
+.explore-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .grid-layout {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-layout {
+    grid-template-columns: 1fr; /* 1 column on very small screens */
+  }
+}
+
+
+
+//======================================================================================
+
+
+
+
+// .card1 {
+//   background-color: white;
+//   border-radius: 10px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//   width: 100%;
+//   overflow: hidden;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   transition: transform 0.3s ease-in-out;
+// }
+
+
+// .card1:hover {
+//   transform: scale(1.05);
+// }
+
+/* Image Styling */
+
+ .square-img {
+    // padding: 10px;
+    border-radius: 10px;
+    
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+  
+    border-bottom: 1px solid #ddd;
+  }
+
+/* Card Content Styling */
+.card-content {
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+.name {
+  font-size: 1em;
+  color: #f80505;
+  margin-bottom: 5px;
+}
+
+p {
+  margin: 2px 0;
+}
+
+span {
+  font-weight: bold;
+  color: #444;
+}
+
+/* Explore Button Styling */
+// .explore-button {
+//   background-color: #28a745;
+//   color: white;
+//   border: none;
+//   padding: 8px 8px;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   font-size: 0.5em;
+//   margin-top: 5px;
+// }
+
+// .explore-button:hover {
+//   background-color: #218838;
+// }
+
+h2 {
+  background-color: #38e2eb;
+  color: white;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: large;
+}
+
+
+.Hcity{
+  // background-color: #4ac0dd;
+  // color: white;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 15px;
+
+}
+
+.priceRange {
+  background-color: #38e2eb;
+  color: white;
+  padding: 2px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Show all slides by default */
+.mySlides {
+  display: block; /* Always display the slides */
+  opacity: 1;
+}
+
+/* Number text (1/3, 2/3, etc.) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Image styling */
+.slide-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from { opacity: 0.4 }
+  to { opacity: 1 }
+}
+
+/* Navigation buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 0;
+  border-radius: 3px 3px 0 0;
+}
+
+/* On hover, add a grey background color */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Dots (bullet indicators) */
+.dots-container {
+  text-align: center;
+  position: relative;
+  bottom: 20px;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Show only one slide at a time */
+.mySlides {
+  display: none; /* Hide all slides by default */
+}
+
+/* Image styling */
+.slide-img {
+  // padding: 10px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+
+//==========================Acitivity Section CSS========================================
+
+.additional-section {
+  margin: 2px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.activity-section h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.activity-card {
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.activity-img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.activity-card p {
+  font-size: 16px;
+  color: #555;
+}
+
+.explore-button {
+  display: block;
+  align-items: center;
+  // margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  // font-size: 16px;
+  cursor: pointer;
+  border: none;
+  padding: 8px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.5em;
+  margin-top: 5px;
+}
+
+.explore-button:hover {
+  background-color: #0056b3;
+}
+
+.explore-button:focus {
+  outline: none;
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%; /* Ensures the container spans the card's width */
+  margin-top: 10px; /* Optional spacing between text and button */
+}
+
+//===============================================================================
+
+
+.additional-section {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.additional-section h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.blog-post {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.blog-img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.blog-post h4 {
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.blog-post p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.blog-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.blog-link:hover {
+  text-decoration: underline;
+}
+
+.see-more-button,
+.see-less-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.see-more-button:hover,
+.see-less-button:hover {
+  background-color: #0056b3;
+}
+
+.see-more-button:focus,
+.see-less-button:focus {
+  outline: none;
+}
+
+
+
+
+
+//======================================================================
+.activities-container,.blogs-container {
+  max-height: 250px; /* Adjust height according to your needs */
+  overflow-y: auto; /* Add scrollbar if more than two items */
+  padding: 10px;
+  background-color: #f9f9f9; /* Soft background for better contrast */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+.latest-post-aside {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  align-items: flex-start; /* Ensure top alignment for content */
+}
+
+.lpa-left {
+  flex: 1;
+  min-width: 0; /* Allows text to shrink and not overflow */
+}
+
+.lpa-title h5 {
+  font-size: 1.0em;
+  margin-bottom: 10px;
+  // word-wrap: break-word; /* Ensure long text wraps within its container */
+}
+
+.lpa-meta {
+  font-size: 0.5em;
+  color: #888;
+  // word-wrap: break-word; /* Prevent text overflow */
+}
+
+.lpa-right {
+  // padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Push content to the end */
+  flex: 0 0 50px; /* Fixed size for the image container */
+  margin-left: 1px;
+  overflow: hidden; /* Prevents the image from spilling out */
+}
+
+.activity-img {
+  width: 50px; /* Fixed width */
+  height: 50px; /* Fixed height */
+  object-fit: cover; /* Ensures the image fits nicely without distortion */
+  border-radius: 8px;
+  align-self: flex-end; /* Align image to the bottom */
+}
+
+
+//=============================================================================
+.latest-post-aside {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  align-items: flex-start;
+  background-color: rgb(212, 222, 223);
+}
+
+
+
+
+//==================================================================
+
+// .additional-section {
+//   padding: 20px;
+//   background-color: #f5f5f5;
+// }
+
+// .activities-container {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 15px; /* Space between activity cards */
+// }
+
+.activity-card {
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
+  // padding: 15px;
+  // background-color: white;
+  // border: 1px solid #ddd;
+  // border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.3s;
+}
+
+.activity-card:hover {
+  transform: scale(1.02);
+  background-color: #f9f9f9;
+}
+
+
+
+
+
+
+
+
+

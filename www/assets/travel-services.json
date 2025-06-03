@@ -1,0 +1,81 @@
+[
+  { "name": "car", "rate": 100, "source": "Toronto", "destination": "Vancouver" },
+  { "name": "bike", "rate": 120, "source": "Toronto", "destination": "Vancouver" },
+  { "name": "car", "rate": 140, "source": "Toronto", "destination": "Vancouver" },
+
+  { "name": "bike", "rate": 150, "source": "Toronto", "destination": "Montreal" },
+  { "name": "bike", "rate": 130, "source": "Toronto", "destination": "Montreal" },
+  { "name": "car", "rate": 170, "source": "Toronto", "destination": "Montreal" },
+
+  { "name": "auto", "rate": 200, "source": "Vancouver", "destination": "Calgary" },
+  { "name": "bike", "rate": 220, "source": "Vancouver", "destination": "Calgary" },
+  { "name": "auto", "rate": 210, "source": "Vancouver", "destination": "Calgary" },
+
+  { "name": "car", "rate": 120, "source": "Calgary", "destination": "Ottawa" },
+  { "name": "bike", "rate": 130, "source": "Calgary", "destination": "Ottawa" },
+  { "name": "car", "rate": 140, "source": "Calgary", "destination": "Ottawa" },
+  
+  { "name": "bike", "rate": 180, "source": "Montreal", "destination": "Toronto" },
+  { "name": "bike", "rate": 160, "source": "Montreal", "destination": "Toronto" },
+  { "name": "bike", "rate": 170, "source": "Montreal", "destination": "Toronto" },
+
+  { "name": "auto", "rate": 110, "source": "Ottawa", "destination": "Vancouver" },
+  { "name": "bike", "rate": 115, "source": "Ottawa", "destination": "Vancouver" },
+  { "name": "auto", "rate": 120, "source": "Ottawa", "destination": "Vancouver" },
+
+  { "name": "car", "rate": 140, "source": "Toronto", "destination": "Calgary" },
+  { "name": "bike", "rate": 150, "source": "Toronto", "destination": "Calgary" },
+  { "name": "car", "rate": 160, "source": "Toronto", "destination": "Calgary" },
+
+  { "name": "bike", "rate": 90, "source": "Montreal", "destination": "Ottawa" },
+  { "name": "bike", "rate": 95, "source": "Montreal", "destination": "Ottawa" },
+  { "name": "car", "rate": 100, "source": "Montreal", "destination": "Ottawa" },
+  
+  { "name": "auto", "rate": 130, "source": "Vancouver", "destination": "Montreal" },
+  { "name": "bike", "rate": 135, "source": "Vancouver", "destination": "Montreal" },
+  { "name": "auto", "rate": 140, "source": "Vancouver", "destination": "Montreal" },
+
+  { "name": "car", "rate": 160, "source": "Ottawa", "destination": "Toronto" },
+  { "name": "bike", "rate": 170, "source": "Ottawa", "destination": "Toronto" },
+  { "name": "car", "rate": 180, "source": "Ottawa", "destination": "Toronto" },
+
+  { "name": "bike", "rate": 200, "source": "Toronto", "destination": "Halifax" },
+  { "name": "bike", "rate": 210, "source": "Toronto", "destination": "Halifax" },
+  { "name": "bike", "rate": 220, "source": "Toronto", "destination": "Halifax" },
+
+  { "name": "auto", "rate": 170, "source": "Halifax", "destination": "Vancouver" },
+  { "name": "bike", "rate": 180, "source": "Halifax", "destination": "Vancouver" },
+  { "name": "car", "rate": 190, "source": "Halifax", "destination": "Vancouver" },
+
+  { "name": "car", "rate": 110, "source": "Calgary", "destination": "Montreal" },
+  { "name": "bike", "rate": 115, "source": "Calgary", "destination": "Montreal" },
+  { "name": "car", "rate": 120, "source": "Calgary", "destination": "Montreal" },
+
+  { "name": "bike", "rate": 150, "source": "Montreal", "destination": "Calgary" },
+  { "name": "bike", "rate": 155, "source": "Montreal", "destination": "Calgary" },
+  { "name": "bike", "rate": 160, "source": "Montreal", "destination": "Calgary" },
+
+  { "name": "auto", "rate": 190, "source": "Vancouver", "destination": "Ottawa" },
+  { "name": "bike", "rate": 195, "source": "Vancouver", "destination": "Ottawa" },
+  { "name": "car", "rate": 200, "source": "Vancouver", "destination": "Ottawa" },
+
+  { "name": "car", "rate": 140, "source": "Ottawa", "destination": "Calgary" },
+  { "name": "bike", "rate": 145, "source": "Ottawa", "destination": "Calgary" },
+  { "name": "car", "rate": 150, "source": "Ottawa", "destination": "Calgary" },
+
+  { "name": "bike", "rate": 160, "source": "Toronto", "destination": "Edmonton" },
+  { "name": "bike", "rate": 165, "source": "Toronto", "destination": "Edmonton" },
+  { "name": "bike", "rate": 170, "source": "Toronto", "destination": "Edmonton" },
+
+  { "name": "auto", "rate": 180, "source": "Edmonton", "destination": "Toronto" },
+  { "name": "bike", "rate": 185, "source": "Edmonton", "destination": "Toronto" },
+  { "name": "car", "rate": 190, "source": "Edmonton", "destination": "Toronto" },
+
+  { "name": "car", "rate": 170, "source": "Montreal", "destination": "Halifax" },
+  { "name": "bike", "rate": 175, "source": "Montreal", "destination": "Halifax" },
+  { "name": "car", "rate": 180, "source": "Montreal", "destination": "Halifax" },
+
+  { "name": "auto", "rate": 200, "source": "Halifax", "destination": "Ottawa" },
+  { "name": "bike", "rate": 205, "source": "Halifax", "destination": "Ottawa" },
+  { "name": "car", "rate": 210, "source": "Halifax", "destination": "Ottawa" }
+]

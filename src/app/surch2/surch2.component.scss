@@ -1,0 +1,264 @@
+/* General styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  background-color: aliceblue;
+}
+
+.search-fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-fields label {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.search-fields input[type="text"],
+.search-fields input[type="date"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+
+.search-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.search-button button {
+  padding: 7px 15px;
+  border: none;
+  border-radius: 3px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.search-button button:hover {
+  background-color: #0056b3;
+}
+
+/* Grid container for sections */
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grid-item {
+  flex: 1 1 calc(50% - 40px);
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: rgb(176, 211, 202);
+}
+
+/* Section headings */
+h2 {
+  background-color: #38e2eb;
+  color: white;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: x-large;
+}
+
+/* Flights table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+/* Flexbox layout for activities, properties, and blogs */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-item {
+  flex: 1 1 calc(50% - 20px);
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgb(160, 241, 247);
+}
+
+h3 {
+  margin: 10px 0;
+}
+
+p {
+  margin: 5px 0;
+}
+
+.Book {
+  border: none;
+  border-radius: 3px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.card {
+  margin: 10px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  height: 150px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+}
+
+.card-content h1 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffcc00;
+  font-family: 'Arial', sans-serif;
+}
+
+.explore-button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  font-size: 0.9em;
+}
+
+.explore-button:hover {
+  background-color: #218838;
+}
+
+.flex-item img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+span {
+  color: red;
+  font-weight: bold;
+}
+
+.name {
+  color: rgb(244, 97, 6);
+}
+
+.blogtitle {
+  font-size: medium;
+  color: olive;
+}
+
+.bloginfo {
+  font-size: small;
+  color: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .grid-item, .flex-item {
+      flex: 1 1 100%;
+  }
+
+  .search-bar {
+      width: 100%;
+  }
+
+  h2 {
+      font-size: large;
+  }
+
+  .card {
+      width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+      display: block;
+  }
+
+  .grid-item, .flex-item {
+      padding: 10px;
+      margin: 5px 0;
+  }
+
+  h2 {
+      font-size: medium;
+      padding: 5px;
+  }
+
+  .card {
+      width: 100%;
+      margin: 5px 0;
+  }
+
+  .search-fields input[type="text"],
+  .search-fields input[type="date"] {
+      width: 100%;
+      margin: 5px 0;
+  }
+}

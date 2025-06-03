@@ -1,0 +1,203 @@
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+  <app-navbar></app-navbar>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+
+    <!-- partial -->
+    <!-- partial:partials/_sidebar.html -->
+    <app-vendor-sidebar></app-vendor-sidebar>
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Activity Form</h4>
+
+                <form #ActivitiesForm="ngForm" (ngSubmit)="OnSubmit()">
+                 
+
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="Name">Activity Name <span class="text-danger">*</span></label>
+                        <input 
+                          type="text" 
+                          id="Name" 
+                          class="form-control dark-select" 
+                          placeholder="Activity Name" 
+                          [(ngModel)]="acitivities.Name" 
+                          (ngModelChange)="acitivities.Name = activities.Name?.trim()" 
+                          #nameControl="ngModel" 
+                          name="Name" 
+                          required 
+                          pattern="^\S(.+)$"    
+
+                        />
+                        <!-- Validation messages for Activity Name -->
+                        <div *ngIf="nameControl.invalid && (nameControl.dirty || nameControl.touched)" class="text-danger">
+                          <div *ngIf="nameControl.errors?.['required']">Activity Name is required.</div>
+                          <div *ngIf="nameControl.errors?.['pattern']">
+                            Activity Name cannot start with whitespace and cannot be just whitespace.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="Subtitle">Subtitle <span class="text-danger">*</span></label>
+                        <input
+                          type="text"
+                          id="Subtitle"
+                          class="form-control dark-select"
+                          placeholder="Subtitle"
+                          [(ngModel)]="acitivities.Subtitle"
+                          (ngModelChange)="acitivities.Subtitle = acitivities.Subtitle?.trim()"
+                          #subtitleControl="ngModel"
+                          name="Subtitle"
+                          required
+                          pattern="^\S(.+)$" />
+                        <!-- Validation message for Subtitle -->
+                        <div *ngIf="subtitleControl.invalid && (subtitleControl.dirty || subtitleControl.touched)" class="text-danger">
+                          <div *ngIf="subtitleControl.errors?.['required']">Subtitle is required.</div>
+                          <div *ngIf="subtitleControl.errors?.['pattern']">
+                            Subtitle cannot start with whitespace and cannot be just whitespace.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <!-- <div class="form-group">
+                        <label for="City">City <span class="text-danger">*</span></label>
+                        <input type="text" id="City" class="form-control" placeholder="City"
+                          [(ngModel)]="acitivities.City" #cityControl="ngModel" name="City" required>
+                  
+                        <div *ngIf="cityControl.invalid && cityControl.touched" class="text-danger">
+                          City is required.
+                        </div>
+                      </div> -->
+
+                      <div class="form-group position-relative">
+                        <label for="Search City"> City <span class="text-danger">*</span></label>
+                        
+                        <div class="position-relative">
+                          <input
+                            type="text"
+                            class="form-control dark-select"
+                            placeholder="Search City"
+                            [(ngModel)]="searchTerm"
+                            name="searchTerm"
+                            (input)="filterCities()"
+                            (focus)="toggleDropdown()"
+                            (blur)="hideDropdown()"
+                            autocomplete="off"
+                          />
+                        
+                          <i class="fa fa-caret-down dropdown-icon"></i>
+                        </div>
+                      
+                        <ul class="dropdown-menu" [class.show]="showDropdown" style="max-height: 150px; overflow-y: auto;">
+                          <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+                            <a class="dropdown-item">{{ city }}</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="Amount">Amount (CA$) <span class="text-danger">*</span></label>
+                        <input type="number" id="Amount" class="form-control dark-select" placeholder="Amount"
+                          [(ngModel)]="acitivities.Amount" #amountControl="ngModel" name="Amount" required>
+                        <!-- Validation message for Amount -->
+                        <div *ngIf="amountControl.invalid && amountControl.touched" class="text-danger">
+                          Amount is required.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+                  <!-- <div class="form-group">
+                    <label for="Amount">Amount</label>
+                    <input type="text" id="Amount" class="form-control" placeholder="Amount"
+                      [(ngModel)]="acitivities.Amount" name="Amount" required autofocus>
+                  </div> -->
+                  <div class="form-group">
+                    <label for="Description">Description <span class="text-danger">*</span></label>
+                    <textarea
+                      id="Description"
+                      class="form-control dark-select"
+                      placeholder="Description"
+                      [(ngModel)]="acitivities.Description"
+                      (ngModelChange)="acitivities.Description = acitivities.Description?.trim()"
+                      name="Description"
+                      #descriptionControl="ngModel"
+                      required
+                      pattern="^\S(.+)$"
+                      rows="2"></textarea>
+                  
+                    <!-- Validation message for Description -->
+                    <div *ngIf="descriptionControl.invalid && (descriptionControl.dirty || descriptionControl.touched)" class="text-danger">
+                      <div *ngIf="descriptionControl.errors?.['required']">Description is required.</div>
+                      <div *ngIf="descriptionControl.errors?.['pattern']">
+                        Description cannot start with whitespace and cannot be just whitespace.
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+
+                  <div class="form-group">
+                    <label for="Image">Image<span class="text-danger">*</span></label>
+                    <input class="form-control dark-select" type="file" name="Image" (change)="fileChangeEvent($event)" required
+                      accept="image/png, image/jpeg" #image="ngModel" id="formFile" ngModel>
+                    <!-- Validation Error Message for Image -->
+                    <div *ngIf="image.invalid && image.touched" class="text-danger">
+                      Image is required.
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="Status">Status<span class="text-danger">*</span></label>
+                    <select class="form-control dark-select" id="Status" name="Status" [(ngModel)]="acitivities.Status"
+                      #statusControl="ngModel" required>
+                      <option value="" disabled selected>Select Status</option> <!-- Placeholder option -->
+                      <option value="active">Active</option>
+                      <option value="inactive">Inactive</option>
+                    </select>
+
+                    <!-- Validation message for Status -->
+                    <div *ngIf="statusControl.invalid && statusControl.touched" class="text-danger">
+                      Status is required.
+                    </div>
+                  </div>
+
+
+                  <!-- <input class="button" type="submit"  value="Submit"
+                    style="background-color: #4B49AC; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;" /> -->
+
+                    <button type="submit" [disabled]="ActivitiesForm.invalid" class="btn btn-primary mr-2" style="background-color: blue; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">
+                      Submit
+                  </button>
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

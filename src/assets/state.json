@@ -1,0 +1,38 @@
+[
+    {
+      "AdmStateMasterId": 1,
+      "StateName": "California",
+      "admCountryMaster": {
+        "AdmCountryMasterId": 1
+      }
+    },
+    {
+      "AdmStateMasterId": 2,
+      "StateName": "Texas",
+      "admCountryMaster": {
+        "AdmCountryMasterId": 1
+      }
+    },
+    {
+      "AdmStateMasterId": 3,
+      "StateName": "Ontario",
+      "admCountryMaster": {
+        "AdmCountryMasterId": 2
+      }
+    },
+    {
+      "AdmStateMasterId": 4,
+      "StateName": "Quebec",
+      "admCountryMaster": {
+        "AdmCountryMasterId": 2
+      }
+    },
+    {
+      "AdmStateMasterId": 5,
+      "StateName": "New South Wales",
+      "admCountryMaster": {
+        "AdmCountryMasterId": 3
+      }
+    }
+  ]
+  

@@ -1,0 +1,24 @@
+.form-group .position-relative {
+    position: relative;
+  }
+  
+  .dropdown-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Prevents the icon from interfering with input */
+  }
+  
+  .form-control {
+    padding-right: 30px; /* Add space to prevent text from overlapping the icon */
+  }
+
+  .dark-select {
+    color: #000; /* Dark text for default and selected option */
+  }
+  
+  .dark-select option {
+    color: #000; /* Ensures dropdown options are also dark */
+  }
+  

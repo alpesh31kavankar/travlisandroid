@@ -1,0 +1,73 @@
+
+
+   <div class="container-scroller">
+
+    <app-navbar></app-navbar>
+ 
+    <div class="container-fluid page-body-wrapper">
+ 
+      <app-vendor-sidebar></app-vendor-sidebar>
+      <div class="main-panel">
+        <div class="content-wrapper">
+  
+  
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-danger">
+                  <h4 class="card-title">Trip list</h4>
+                  <!-- <p class="card-category"> View here all TravelList table record</p> -->
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary" style="    background-color: #6762621c;">
+  
+                        <!-- <th>TravelId</th> -->
+                        <!-- <th>VehicleId</th> -->
+                        <th>VendorId</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Departure</th>
+                        <th>Arrival </th>
+                        <th>Amenities </th>
+                        <th>Price </th>
+                        <!-- <th>Image </th> -->
+                        <th>Status </th>
+                        <th>Action </th>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let i of travelList">
+                          <!-- <td>{{i.TravelId}}</td> -->
+                          <!-- <td>{{i.vehicle.VehicleId}}</td> -->
+                          <td>{{i.VendorId}}</td>
+                          <td>{{i.From}}</td>
+                          <td>{{i.To}}</td>
+                          <td>{{i.Departure}}</td>
+                          <td>{{i.Arrival}}</td>
+                          <td>{{i.Amenities}}</td>
+                          <td>{{i.Price}}</td>
+                          <!-- <td>{{i.vehicle.Image}}</td> -->
+                          <td>{{i.Status}}</td>
+                          
+                          <td>
+                            <i class="fas fa-pencil-alt iconaction" (click)="Edit(i.TravelId)" aria-hidden="true"></i>
+                            <i class="fa fa-trash iconaction mx-3" (click)="Delete(i.TravelId)"></i>
+                          </td>
+  
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+  
+  
+      </div>
+    </div>
+  </div>

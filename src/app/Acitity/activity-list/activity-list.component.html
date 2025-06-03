@@ -1,0 +1,70 @@
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <app-navbar></app-navbar>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <app-vendor-sidebar></app-vendor-sidebar>
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-danger">
+                  <h4 class="card-title">Activities List</h4>
+                  <!-- <p class="card-category">View all Activities records</p> -->
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary" style="    background-color: #6762621c;">
+                        <tr>
+                          <th>Activity Id</th>
+                          <td>VendorId</td>                 
+                          <th>Name</th>
+                          <th>Subtitle</th>
+                          <th>Country</th>
+                          <th>City</th>
+                          <th>Image</th>
+                          <th>Description</th>
+                          <th>Amount(CA$)</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let activity of ActivitiesList">
+                          <td>{{activity.ActivitiesId}}</td>
+                          <td>{{activity.admVendor.AdmVendorId}}</td>      
+                          <td>{{activity.Name}}</td>
+                          <td>{{activity.Subtitle}}</td>
+                         
+                          <td>{{activity.Country}}</td> 
+                          <td>{{activity.City}}</td> 
+                          <td>
+                            <img [src]="imgPath + 'Content/Activities/' + activity.Image" class="square-img">
+                          </td>
+  
+                          <td>{{activity.Description}}</td>
+                          <td>{{activity.Amount}}</td>
+                          <td>{{activity.Status}}</td>
+                          <td>
+                            <i class="fas fa-pencil-alt iconaction" (click)="Edit(activity.ActivitiesId)"
+                              aria-hidden="true"></i>
+                            <!-- <i class="fa fa-eye iconaction" (click)="View(activity.ActivitiesId)" aria-hidden="true"></i> -->
+                            <i class="fa fa-trash iconaction mx-3" (click)="Delete(activity.ActivitiesId)"
+                              aria-hidden="true"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,209 @@
+<!-- <div class="container-scroller">
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid page-body-wrapper">
+    <app-sidebar></app-sidebar>
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+
+            <div class="top-nav">
+              <ul>
+
+                <li class="active">
+                  <a [routerLink]="['/AllHotel']"><i class="icon-hotels"></i>Hotels</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/AllTravel']"><i class="icon-bus"></i>Buses</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/Flights']"><i class="icon-flights"></i>Flights</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="search-container">
+
+
+
+              <div class="container form-container">
+                <form #flightForm="ngForm" (ngSubmit)="onSearch(flightForm)">
+                  <div class="form-row">
+
+
+
+                   
+
+                    <div class="form-group position-relative">
+                      <label for="Search City"> City <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" placeholder="Search City" [(ngModel)]="searchTerm"
+                        name="searchTerm" (input)="filterCities()" (focus)="toggleDropdown()" (blur)="hideDropdown()"
+                        autocomplete="off" />
+
+        
+                      <ul class="dropdown-menu" [class.show]="showDropdown"
+                        style="max-height: 150px; overflow-y: auto;">
+                        <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+                          <a class="dropdown-item">{{ city }}</a>
+                        </li>
+                      </ul>
+
+                    </div>
+
+                  </div>
+
+                  <div class="form-row button_sb">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ -->
+
+<!-- //////////////////////////////Search bar for new //////////////////////////////////////////////////// -->
+
+<div class="container-scroller">
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid page-body-wrapper">
+    <app-sidebar></app-sidebar>
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+
+            <div class="top-nav">
+              <ul>
+                <li [class.active]="activeTab === 'hotels'" (click)="activeTab = 'hotels'">
+                  <a><i class="icon-hotels"></i>Hotels</a>
+                </li>
+                <li [class.active]="activeTab === 'buses'" (click)="activeTab = 'buses'">
+                  <a><i class="icon-bus"></i>Buses</a>
+                </li>
+                <li [class.active]="activeTab === 'flights'" (click)="activeTab = 'flights'">
+                  <a><i class="icon-flights"></i>Flights</a>
+                </li>
+              </ul>
+            </div>
+
+<!-- //=============================Hotel Surech Result====================================================== -->
+
+            <!-- Toggleable Tab Content -->
+            <div *ngIf="activeTab === 'hotels'">
+              <!-- <p>Hotels content goes here...</p> -->
+
+              <div class="search-container">
+                <div class="container form-container">
+                  <form #flightForm="ngForm" (ngSubmit)="onSearch(flightForm)">
+                    <div class="form-row">
+                      <div class="form-group position-relative">
+                        <label for="Search City">City <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Search City" [(ngModel)]="searchTerm"
+                          name="searchTerm" (input)="filterCities()" (focus)="toggleDropdown()" (blur)="hideDropdown()"
+                          autocomplete="off" />
+                        <ul class="dropdown-menu" [class.show]="showDropdown"
+                          style="max-height: 150px; overflow-y: auto;">
+                          <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+                            <a class="dropdown-item">{{ city }}</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="form-row button_sb">
+                      <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- Add your hotels-related content here -->
+            </div>
+
+
+            <!-- //====================================Bus Tab///////////////////////////////////////////////////              -->
+
+            <div *ngIf="activeTab === 'buses'">
+
+
+              <!-- Add your buses-related content here -->
+
+              <div class="search-container">
+                <form #flightForm="ngForm" (ngSubmit)="onSearch1(flightForm)">
+                  <div class="main-div">
+                    <div class="form-row">
+                      <div class="form-group position-relative">
+                        <label for="Search City">Leaving From <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Search City" [(ngModel)]="searchTerm2"
+                          name="searchTerm2" (input)="filterCities2()" (focus)="toggleDropdown2()"
+                          (blur)="hideDropdown2()" autocomplete="off" />
+
+                        <ul class="dropdown-menu" [class.show]="showDropdown2"
+                          style="max-height: 150px; overflow-y: auto;">
+                          <li *ngFor="let city of filteredCities" (click)="selectCity2(city)">
+                            <a class="dropdown-item">{{ city }}</a>
+                          </li>
+                        </ul>
+                      </div>
+
+
+
+
+                      <div class="form-group position-relative">
+                        <label for="Search City">
+                          Going To <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Search City" [(ngModel)]="searchTerm1"
+                          name="searchTerm1" (input)="filterCities1()" (focus)="toggleDropdown1()"
+                          (blur)="hideDropdown1()" autocomplete="off" />
+
+
+                        <ul class="dropdown-menu" [class.show]="showDropdown1"
+                          style="max-height: 150px; overflow-y: auto;">
+                          <li *ngFor="let city of filteredCities" (click)="selectCity1(city)">
+                            <a class="dropdown-item">{{ city }}</a>
+                          </li>
+                        </ul>
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="departure">Departure Date</label>
+                        <input type="date" id="departure" name="departure" ngModel
+                          (change)="updateDepartureDay(departure.value)" #departure>
+                        <p class="date-info my-3">{{ departure.value | date:'MMM d, y' }} {{
+                          departureDay }}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row button_sb">
+                    <button type="submit">Search</button>
+                  </div>
+                </form>
+
+              </div>
+
+
+
+            </div>
+            <!-- ////=========================================Flight=================================================== -->
+
+            <div *ngIf="activeTab === 'flights'">
+              <p>Flights content goes here...</p>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

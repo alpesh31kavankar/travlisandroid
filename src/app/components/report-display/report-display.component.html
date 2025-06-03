@@ -1,0 +1,21 @@
+<div class="report-card">
+    <div class="report-header">
+      <h3>Fitness Report</h3>
+    </div>
+    <div class="report-body">
+      <div *ngIf="loading" class="loading-container">
+        <div class="loader"></div>
+        <p>Generating your personalized fitness report...</p>
+      </div>
+      
+      <div *ngIf="!loading && !report" class="empty-container">
+        <div class="info-message">
+          Complete the form and click "Generate Report" to see your personalized fitness recommendations.
+        </div>
+      </div>
+      
+      <div *ngIf="!loading && report" class="report-content">
+        <div [innerHTML]="report"></div>
+      </div>
+    </div>
+</div>

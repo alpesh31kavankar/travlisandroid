@@ -1,0 +1,176 @@
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+  <app-navbar></app-navbar>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+
+
+    <!-- partial -->
+    <!-- partial:partials/_sidebar.html -->
+    <app-vendor-sidebar></app-vendor-sidebar>
+
+
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Hotel Form</h4>
+
+                <form #hotelForm="ngForm" (ngSubmit)="OnSubmit()">
+
+                  <div class="row">
+
+                    <div class="col-lg-6 form-group">
+                      <label for="HotelName">Name <span class="text-danger">*</span></label>
+                      <input id="HotelName" placeholder="Hotel Name" [(ngModel)]="hotel.HotelName"
+                        (ngModelChange)="hotel.HotelName = hotel.HotelName?.trim()" name="HotelName" required
+                        #HotelName="ngModel" pattern="^\S(.+)$" type="text" class="form-control dark-select" />
+                      <div *ngIf="HotelName.invalid && (HotelName.dirty || HotelName.touched)" class="text-danger">
+                        <div *ngIf="HotelName.errors?.['required']">Hotel name is required.</div>
+                        <div *ngIf="HotelName.errors?.['pattern']">
+                          Hotel name cannot start with whitespace and cannot be just whitespace.
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group position-relative col-lg-6">
+                      <label for="City">City <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control dark-select" placeholder="Search City"
+                        [(ngModel)]="searchTerm" name="searchTerm" (input)="filterCities()" (focus)="toggleDropdown()"
+                        (blur)="hideDropdown()" autocomplete="off" required #searchCity="ngModel">
+                      <ul class="dropdown-menu" [class.show]="showDropdown"
+                        style="max-height: 150px; overflow-y: auto;">
+                        <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+                          <a class="dropdown-item">{{ city }}</a>
+                        </li>
+                      </ul>
+                      <div *ngIf="searchCity.invalid && (searchCity.touched || hotelForm.submitted)"
+                        class="text-danger">
+                        City is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="Address">Address <span class="text-danger">*</span></label>
+                    <textarea id="Address" class="form-control dark-select" placeholder="Enter your address"
+                      [(ngModel)]="hotel.Address" (ngModelChange)="hotel.Address = hotel.Address?.trim()" name="Address"
+                      required #Address="ngModel"></textarea>
+                    <div *ngIf="Address.invalid && (Address.touched || hotelForm.submitted)" class="text-danger">
+                      <div *ngIf="Address.errors?.['required']">Address is required.</div>
+                      <div *ngIf="!Address.errors?.['required'] && Address.value?.trim().length === 0">
+                        Address cannot be just whitespace.
+                      </div>
+                    </div>
+                  </div>
+                  
+
+
+                  <div class="row">
+                    <div class="form-group col-lg-6">
+                      <label for="ContactNo">Contact No <span class="text-danger">*</span></label>
+                      <input type="text" id="ContactNo" class="form-control dark-select" placeholder="Contact No"
+                        [(ngModel)]="hotel.ContactNo" (ngModelChange)="hotel.ContactNo = hotel.ContactNo?.trim()"
+                        name="ContactNo" #ContactNo="ngModel" required pattern="^\d{10}$">
+                      <div *ngIf="ContactNo.invalid && (ContactNo.touched || hotelForm.submitted)" class="text-danger">
+                        <div *ngIf="ContactNo.errors?.['required']">Contact number is required.</div>
+                      </div>
+                      <div *ngIf="ContactNo.invalid && (ContactNo.touched || hotelForm.submitted)" class="text-danger">
+                        <div *ngIf="ContactNo.errors?.['pattern']">Please enter a valid 10-digit contact number.</div>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group col-lg-6">
+                      <label for="Image">Image<span class="text-danger">*</span></label>
+                      <input class="form-control" type="file" name="Image" (change)="fileChangeEvent($event)"
+                        accept="image/png, image/jpeg" required multiple #Image="ngModel" ngModel>
+                      <div *ngIf="Image.invalid && Image.touched" class="text-danger">
+                        Image is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group col-lg-6">
+                      <label for="PropertyRules">Property Rules<span class="text-danger">*</span></label>
+                      <input type="text" id="PropertyRules" class="form-control dark-select"
+                        placeholder="Property Rules" [(ngModel)]="hotel.PropertyRules" name="PropertyRules"
+                        #PropertyRules="ngModel" required>
+                      <div *ngIf="PropertyRules.invalid && (PropertyRules.touched || hotelForm.submitted)"
+                        class="text-danger">
+                        Property rules are required.
+                      </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                      <label for="Amenities">Price Start From(CAD$)<span class="text-danger">*</span></label>
+                      <input type="text" id="Amenities" class="form-control dark-select"
+                        placeholder="Price Start From(CAD$)" [(ngModel)]="hotel.Amenities" name="Amenities"
+                        #Amenities="ngModel" required>
+                      <div *ngIf="Amenities.invalid && (Amenities.touched || hotelForm.submitted)" class="text-danger">
+                        Price Start From(CAD$) are required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- <div class="form-group col-lg-6">
+                            <label for="CreatedBy">Total  Rooms<span class="text-danger">*</span></label>
+                            <input type="text" id="CreatedBy" class="form-control" placeholder="Total Rooms" 
+                                   [(ngModel)]="hotel.CreatedBy" name="CreatedBy" #CreatedBy="ngModel" required>
+                        
+                          </div>
+                      
+                          <div class="form-group col-lg-6">
+                            <label for="UpdatedBy">Total Avilable Rooms<span class="text-danger">*</span></label>
+                            <input type="text" id="UpdatedBy" class="form-control" placeholder="Total Avilable Room" 
+                                   [(ngModel)]="hotel.UpdatedBy" name="UpdatedBy" #UpdatedBys="ngModel" required>
+                          
+                          </div> -->
+
+                  <!-- </div> -->
+
+
+
+                  <!-- <div class="form-group">
+                    <label for="Status">Status <span class="text-danger">*</span></label>
+                    <select class="form-control" id="Status" name="Status" [(ngModel)]="hotel.Status" required #Status="ngModel">
+                      <option value="" disabled selected>Select Status</option>
+                      <option value="active">Active</option>
+                      <option value="inactive">Inactive</option>
+                    </select>
+                    <div *ngIf="Status.invalid && (Status.touched || hotelForm.submitted)" class="text-danger">
+                      Status is required.
+                    </div>
+                  </div> -->
+
+                  <!-- <input type="submit" [disabled]="hotelForm.invalid" value="Submit" 
+                         style="background-color: #4B49AC; color: white; border: none; padding: 10px 20px; 
+                                cursor: pointer; border-radius: 5px;" /> -->
+
+                  <button type="submit" [disabled]="hotelForm.invalid" class="btn btn-primary mr-2" style="
+                                background-color: #4B49AC;
+                                color: white;
+                                border: none;
+                                padding: 10px 20px;
+                                cursor: pointer;
+                                border-radius: 5px;
+                                font-weight: 500;">
+                    Submit
+                  </button>
+
+                </form>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

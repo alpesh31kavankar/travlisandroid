@@ -1,0 +1,222 @@
+
+
+<!-- ########## -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-scroller">
+ 
+  <app-navbar></app-navbar>
+
+   <div class="container-fluid ">
+
+<br><br><br>
+
+           <!-- Back Button Section -->
+<!-- 
+           <div class="back-button-container" style="margin-bottom: 20px;">
+            <button class="back-button btn btn-primary" (click)="goBack()" style="display: flex; align-items: center;">
+              <i class="fas fa-arrow-left" style="margin-right: 5px;"></i> Back
+            </button>
+          </div> -->
+
+          <div class="row" style="    padding: 1%;">
+            <div class="col-md-4 contentbox imgboxx" >
+              <img [src]="imgPath + 'Content/Vehicle/' + VehicleDetail.Image" class="modal-img" alt="Vehicle Image" />
+              <!-- <img [src]="imgPath + 'Content/Vehicle/' + VehicleDetail.Image" class="modal-img" alt="Vehicle Image" />
+              <img [src]="imgPath + 'Content/Vehicle/' + VehicleDetail.Image" class="modal-img" alt="Vehicle Image" /> -->
+          
+            </div>
+            <div class="col-md-8 contentbox" style="  padding: 2%;" >
+              <!-- <div class="modal-details"> -->
+                <h2 style="    color: #007bff;">{{ VehicleDetail.AgencyName || 'Agency Name Not Available' }}</h2>
+            
+            
+      <div class="detail-row">
+        <p class="detail-item price">
+          <strong>From:</strong> {{ TravelList.From }}
+        </p>
+        <p class="detail-item price">
+          <strong>To:</strong> {{ TravelList.To }}
+        </p>
+      </div>
+
+      <div class="detail-row">
+        <p class="detail-item price">
+          <strong>Departure:</strong> {{ TravelList.Departure | date: 'MMM d, y, h:mm a' }}
+        </p>
+        <p class="detail-item price">
+          <strong>Arrival:</strong> {{ TravelList.Arrival | date: 'MMM d, y, h:mm a' }}
+        </p>
+      </div>
+
+      <div class="detail-row">
+        <p class="detail-item price">
+          <strong>Vehicle No:</strong> {{ VehicleDetail.VehicleNo || 'N/A' }}
+        </p>
+        <p class="detail-item price">
+          <strong>No of Seats:</strong> {{ VehicleDetail.NoOfSeats }}
+        </p>
+      </div>
+
+      <div class="detail-row">
+        <p class="detail-item price">
+          <strong>Vehicle Type:</strong> {{ VehicleDetail.VehicleType || 'N/A' }}
+        </p>
+
+        <p class="detail-item price">
+          <strong>Price Per Seat:</strong> {{ TravelList.Price }} CAD
+        </p>
+      </div>
+
+      <div class="detail-row">
+
+        <p class="detail-item price">
+          <strong>Available of Seats:</strong> {{ TravelList.UpdatedBy }}
+        </p>
+      </div>
+      <div class="detail-row">
+        <div class="amenities-section">
+          <strong> Amenities:</strong>
+          <ul class="amenities-list">
+            <li *ngFor="let amenity of amenitiesList">
+              <i class="bi bi-check-circle-fill"></i> {{ amenity }}
+            </li>
+          </ul>
+        </div>
+    
+      </div>
+
+            
+                <!-- Book Now Button -->
+                <button class="btn btn-primary book-now" (click)="toggleBookingForm()">
+                  Book Now
+                </button>
+                
+                <!-- Booking Form -->
+                  <!-- Booking Form -->
+      <div *ngIf="isBookingFormVisible" class="booking-form">
+        <form #TravelBookingForm="ngForm" (ngSubmit)="OnSubmit()">
+          <div class="row">
+   
+
+            <div class="input_field col-lg-12">
+              <label for="NoOfSets">Number of Seats</label>
+              <input type="number" id="NoOfSets" class="form-control" [(ngModel)]="TravelBooking.NoOfSets"
+                name="NoOfSets" (input)="calculateTotalPrice()" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input_field col-lg-12">
+              <label for="TotalPrice">Total Price CAD($) <span class="text-danger">*</span></label>
+              <input type="number" id="TotalPrice" class="form-control" [(ngModel)]="TravelBooking.TotalPrice"
+                name="TotalPrice" readonly>
+            </div>
+          </div>
+
+          <div class="card-footer text-center">
+            <!-- <a href="#" (click)="makePayment()" class="btn btn-primary btn-lg">Checkout Now</a> -->
+            <ngx-paypal [config]="payPalConfig"   *ngIf="!isPaypalButtonDisabled()" (click)="BookTravel()"></ngx-paypal>
+            <!-- <button class="btn btn-primary w-100 mt-2" (click)="onMakePayment()">Make Payment</button> -->
+            <!-- <div *ngIf="isPaypalButtonDisabled()" class="text-danger">Not enough available seats to proceed with payment.</div> -->
+
+            <div id="paypal-button-container"></div>
+        </div>
+        </form>
+      </div>
+              <!-- </div> -->
+            </div>
+            
+          
+           
+          </div>
+          <br><br><br>
+          <!-- <div class="modal fade" id="bookingSummaryModal" tabindex="-1" role="dialog" aria-labelledby="bookingSummaryModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="bookingSummaryModalLabel">Booking Summary</h5>
+                  <button type="button" class="close" (click)="closeSummaryModal()">
+                    <span>&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p><strong>Check-In:</strong> {{ hotelBooking.CheckIn }}</p>
+                  <p><strong>Check-Out:</strong> {{ hotelBooking.CheckOut }}</p>
+                  <p><strong>Number of Rooms:</strong> {{ hotelBooking.NoOfRooms }}</p>
+                  <p><strong>Number of Persons:</strong> {{ hotelBooking.NoOfPersons }}</p>
+                  <p><strong>Total Price:</strong> CA$ {{ hotelBooking.TotalPrice }}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="closeSummaryModal()">Close</button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          
+
+
+
+    </div>
+ 
+  </div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+
+    <h2>{{ selectedProperty?.hotel.HotelName }}</h2>
+
+    <img 
+      [src]="imgPath + 'Content/Rooms/' + selectedProperty?.Image" 
+      class="modal-img" 
+      alt="Room Image" 
+    />
+
+    <div class="modal-details">
+      <div class="detail-row">
+        <p class="detail-item amenities">
+          <strong>Amenities:</strong> {{ selectedProperty?.Amenities }}
+        </p>
+        <p class="detail-item price">
+          <strong>CA$ {{ selectedProperty?.PricePerNight }}</strong> &nbsp;<span >Per Night</span> 
+        </p>
+      </div>
+
+      <div class="detail-row">
+        <p class="detail-item rules">
+          <strong>Property Rules:</strong> {{ RoomDetail.PropertyRules }}
+        </p>
+        <p class="detail-item contact">
+          <strong>Contact No:</strong> {{ RoomDetail.ContactNo }}
+        </p>
+      </div>
+    </div>
+
+    <button class="btn btn-secondary close-btn" (click)="closeModal()">Close</button>
+  </div>
+</div> -->

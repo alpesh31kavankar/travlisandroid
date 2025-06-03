@@ -1,0 +1,89 @@
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <app-navbar></app-navbar>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+
+       
+        <!-- partial -->
+        <!-- partial:partials/_sidebar.html -->
+        <app-vendor-sidebar></app-vendor-sidebar>
+
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">VendorService Form</h4>
+                      <form #VendorServiceForm="ngForm">
+                        <!-- <div class="form-group">
+                          <label for="exampleSelectGender">Select Destination</label>
+                          <select class="form-control" [(ngModel)]="vendorService.admDestinations.AdmDestinationsId" name="AdmDestinationsId" id="exampleSelectGender">
+                            <option *ngFor="let i of AdmDestinationslist" [value]="i.admDestinationsId">
+                              {{i.Name}}
+                            </option>
+                          </select>
+                        </div>
+           -->
+           <!-- Destination ID -->
+<div class="form-group">
+    <label for="destination_id">Destination ID</label>
+    <input 
+      type="number" 
+      class="form-control" 
+      id="destination_id" 
+      placeholder="Destination ID" 
+      [(ngModel)]="vendorService.admDestinations.AdmDestinationsId" 
+      name="AdmDestinationsId">
+  </div>
+  
+  <!-- Service ID -->
+  <div class="form-group">
+    <label for="service_id">Service ID</label>
+    <input 
+      type="number" 
+      class="form-control" 
+      id="service_id" 
+      placeholder="Service ID" 
+      [(ngModel)]="vendorService.serviceTable.ServiceTableId" 
+      name="ServiceId">
+  </div>
+  
+  <!-- Vendor ID -->
+  <div class="form-group">
+    <label for="vendor_id">Vendor ID</label>
+    <input 
+      type="number" 
+      class="form-control" 
+      id="vendor_id" 
+      placeholder="Vendor ID" 
+      [(ngModel)]="vendorService.admVendor.AdmVendorId" 
+      name="VendorId">
+  </div>
+  
+
+                        <div class="form-group">
+                          <label for="servicecost">Service Cost</label>
+                          <input type="number" class="form-control" id="servicecost" placeholder="Servicecost" [(ngModel)]="vendorService.ServiceCost" name="discount">
+                        </div>
+          
+                        <div class="form-group">
+                          <label for="status">Status</label>
+                          <select class="form-control" id="status" [(ngModel)]="vendorService.Status" name="status">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                          </select>
+                        </div>
+          
+                        <input type="submit" (click)="OnSubmit()" value="Submit" class="btn btn-primary">
+                        <button type="reset" class="btn btn-light">Reset</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
