@@ -9,10 +9,10 @@ workflows:
     scripts:
       - name: Clean & Install Dependencies
         script: |
-          rm -rf node_modules package-lock.json
-          npm ci
+          rm -rf node_modules
+          npm install
 
-      - name: Ensure Angular CLI (optional but safe)
+      - name: Ensure Angular CLI (safe fallback)
         script: |
           npm install -g @angular/cli@15.2.10
 
