@@ -12,7 +12,7 @@ workflows:
           rm -rf node_modules
           npm install
 
-      - name: Ensure Angular CLI (safe fallback)
+      - name: Ensure Angular CLI
         script: |
           npm install -g @angular/cli@15.2.10
 
@@ -32,9 +32,9 @@ workflows:
 
       - name: Build iOS with Xcode
         script: |
-          cd ios
+          cd ios/App
           xcodebuild -workspace App.xcworkspace -scheme App -configuration Release
 
     artifacts:
-      - ios/build/**/Build/Products/Release-iphoneos/*.app
-      - ios/build/**/Build/Products/Release-iphoneos/*.ipa
+      - ios/App/build/**/Build/Products/Release-iphoneos/*.app
+      - ios/App/build/**/Build/Products/Release-iphoneos/*.ipa
