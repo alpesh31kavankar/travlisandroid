@@ -7,24 +7,34 @@ workflows:
         CAPACITOR_CONFIG_PATH: "capacitor.config.ts"
       node: 18.16.0
     scripts:
-      - name: Install Dependencies
+      - name: Clean & Install Dependencies
         script: |
-          npm ci   # clean install for reproducibility
+          rm -rf node_modules package-lock.json
+          npm ci
+
+      - name: Ensure Angular CLI (optional but safe)
+        script: |
+          npm install -g @angular/cli@15.2.10
+
       - name: Add iOS Platform
         script: |
           npm install @capacitor/ios
           npx cap add ios
           npx cap sync
+
       - name: Build Angular App
         script: |
-          npm run build     # runs ng build --configuration production from package.json
-      - name: Copy Web Assets
+          npx ng build --configuration production
+
+      - name: Copy Web Assets to Native Platforms
         script: |
           npx cap copy
+
       - name: Build iOS with Xcode
         script: |
           cd ios
           xcodebuild -workspace App.xcworkspace -scheme App -configuration Release
+
     artifacts:
       - ios/build/**/Build/Products/Release-iphoneos/*.app
       - ios/build/**/Build/Products/Release-iphoneos/*.ipa
